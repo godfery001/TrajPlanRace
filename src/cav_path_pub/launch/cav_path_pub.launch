@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="output"            default="screen" /> <!-- screen/log -->
+    <param name="path_mode"        value="Sine" /> <!--mode can be "Circle" "Sine" "Line"--> 
+    <param name="speed"            value="3.5"/>
+    <param name="length"           value="200"/>
+    <param name="left_margin"      value="2"/>
+    <param name="right_margin"     value="2"/>
+
+    <param name="radium"           value="8"/>
+
+    <param name="sine_amp"         value="2"/>
+    <param name="sine_T"           value="20"/>
+
+    <param name="center_x"         value="443703.533426"/>
+    <param name="center_y"         value="4429467.347665"/>
+
+    <node pkg="cav_path_pub" type="path_pub.py" name="cav_path_pub" output="$(arg output)">
+    </node>
+</launch>

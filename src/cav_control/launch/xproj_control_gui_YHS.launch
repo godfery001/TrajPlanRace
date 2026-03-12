@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+ 
+  <!-- Launch parameters -->
+  <arg name="output" default="screen" /> <!-- screen/log -->
+  <arg name="required" default="true" />
+  <arg name="respawn" default="false" />
+
+  <!-- Node parameters --> 
+  <node pkg="cav_control" type="cav_control" name="cav_control" respawn="$(arg respawn)" required="$(arg required)" output="$(arg output)">
+
+    <!-- define vehicle --> 
+    <param name="vehicle_id" value="2" /> <!-- 1:Lynx  2:YSH -->
+
+    <!-- define control method --> 
+    <param name="steer_method_default" value="1" /> <!-- 1:Preview  2:Pure Pursuit -->
+
+    <!-- max error --> 
+    <param name="max_ey" value="1.5" /> <!-- m -->
+    <param name="max_ephi" value="80" />  <!-- degree -->
+
+
+    <!-- for preview control -->
+    <param name="gain_folder" value="/opt/cav_deploy/control_gains/YSH/gains_lag" />
+
+    <!-- for pure pursuit control -->
+    <param name="look_ahead_step" value="30" />
+    <param name="smooth_coe" value="0.85" />
+
+    <!-- for data record -->
+    <param name="data_folder" value="~/Documents" />
+ 
+  </node>
+</launch>

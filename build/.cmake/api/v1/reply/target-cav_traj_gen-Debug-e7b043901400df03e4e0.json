@@ -175,7 +175,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " "
+					"fragment" : "-g  "
 				},
 				{
 					"backtrace" : 5,
@@ -199,10 +199,6 @@
 				{
 					"backtrace" : 4,
 					"define" : "QT_NETWORK_LIB"
-				},
-				{
-					"backtrace" : 4,
-					"define" : "QT_NO_DEBUG"
 				},
 				{
 					"backtrace" : 4,
@@ -383,6 +379,10 @@
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"

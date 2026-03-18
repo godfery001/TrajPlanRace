@@ -205,13 +205,15 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	std::vector<double> tf_pcts = {0.0, -0.50, -0.30, -0.15, 0.15, 0.30, 0.45, 0.60};
 	std::vector<double> lat_pcts;
-	for (double p = -0.8; p <= 0.81; p += 0.1)
+	for (double p = -0.90; p <= 0.91; p += 0.1)
 		lat_pcts.push_back(p);
 	std::vector<double> lon_pcts = {0.0};
-	for (double p = -0.7; p <= 0.71; p += 0.2)
+	for (double p = -0.8; p <= 0.81; p += 0.2)
 		lon_pcts.push_back(p);
 
-	std::vector<FrenetPath> candidate_trajs;
+	// 【修改点】删除原有的这行局部变量声明，改用 clear() 清空类的成员变量
+    // 删除: std::vector<FrenetPath> candidate_trajs; 
+    candidate_trajs.clear();
 
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
@@ -284,8 +286,8 @@ void Opt::run()
 					// 计算轨迹点到障碍物中心的欧氏距离
 					double dist = sqrt(pow(pt.x - obs.x_local, 2) + pow(pt.y - obs.y_local, 2));
 					
-					// 碰撞条件：两圆心距离 < (车辆半径 + 障碍物半径 + 0.5m安全冗余)
-					if (dist < (obs.radius + veh_radius + 0.5)) {
+					// 碰撞条件：两圆心距离 < (车辆半径 + 障碍物半径 + 0.2m安全冗余)
+					if (dist < (obs.radius + veh_radius + 0.2)) {
 						collision = true;
 						break; // 跳出障碍物循环
 					}

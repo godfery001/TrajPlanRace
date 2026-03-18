@@ -40,6 +40,28 @@ void DISPLAY_3D::draw_mode1()
     /**********************************************************************************/
     // TODO: Implement visualization for each component
 
+    // 【新增】Stage 6.5: 渲染所有生成的候选轨迹 (灰色)
+    // 读取 TG.opt 中的候选集进行可视化
+    // =========================================================================
+    for (auto &traj : TG.opt.candidate_trajs)
+    {
+        // 只有当存在转换后的笛卡尔坐标点时才绘制
+        if (!traj.cartesian_path.empty()) 
+        {
+            // 使用通用模板函数绘制
+            drawTraj(&traj.cartesian_path,
+                     0.6, 0.6, 0.6, // RGB: 灰色
+                     1,      // gap: 逐点绘制
+                     1.0,    // 线宽: 较细的1.0，避免干扰主干轨迹
+                     0.1,    // Z高度(level): 0.1m, 低于最优轨迹的 0.2m，形成视觉分层
+                     false,  // 不画点标记
+                     true,   // 画连续连线
+                     false,  // 不画航向
+                     false,  // 不画曲率
+                     false); // 不画边界
+        }
+    }
+
     // Stage 3: Draw target indicators
     // Orange triangle (30 degree angle) + solid circle
     glColor3f(136.0/255.0, 238.0/255.0, 170.0/255.0); // RGB(136, 238, 170) approximation
@@ -89,7 +111,7 @@ void DISPLAY_3D::draw_mode1()
         drawTraj(&TG.opt.traj_best.path,
                  0.9, 0.9, 0, // Yellow color
                  1,    // Plot every point
-                 1.0,  // Line width
+                 2.0,  // Line width
                  0.2,  // Z-level offset
                  true,  // Enable point markers
                  false, // Disable path lines

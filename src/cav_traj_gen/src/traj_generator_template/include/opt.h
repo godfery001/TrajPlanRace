@@ -225,6 +225,11 @@ public:
     Point_Xd pt_goal;
     Point_Xd pt_goal_real;
 
+    // =======================================================
+    // 【新增】将候选轨迹集合暴露为 public 成员，供 GUI 可视化调用
+    // =======================================================
+    std::vector<FrenetPath> candidate_trajs;
+
     //-----------------------------------
     // Settings for your trajectory generation, these are changed with gui (see mainloop.cpp)
     bool flag_checkObstacles = true;

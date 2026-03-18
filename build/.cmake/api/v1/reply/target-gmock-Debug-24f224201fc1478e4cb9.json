@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "gtest/lib/libgmock.so"
+			"path" : "gtest/lib/libgmockd.so"
 		}
 	],
 	"backtrace" : 3,
@@ -71,7 +71,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-fPIC  "
+					"fragment" : "-g -fPIC  "
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -144,7 +144,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "../lib/libgtest.so",
+				"fragment" : "../lib/libgtestd.so",
 				"role" : "libraries"
 			},
 			{
@@ -155,7 +155,7 @@
 		"language" : "CXX"
 	},
 	"name" : "gmock",
-	"nameOnDisk" : "libgmock.so",
+	"nameOnDisk" : "libgmockd.so",
 	"paths" : 
 	{
 		"build" : "gtest/googlemock",

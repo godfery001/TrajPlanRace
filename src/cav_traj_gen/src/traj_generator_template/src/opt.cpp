@@ -227,11 +227,14 @@ void Opt::run()
 		candidate_trajs);
 
 	// -------------------------------------------------------------------
-	// Step 4: 坐标回转与筛选
+	// Step 4: 坐标回转与约束筛选
 	// -------------------------------------------------------------------
 	double min_cost = 1e9;
 	int best_idx = -1;
 	double max_s_spline = s_vec.back();
+
+	// [新增] 提前计算车辆外接圆半径 (长5宽2，对角线的一半)，用于碰撞检测
+	double veh_radius = sqrt(pow(_env->size_x / 2.0, 2) + pow(_env->size_y / 2.0, 2));
 
 	for (size_t i = 0; i < candidate_trajs.size(); ++i)
 	{
@@ -240,12 +243,14 @@ void Opt::run()
 
 		for (size_t j = 0; j < fp.lon_p.size(); ++j)
 		{
+			// 1. 样条曲线范围检查
 			if (fp.lon_p[j] > max_s_spline)
 			{
 				is_valid = false;
 				break;
 			}
 
+			// 坐标回转计算
 			double x_r = csp_x(fp.lon_p[j]);
 			double y_r = csp_y(fp.lon_p[j]);
 			double dx_r = csp_x.deriv(1, fp.lon_p[j]);
@@ -261,15 +266,62 @@ void Opt::run()
 
 			fp.cartesian_path.push_back(pt);
 
+			// ==========================================
+			// 约束 1：动力学约束 (队友已写好最大速度限制)
+			// ==========================================
 			if (pt.v > set_max_speed)
 			{
 				is_valid = false;
 				break;
 			}
+
+			// ==========================================
+			// [新增] 约束 2：障碍物碰撞检测
+			// ==========================================
+			if (guiSet.flag_checkObstacles && !_env->obstacleVec.empty()) {
+				bool collision = false;
+				for (const auto &obs : _env->obstacleVec) {
+					// 计算轨迹点到障碍物中心的欧氏距离
+					double dist = sqrt(pow(pt.x - obs.x_local, 2) + pow(pt.y - obs.y_local, 2));
+					
+					// 碰撞条件：两圆心距离 < (车辆半径 + 障碍物半径 + 0.5m安全冗余)
+					if (dist < (obs.radius + veh_radius + 0.5)) {
+						collision = true;
+						break; // 跳出障碍物循环
+					}
+				}
+				if (collision) {
+					is_valid = false;
+					break; // 发现碰撞，直接毙掉这条轨迹，跳出轨迹点循环
+				}
+			}
+
+			// ==========================================
+			// [新增] 约束 3：道路边界约束
+			// ==========================================
+			if (!_env->refPathVec.empty()) {
+				// 找离当前轨迹点最近的参考路径点索引
+				int search_idx = XM::find_NPN(&_env->refPathVec, pt.x, pt.y);
+				search_idx = MAX(0, MIN((int)_env->refPathVec.size() - 1, search_idx));
+				const auto &ref_pt = _env->refPathVec[search_idx];
+
+				// 计算横向偏差
+				double dist_to_ref = sqrt(pow(pt.x - ref_pt.x, 2) + pow(pt.y - ref_pt.y, 2));
+				
+				// 提取道路真实边界与车辆半宽
+				double veh_half_width = _env->size_y / 2.0;
+				double current_bound = std::min(ref_pt.bound_left, ref_pt.bound_right);
+				
+				// 计算余量：留 0.2m 压线余量
+				double margin = current_bound - (dist_to_ref + veh_half_width);
+				if (margin < 0.2) {
+					is_valid = false;
+					break; // 发现越界，直接毙掉这条轨迹，跳出轨迹点循环
+				}
+			}
 		}
 
-		// TODO: 在这里遍历 _env->obstacleVec 补充障碍物碰撞检测
-
+		// 只有过五关斩六将（is_valid == true）存活下来的轨迹，才能参与最后的最优竞选
 		if (is_valid && fp.cost_total < min_cost)
 		{
 			min_cost = fp.cost_total;
@@ -277,6 +329,9 @@ void Opt::run()
 		}
 	}
 
+
+
+	
 	// -------------------------------------------------------------------
 	// Step 5: 最优轨迹定型并移交控制
 	// -------------------------------------------------------------------

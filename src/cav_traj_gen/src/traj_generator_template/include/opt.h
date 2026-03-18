@@ -26,80 +26,6 @@
 /*         Definitions of your own data structure can be here          */
 /*                      Below are some examples                        */
 /***********************************************************************/
-// User defined code
-//  ----------------------------------------------------
-//  1. 五次多项式求解器 (集成原函数解析积分求代价)
-//  ----------------------------------------------------
-class QuinticPolynomial
-{
-public:
-    double a0, a1, a2, a3, a4, a5;
-
-    QuinticPolynomial(double xs, double vs, double as, double xe, double ve, double ae, double T)
-    {
-        a0 = xs;
-        a1 = vs;
-        a2 = as / 2.0;
-
-        double T2 = T * T;
-        double T3 = T2 * T;
-        double T4 = T3 * T;
-        double T5 = T4 * T;
-
-        double c1 = xe - a0 - a1 * T - a2 * T2;
-        double c2 = ve - a1 - 2.0 * a2 * T;
-        double c3 = ae - 2.0 * a2;
-
-        a3 = (10.0 * c1 - 4.0 * c2 * T + 0.5 * c3 * T2) / T3;
-        a4 = (-15.0 * c1 + 7.0 * c2 * T - c3 * T2) / T4;
-        a5 = (6.0 * c1 - 3.0 * c2 * T + 0.5 * c3 * T2) / T5;
-    }
-
-    double calc_point(double t) { return a0 + a1 * t + a2 * t * t + a3 * t * t * t + a4 * t * t * t * t + a5 * t * t * t * t * t; }
-    double calc_vel(double t) { return a1 + 2.0 * a2 * t + 3.0 * a3 * t * t + 4.0 * a4 * t * t * t + 5.0 * a5 * t * t * t * t; }
-    double calc_acc(double t) { return 2.0 * a2 + 6.0 * a3 * t + 12.0 * a4 * t * t + 20.0 * a5 * t * t * t; }
-    double calc_jerk(double t) { return 6.0 * a3 + 24.0 * a4 * t + 60.0 * a5 * t * t; }
-
-    // 解析积分直接计算 Jerk 的平方积分 (加速运算)
-    double calc_jerk_sq_integral(double T)
-    {
-        double T2 = T * T;
-        double T3 = T2 * T;
-        double T4 = T3 * T;
-        double T5 = T4 * T;
-        return 36.0 * a3 * a3 * T +
-               144.0 * a3 * a4 * T2 +
-               (192.0 * a4 * a4 + 240.0 * a3 * a5) * T3 +
-               720.0 * a4 * a5 * T4 +
-               720.0 * a5 * a5 * T5;
-    }
-};
-
-// ----------------------------------------------------
-// 2. Frenet 候选轨迹结构体
-// ----------------------------------------------------
-struct FrenetPath
-{
-    std::vector<double> t;
-
-    // 横向状态 (Lateral)
-    std::vector<double> lat_p;
-    std::vector<double> lat_v;
-    std::vector<double> lat_a;
-    std::vector<double> lat_j;
-
-    // 纵向状态 (Longitudinal)
-    std::vector<double> lon_p;
-    std::vector<double> lon_v;
-    std::vector<double> lon_a;
-    std::vector<double> lon_j;
-
-    double cost_lat = 0.0;
-    double cost_lon = 0.0;
-    double cost_total = 0.0;
-
-    std::vector<Point_Xd> cartesian_path;
-};
 
 /***********************************************************************/
 // Basic source code
@@ -184,6 +110,83 @@ public:
     double Jcost = 0;
 
     std::vector<Point_Xd> path;
+};
+
+/***********/
+
+ // User defined code
+//  ----------------------------------------------------
+//  1. 五次多项式求解器 (集成原函数解析积分求代价)
+//  ----------------------------------------------------
+class QuinticPolynomial
+{
+public:
+    double a0, a1, a2, a3, a4, a5;
+
+    QuinticPolynomial(double xs, double vs, double as, double xe, double ve, double ae, double T)
+    {
+        a0 = xs;
+        a1 = vs;
+        a2 = as / 2.0;
+
+        double T2 = T * T;
+        double T3 = T2 * T;
+        double T4 = T3 * T;
+        double T5 = T4 * T;
+
+        double c1 = xe - a0 - a1 * T - a2 * T2;
+        double c2 = ve - a1 - 2.0 * a2 * T;
+        double c3 = ae - 2.0 * a2;
+
+        a3 = (10.0 * c1 - 4.0 * c2 * T + 0.5 * c3 * T2) / T3;
+        a4 = (-15.0 * c1 + 7.0 * c2 * T - c3 * T2) / T4;
+        a5 = (6.0 * c1 - 3.0 * c2 * T + 0.5 * c3 * T2) / T5;
+    }
+
+    double calc_point(double t) { return a0 + a1 * t + a2 * t * t + a3 * t * t * t + a4 * t * t * t * t + a5 * t * t * t * t * t; }
+    double calc_vel(double t) { return a1 + 2.0 * a2 * t + 3.0 * a3 * t * t + 4.0 * a4 * t * t * t + 5.0 * a5 * t * t * t * t; }
+    double calc_acc(double t) { return 2.0 * a2 + 6.0 * a3 * t + 12.0 * a4 * t * t + 20.0 * a5 * t * t * t; }
+    double calc_jerk(double t) { return 6.0 * a3 + 24.0 * a4 * t + 60.0 * a5 * t * t; }
+
+    // 解析积分直接计算 Jerk 的平方积分 (加速运算)
+    double calc_jerk_sq_integral(double T)
+    {
+        double T2 = T * T;
+        double T3 = T2 * T;
+        double T4 = T3 * T;
+        double T5 = T4 * T;
+        return 36.0 * a3 * a3 * T +
+               144.0 * a3 * a4 * T2 +
+               (192.0 * a4 * a4 + 240.0 * a3 * a5) * T3 +
+               720.0 * a4 * a5 * T4 +
+               720.0 * a5 * a5 * T5;
+    }
+};
+
+// ----------------------------------------------------
+// 2. Frenet 候选轨迹结构体
+// ----------------------------------------------------
+struct FrenetPath
+{
+    std::vector<double> t;
+
+    // 横向状态 (Lateral)
+    std::vector<double> lat_p;
+    std::vector<double> lat_v;
+    std::vector<double> lat_a;
+    std::vector<double> lat_j;
+
+    // 纵向状态 (Longitudinal)
+    std::vector<double> lon_p;
+    std::vector<double> lon_v;
+    std::vector<double> lon_a;
+    std::vector<double> lon_j;
+
+    double cost_lat = 0.0;
+    double cost_lon = 0.0;
+    double cost_total = 0.0;
+
+    std::vector<Point_Xd> cartesian_path;
 };
 
 /*****************************************************************************************/

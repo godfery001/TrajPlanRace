@@ -1,0 +1,575 @@
+\hypertarget{classDISPLAY__3D}{}\doxysection{D\+I\+S\+P\+L\+A\+Y\+\_\+3D Class Reference}
+\label{classDISPLAY__3D}\index{DISPLAY\_3D@{DISPLAY\_3D}}
+
+
+3D visualization system for autonomous driving simulation  
+
+
+
+
+{\ttfamily \#include $<$display\+\_\+3d.\+h$>$}
+
+
+
+Inheritance diagram for D\+I\+S\+P\+L\+A\+Y\+\_\+3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classDISPLAY__3D__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for D\+I\+S\+P\+L\+A\+Y\+\_\+3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classDISPLAY__3D__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDISPLAY__3D_a07e3daaf558a82409c481e90f3a0f36b}{D\+I\+S\+P\+L\+A\+Y\+\_\+3D}} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructs 3D visualization context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDISPLAY__3D_a74558c04d2ddede35c9a37ac8e9f8ef1}{$\sim$\+D\+I\+S\+P\+L\+A\+Y\+\_\+3D}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a8a93eca5e4fbae9bda47764b736c3b4b}{show\+Axis}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_ac9e69fbe5c50d774d16296cde7e6b4b5}{ini\+View}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a6b0f466eecd6f870481b251389e10414}{draw\+\_\+mode1}} ()
+\begin{DoxyCompactList}\small\item\em Main rendering pipeline for bird\textquotesingle{}s-\/eye view Visualizes 7 key components\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDISPLAY__3D_ad39b33c0d9f122dc0474cbebcb0b304f}{draw\+\_\+mode2}} ()
+\begin{DoxyCompactList}\small\item\em Main rendering pipeline for driver perspective Visualizes 6 key components\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a9ede8ceb25c617f2b21382ad55b11282}{resize\+GL}} (int w, int h) override
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a7df043856ebb1b561fd218e405f20ae8}{load\+G\+L\+Texture}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a9443dae1a51be7ab2ecb7dbfbf2a6255}{initialize\+GL}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_ac32605d74a2f76173d3c4655be68d78d}{paint\+GL}} ()
+\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a9416f8ad62d3d84c82b2dde1ccb29d08}{draw\+One\+Path}} (\mbox{\hyperlink{classTrajectory__S}{Trajectory\+\_\+S}} $\ast$const traj)
+\begin{DoxyCompactList}\small\item\em Visualizes single trajectory candidate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDISPLAY__3D_acd077f851eb18b4e8627a5b319d37e34}{draw\+Obstacle}} (std\+::vector$<$ \mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}} $>$ $\ast$const obst\+Vec)
+\begin{DoxyCompactList}\small\item\em Renders 2D obstacle representations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a3c6371c4e61dc037bd203c7d1a69b156}{draw\+Obstacle\+\_\+3d}} (std\+::vector$<$ \mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}} $>$ $\ast$const obst\+Vec)
+\begin{DoxyCompactList}\small\item\em Renders 3D obstacle models with proper transformations. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classDISPLAY__3D_ac5f311be9b64fff477a12accbed1a1c4}{draw\+Traj\+\_\+\+Alp}} (std\+::vector$<$ T $>$ $\ast$const vec, double r, double g, double b, double alpha, int gap, double width, double level, bool en\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Renders trajectory with distance-\/based alpha attenuation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a5ebe81de84c015d17313a5006d04e393}{gen\+Past\+Path}} ()
+\begin{DoxyCompactList}\small\item\em Maintains historical path buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDISPLAY__3D_a24a8257a78103403900fcfd524c6ffcd}{draw\+Vehicle}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classDISPLAY__3D_a7c137fa00e10fe6406f6d569bf400fba}{draw\+Traj}} (std\+::vector$<$ T $>$ $\ast$const p, double r, double g, double b, int gap, double line\+\_\+width, double level, bool flag\+\_\+point, bool flag\+\_\+line, bool flag\+\_\+heading, bool flag\+\_\+cr, bool flag\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generic trajectory visualization template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+3D visualization system for autonomous driving simulation 
+
+Handles Open\+GL rendering pipeline, vehicle model display, and multiple view modes. Integrates with Qt framework for \mbox{\hyperlink{classGUI}{G\+UI}} interaction. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDISPLAY__3D_a07e3daaf558a82409c481e90f3a0f36b}\label{classDISPLAY__3D_a07e3daaf558a82409c481e90f3a0f36b}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!DISPLAY\_3D@{DISPLAY\_3D}}
+\index{DISPLAY\_3D@{DISPLAY\_3D}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_3D()}{DISPLAY\_3D()}}
+{\footnotesize\ttfamily D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::\+D\+I\+S\+P\+L\+A\+Y\+\_\+3D (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs 3D visualization context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent widget in Qt\textquotesingle{}s object hierarchy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDISPLAY__3D_a74558c04d2ddede35c9a37ac8e9f8ef1}\label{classDISPLAY__3D_a74558c04d2ddede35c9a37ac8e9f8ef1}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!````~DISPLAY\_3D@{$\sim$DISPLAY\_3D}}
+\index{````~DISPLAY\_3D@{$\sim$DISPLAY\_3D}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{$\sim$DISPLAY\_3D()}{~DISPLAY\_3D()}}
+{\footnotesize\ttfamily D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::$\sim$\+D\+I\+S\+P\+L\+A\+Y\+\_\+3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDISPLAY__3D_a6b0f466eecd6f870481b251389e10414}\label{classDISPLAY__3D_a6b0f466eecd6f870481b251389e10414}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!draw\_mode1@{draw\_mode1}}
+\index{draw\_mode1@{draw\_mode1}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{draw\_mode1()}{draw\_mode1()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+\_\+mode1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main rendering pipeline for bird\textquotesingle{}s-\/eye view Visualizes 7 key components\+: 
+
+
+\begin{DoxyEnumerate}
+\item Coordinate grid system
+\item Ego vehicle model
+\item Target markers (triangle + circle)
+\item Obstacle representations
+\item Local reference path
+\item Global reference path
+\item Optimal trajectory (if available) 
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a6b0f466eecd6f870481b251389e10414_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a6b0f466eecd6f870481b251389e10414_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_ad39b33c0d9f122dc0474cbebcb0b304f}\label{classDISPLAY__3D_ad39b33c0d9f122dc0474cbebcb0b304f}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!draw\_mode2@{draw\_mode2}}
+\index{draw\_mode2@{draw\_mode2}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{draw\_mode2()}{draw\_mode2()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+\_\+mode2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main rendering pipeline for driver perspective Visualizes 6 key components\+: 
+
+
+\begin{DoxyEnumerate}
+\item Coordinate grid system (optional)
+\item Ego vehicle model
+\item Global trajectory (translucent green)
+\item Global reference path (semi-\/transparent orange)
+\item Historical path trail (solid green)
+\item 3D obstacle models 
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ad39b33c0d9f122dc0474cbebcb0b304f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ad39b33c0d9f122dc0474cbebcb0b304f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_acd077f851eb18b4e8627a5b319d37e34}\label{classDISPLAY__3D_acd077f851eb18b4e8627a5b319d37e34}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawObstacle@{drawObstacle}}
+\index{drawObstacle@{drawObstacle}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawObstacle()}{drawObstacle()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+Obstacle (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}} $>$ $\ast$const}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Renders 2D obstacle representations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Obstacle container with position/size data
+\begin{DoxyItemize}
+\item Yellow boxes (R\+GB 128,128,0)
+\item 0.\+2m height for 3D effect 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_acd077f851eb18b4e8627a5b319d37e34_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_acd077f851eb18b4e8627a5b319d37e34_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a3c6371c4e61dc037bd203c7d1a69b156}\label{classDISPLAY__3D_a3c6371c4e61dc037bd203c7d1a69b156}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawObstacle\_3d@{drawObstacle\_3d}}
+\index{drawObstacle\_3d@{drawObstacle\_3d}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawObstacle\_3d()}{drawObstacle\_3d()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+Obstacle\+\_\+3d (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}} $>$ $\ast$const}]{obst\+Vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Renders 3D obstacle models with proper transformations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obst\+Vec} & Obstacle data container
+\begin{DoxyItemize}
+\item Applies local coordinate offsets (x\+\_\+local, y\+\_\+local)
+\item Rotates models according to global heading
+\item Uses obstacle dimensions (size\+\_\+x, size\+\_\+y, size\+\_\+z)
+\item Renders orange boxes (R\+GB 230,51,0) with 80\% opacity 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a3c6371c4e61dc037bd203c7d1a69b156_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a3c6371c4e61dc037bd203c7d1a69b156_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a9416f8ad62d3d84c82b2dde1ccb29d08}\label{classDISPLAY__3D_a9416f8ad62d3d84c82b2dde1ccb29d08}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawOnePath@{drawOnePath}}
+\index{drawOnePath@{drawOnePath}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawOnePath()}{drawOnePath()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+One\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrajectory__S}{Trajectory\+\_\+S}} $\ast$const}]{traj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Visualizes single trajectory candidate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em traj} & Trajectory container with path data
+\begin{DoxyItemize}
+\item Gray path lines with 1.\+0m spacing
+\item Rectangular markers for valid trajectories 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a9416f8ad62d3d84c82b2dde1ccb29d08_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a7c137fa00e10fe6406f6d569bf400fba}\label{classDISPLAY__3D_a7c137fa00e10fe6406f6d569bf400fba}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawTraj@{drawTraj}}
+\index{drawTraj@{drawTraj}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawTraj()}{drawTraj()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+Traj (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ $\ast$const}]{vec,  }\item[{double}]{r,  }\item[{double}]{g,  }\item[{double}]{b,  }\item[{int}]{gap,  }\item[{double}]{line\+\_\+width,  }\item[{double}]{level,  }\item[{bool}]{flag\+\_\+point,  }\item[{bool}]{flag\+\_\+line,  }\item[{bool}]{flag\+\_\+heading,  }\item[{bool}]{flag\+\_\+cr,  }\item[{bool}]{flag\+\_\+bound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Generic trajectory visualization template. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Trajectory point type (\mbox{\hyperlink{classX__Point}{X\+\_\+\+Point}} or similar) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Trajectory data container \\
+\hline
+{\em r} & Red component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em g} & Green component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em b} & Blue component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em gap} & Point sampling interval (1=all points) \\
+\hline
+{\em line\+\_\+width} & Visual line width in pixels \\
+\hline
+{\em level} & Z-\/axis offset for layer management \\
+\hline
+{\em flag\+\_\+point} & Toggle point markers \\
+\hline
+{\em flag\+\_\+line} & Toggle path lines \\
+\hline
+{\em flag\+\_\+heading} & Toggle orientation arrows \\
+\hline
+{\em flag\+\_\+cr} & Toggle curvature visualization \\
+\hline
+{\em flag\+\_\+bound} & Toggle safety boundaries \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a7c137fa00e10fe6406f6d569bf400fba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a7c137fa00e10fe6406f6d569bf400fba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_ac5f311be9b64fff477a12accbed1a1c4}\label{classDISPLAY__3D_ac5f311be9b64fff477a12accbed1a1c4}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawTraj\_Alp@{drawTraj\_Alp}}
+\index{drawTraj\_Alp@{drawTraj\_Alp}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawTraj\_Alp()}{drawTraj\_Alp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+Traj\+\_\+\+Alp (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ $\ast$const}]{vec,  }\item[{double}]{r,  }\item[{double}]{g,  }\item[{double}]{b,  }\item[{double}]{alp,  }\item[{int}]{gap,  }\item[{double}]{width,  }\item[{double}]{level,  }\item[{bool}]{en\+\_\+bound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Renders trajectory with distance-\/based alpha attenuation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Trajectory point type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Trajectory data container \\
+\hline
+{\em r} & Red component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em g} & Green component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em b} & Blue component \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em alp} & Base alpha value \mbox{[}0.\+0-\/1.\+0\mbox{]} \\
+\hline
+{\em gap} & Point sampling interval \\
+\hline
+{\em width} & Line width in meters \\
+\hline
+{\em level} & Z-\/axis offset \\
+\hline
+{\em en\+\_\+bound} & Toggle boundary visualization\\
+\hline
+\end{DoxyParams}
+Alpha calculation\+: alpha = 1.\+0 -\/ i$\ast$(1-\/alp)/\+Nmax Creates fade-\/out effect along trajectory length Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ac5f311be9b64fff477a12accbed1a1c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ac5f311be9b64fff477a12accbed1a1c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a24a8257a78103403900fcfd524c6ffcd}\label{classDISPLAY__3D_a24a8257a78103403900fcfd524c6ffcd}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!drawVehicle@{drawVehicle}}
+\index{drawVehicle@{drawVehicle}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{drawVehicle()}{drawVehicle()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::draw\+Vehicle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Renders ego vehicle model with lighting
+\begin{DoxyItemize}
+\item Applies current vehicle position (move\+\_\+x, move\+\_\+y)
+\item Rotates model according to heading (move\+\_\+heading)
+\item Uses preloaded Lexus model dimensions from T\+G.\+ss\+Data 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a24a8257a78103403900fcfd524c6ffcd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a24a8257a78103403900fcfd524c6ffcd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a5ebe81de84c015d17313a5006d04e393}\label{classDISPLAY__3D_a5ebe81de84c015d17313a5006d04e393}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!genPastPath@{genPastPath}}
+\index{genPastPath@{genPastPath}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{genPastPath()}{genPastPath()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::gen\+Past\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maintains historical path buffer. 
+
+
+\begin{DoxyItemize}
+\item Stores recent trajectory points from optimal path
+\item Keeps maximum 500 points (≈25 seconds at 20Hz)
+\item Filters points closer than 0.\+2m
+\item Clears buffer when jumps $>$3m detected 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a5ebe81de84c015d17313a5006d04e393_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a5ebe81de84c015d17313a5006d04e393_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a9443dae1a51be7ab2ecb7dbfbf2a6255}\label{classDISPLAY__3D_a9443dae1a51be7ab2ecb7dbfbf2a6255}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!initializeGL@{initializeGL}}
+\index{initializeGL@{initializeGL}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{initializeGL()}{initializeGL()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::initialize\+GL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Initializes Open\+GL rendering context
+\begin{DoxyItemize}
+\item Background color\+: R\+G\+B(1,5,43)
+\item Enables depth testing and smooth shading
+\item Configures two light sources\+:
+\begin{DoxyEnumerate}
+\item Directional light (Light 0) at (0,100,1000)
+\item Positional light (Light 1) following camera 
+\end{DoxyEnumerate}
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a9443dae1a51be7ab2ecb7dbfbf2a6255_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_ac9e69fbe5c50d774d16296cde7e6b4b5}\label{classDISPLAY__3D_ac9e69fbe5c50d774d16296cde7e6b4b5}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!iniView@{iniView}}
+\index{iniView@{iniView}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{iniView()}{iniView()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::ini\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Configures camera view parameters
+\begin{DoxyItemize}
+\item View mode 1\+: Bird\textquotesingle{}s-\/eye view 8m behind vehicle
+\item View mode 2\+: Driver view 8m ahead of vehicle
+\item Updates light position (lightpos) based on view mode 
+\end{DoxyItemize}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ac9e69fbe5c50d774d16296cde7e6b4b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a7df043856ebb1b561fd218e405f20ae8}\label{classDISPLAY__3D_a7df043856ebb1b561fd218e405f20ae8}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!loadGLTexture@{loadGLTexture}}
+\index{loadGLTexture@{loadGLTexture}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{loadGLTexture()}{loadGLTexture()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::load\+G\+L\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Loads 3D vehicle model and texture assets
+\begin{DoxyItemize}
+\item Model path\+: /opt/cav\+\_\+deploy/obj\+\_\+model/\+Lexus/lexus\+\_\+hs.obj
+\item \mbox{\hyperlink{structTexture}{Texture}} path\+: /opt/cav\+\_\+deploy/obj\+\_\+model/\+Lexus/\+Lexus.jpg
+\item Original scaling factor\+: 1 (no scaling) 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a7df043856ebb1b561fd218e405f20ae8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a7df043856ebb1b561fd218e405f20ae8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_ac32605d74a2f76173d3c4655be68d78d}\label{classDISPLAY__3D_ac32605d74a2f76173d3c4655be68d78d}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!paintGL@{paintGL}}
+\index{paintGL@{paintGL}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{paintGL()}{paintGL()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::paint\+GL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Main rendering loop
+\begin{DoxyItemize}
+\item Updates frame counter (count)
+\item Configures camera view (ini\+View)
+\item Updates path history (gen\+Past\+Path)
+\item Delegates to current view mode renderer 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_ac32605d74a2f76173d3c4655be68d78d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDISPLAY__3D_a9ede8ceb25c617f2b21382ad55b11282}\label{classDISPLAY__3D_a9ede8ceb25c617f2b21382ad55b11282}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!resizeGL@{resizeGL}}
+\index{resizeGL@{resizeGL}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{resizeGL()}{resizeGL()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::resize\+GL (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+Handles viewport resizing events 
+\begin{DoxyParams}{Parameters}
+{\em w} & New width in pixels \\
+\hline
+{\em h} & New height in pixels
+\begin{DoxyItemize}
+\item Maintains 45 degree vertical F\+OV
+\item Near clip plane\+: 0.\+5 units
+\item Far clip plane\+: 1000 units 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDISPLAY__3D_a8a93eca5e4fbae9bda47764b736c3b4b}\label{classDISPLAY__3D_a8a93eca5e4fbae9bda47764b736c3b4b}} 
+\index{DISPLAY\_3D@{DISPLAY\_3D}!showAxis@{showAxis}}
+\index{showAxis@{showAxis}!DISPLAY\_3D@{DISPLAY\_3D}}
+\doxysubsubsection{\texorpdfstring{showAxis()}{showAxis()}}
+{\footnotesize\ttfamily void D\+I\+S\+P\+L\+A\+Y\+\_\+3\+D\+::show\+Axis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Renders 1m grid in X-\/Y plane
+\begin{DoxyItemize}
+\item Grid extends 150 units from current position
+\item Lines drawn at Z=-\/0.\+01 to avoid depth fighting 
+\end{DoxyItemize}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDISPLAY__3D_a8a93eca5e4fbae9bda47764b736c3b4b_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{display__3d_8h}{display\+\_\+3d.\+h}}\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{display__3d_8cpp}{display\+\_\+3d.\+cpp}}\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{display__3d__mode1_8cpp}{display\+\_\+3d\+\_\+mode1.\+cpp}}\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{display__3d__mode2_8cpp}{display\+\_\+3d\+\_\+mode2.\+cpp}}\end{DoxyCompactItemize}

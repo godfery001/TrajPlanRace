@@ -1,0 +1,11 @@
+<map id="src/GUI/widgets/3d_display/display_3d.h" name="src/GUI/widgets/3d_display/display_3d.h">
+<area shape="rect" id="node1" title=" " alt="" coords="412,5,575,47"/>
+<area shape="rect" id="node2" href="$gui_8h.html" title=" " alt="" coords="275,109,381,136"/>
+<area shape="rect" id="node7" href="$display__3d_8cpp.html" title=" " alt="" coords="405,102,582,143"/>
+<area shape="rect" id="node8" href="$display__3d__mode1_8cpp.html" title=" " alt="" coords="606,95,757,151"/>
+<area shape="rect" id="node9" href="$display__3d__mode2_8cpp.html" title=" " alt="" coords="781,95,931,151"/>
+<area shape="rect" id="node3" href="$gui_8cpp.html" title=" " alt="" coords="5,199,125,225"/>
+<area shape="rect" id="node4" href="$mainloop_8cpp.html" title=" " alt="" coords="150,199,311,225"/>
+<area shape="rect" id="node5" href="$info_8cpp.html" title=" " alt="" coords="335,199,515,225"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="539,199,645,225"/>
+</map>

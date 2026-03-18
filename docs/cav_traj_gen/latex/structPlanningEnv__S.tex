@@ -1,0 +1,325 @@
+\hypertarget{structPlanningEnv__S}{}\doxysection{Planning\+Env\+\_\+S Struct Reference}
+\label{structPlanningEnv__S}\index{PlanningEnv\_S@{PlanningEnv\_S}}
+
+
+data structure for planning environment  
+
+
+
+
+{\ttfamily \#include $<$data\+Define.\+hpp$>$}
+
+
+
+Collaboration diagram for Planning\+Env\+\_\+S\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{structPlanningEnv__S__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a43f7f833ed675ab4d1077435b5c2d1a0}{timestamp}} = 0
+\item 
+int \mbox{\hyperlink{structPlanningEnv__S_a478d419802e07c6eb054a0904c57e69b}{Estop}} = 0
+\item 
+bool \mbox{\hyperlink{structPlanningEnv__S_ad23c263efedabfb8db7c84bc91739e86}{Go}} = false
+\item 
+int \mbox{\hyperlink{structPlanningEnv__S_aadb5115590330ae633a666ceca123ac6}{Signal}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a309c0c78750a6dee7f023dfb0742b506}{x}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a6641d783abf6bd711c9a6cbbfb013afd}{y}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_abf1b2389909a4db728add70cd7f06bde}{heading}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_ad762aaf9365ee8a9b826bb52c96c7d20}{speed\+\_\+x}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_acc55bd14d5fc5e43269a92ff80baf142}{acc\+\_\+x}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a5f351a1aefb766dbb4c3022a6178aa6b}{yaw\+\_\+rate}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_aec72b7b8e3fabbec2ca5fa6f3488d6b4}{size\+\_\+x}} = 5.\+0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a466f6cf6edb488714b20e3d44d48ce8a}{size\+\_\+y}} = 2.\+0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_aa17af4637954dabb1f4c39047cc85c48}{size\+\_\+z}} = 1.\+75
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a86d1ca45ddc61c2559a4527398295235}{wheelbase}} = 2.\+85
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a18bf3937d876ab975cb8abe9ebf8da7b}{battery\+\_\+soc}} = 0
+\item 
+bool \mbox{\hyperlink{structPlanningEnv__S_a1c7edb93c01ff112737c86f1b54aa193}{by\+\_\+wire\+\_\+enabled}} = false
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a8e57e8d8baa3bba897db6311127eaeb3}{tf}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a98e09c1a9c3903f1d9fffc576d4d2de6}{yf}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_aae53b4dd1400ae4b8ffddf01d846d839}{xf}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_ac08acdb6a13f7c83a793c013f9c4338b}{xf\+\_\+d}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a6c30af6bd9bdd1fd7cb1aeed54f50636}{xf\+\_\+dd}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_af4099e14975c7ed2ba275851a21ba555}{tf\+\_\+min}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_ae71823de010f363ab8d55c349baaab79}{yf\+\_\+min}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_ae44aecd35a3ed299a7fa2440e0ce312b}{xf\+\_\+min}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a869ca7c367cb3f19a65a298644c3a35a}{tf\+\_\+max}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a9d1000c45aac81289179f9987bae2a36}{yf\+\_\+max}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a2dc3b5d2c2947fc68703d8b3bef9222b}{xf\+\_\+max}} = 0
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a06f621c817ec1aa1005f69405d7d091c}{vd\+\_\+yield}} = 50
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_acfaa0301c0c00313efe99155fb58e16b}{ad\+\_\+yield}} = 5
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}} $>$ \mbox{\hyperlink{structPlanningEnv__S_a8290ece8105507e5a8ea9ee5ba09cd0c}{obstacle\+Vec}}
+\item 
+long \mbox{\hyperlink{structPlanningEnv__S_a2aac9db0eb6060c0ca4cf83426e445c0}{N\+PN}} = 0
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classX__Point}{X\+\_\+\+Point}} $>$ \mbox{\hyperlink{structPlanningEnv__S_af0e30af8d59032868f220c0b989472f4}{ref\+Path\+Vec}}
+\item 
+long \mbox{\hyperlink{structPlanningEnv__S_a5cd46afc85ce7186c3c70395cd9a1f4f}{cmd\+\_\+num}} = 0
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classX__Point}{X\+\_\+\+Point}} $>$ \mbox{\hyperlink{structPlanningEnv__S_af2378a89d53e2b20c101c35037f62b25}{whole\+\_\+path}}
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_ab411e4332f91201cd9c7bb5e4f270181}{world\+\_\+cx}} = 443673.\+722475
+\item 
+double \mbox{\hyperlink{structPlanningEnv__S_a1a42aba43a9832e140ddcb997c0de2ec}{world\+\_\+cy}} = 4429497.\+481223
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+data structure for planning environment 
+
+All information you need for planning a trajectory is in here 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structPlanningEnv__S_acc55bd14d5fc5e43269a92ff80baf142}\label{structPlanningEnv__S_acc55bd14d5fc5e43269a92ff80baf142}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!acc\_x@{acc\_x}}
+\index{acc\_x@{acc\_x}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{acc\_x}{acc\_x}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::acc\+\_\+x = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_acfaa0301c0c00313efe99155fb58e16b}\label{structPlanningEnv__S_acfaa0301c0c00313efe99155fb58e16b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!ad\_yield@{ad\_yield}}
+\index{ad\_yield@{ad\_yield}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{ad\_yield}{ad\_yield}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::ad\+\_\+yield = 5}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a18bf3937d876ab975cb8abe9ebf8da7b}\label{structPlanningEnv__S_a18bf3937d876ab975cb8abe9ebf8da7b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!battery\_soc@{battery\_soc}}
+\index{battery\_soc@{battery\_soc}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{battery\_soc}{battery\_soc}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::battery\+\_\+soc = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a1c7edb93c01ff112737c86f1b54aa193}\label{structPlanningEnv__S_a1c7edb93c01ff112737c86f1b54aa193}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!by\_wire\_enabled@{by\_wire\_enabled}}
+\index{by\_wire\_enabled@{by\_wire\_enabled}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{by\_wire\_enabled}{by\_wire\_enabled}}
+{\footnotesize\ttfamily bool Planning\+Env\+\_\+\+S\+::by\+\_\+wire\+\_\+enabled = false}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a5cd46afc85ce7186c3c70395cd9a1f4f}\label{structPlanningEnv__S_a5cd46afc85ce7186c3c70395cd9a1f4f}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!cmd\_num@{cmd\_num}}
+\index{cmd\_num@{cmd\_num}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{cmd\_num}{cmd\_num}}
+{\footnotesize\ttfamily long Planning\+Env\+\_\+\+S\+::cmd\+\_\+num = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a478d419802e07c6eb054a0904c57e69b}\label{structPlanningEnv__S_a478d419802e07c6eb054a0904c57e69b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!Estop@{Estop}}
+\index{Estop@{Estop}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{Estop}{Estop}}
+{\footnotesize\ttfamily int Planning\+Env\+\_\+\+S\+::\+Estop = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ad23c263efedabfb8db7c84bc91739e86}\label{structPlanningEnv__S_ad23c263efedabfb8db7c84bc91739e86}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!Go@{Go}}
+\index{Go@{Go}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{Go}{Go}}
+{\footnotesize\ttfamily bool Planning\+Env\+\_\+\+S\+::\+Go = false}
+
+\mbox{\Hypertarget{structPlanningEnv__S_abf1b2389909a4db728add70cd7f06bde}\label{structPlanningEnv__S_abf1b2389909a4db728add70cd7f06bde}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!heading@{heading}}
+\index{heading@{heading}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{heading}{heading}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::heading = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a2aac9db0eb6060c0ca4cf83426e445c0}\label{structPlanningEnv__S_a2aac9db0eb6060c0ca4cf83426e445c0}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!NPN@{NPN}}
+\index{NPN@{NPN}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{NPN}{NPN}}
+{\footnotesize\ttfamily long Planning\+Env\+\_\+\+S\+::\+N\+PN = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a8290ece8105507e5a8ea9ee5ba09cd0c}\label{structPlanningEnv__S_a8290ece8105507e5a8ea9ee5ba09cd0c}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!obstacleVec@{obstacleVec}}
+\index{obstacleVec@{obstacleVec}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{obstacleVec}{obstacleVec}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structObstacle__S}{Obstacle\+\_\+S}}$>$ Planning\+Env\+\_\+\+S\+::obstacle\+Vec}
+
+\mbox{\Hypertarget{structPlanningEnv__S_af0e30af8d59032868f220c0b989472f4}\label{structPlanningEnv__S_af0e30af8d59032868f220c0b989472f4}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!refPathVec@{refPathVec}}
+\index{refPathVec@{refPathVec}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{refPathVec}{refPathVec}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classX__Point}{X\+\_\+\+Point}}$>$ Planning\+Env\+\_\+\+S\+::ref\+Path\+Vec}
+
+\mbox{\Hypertarget{structPlanningEnv__S_aadb5115590330ae633a666ceca123ac6}\label{structPlanningEnv__S_aadb5115590330ae633a666ceca123ac6}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!Signal@{Signal}}
+\index{Signal@{Signal}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{Signal}{Signal}}
+{\footnotesize\ttfamily int Planning\+Env\+\_\+\+S\+::\+Signal = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_aec72b7b8e3fabbec2ca5fa6f3488d6b4}\label{structPlanningEnv__S_aec72b7b8e3fabbec2ca5fa6f3488d6b4}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!size\_x@{size\_x}}
+\index{size\_x@{size\_x}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{size\_x}{size\_x}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::size\+\_\+x = 5.\+0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a466f6cf6edb488714b20e3d44d48ce8a}\label{structPlanningEnv__S_a466f6cf6edb488714b20e3d44d48ce8a}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!size\_y@{size\_y}}
+\index{size\_y@{size\_y}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{size\_y}{size\_y}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::size\+\_\+y = 2.\+0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_aa17af4637954dabb1f4c39047cc85c48}\label{structPlanningEnv__S_aa17af4637954dabb1f4c39047cc85c48}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!size\_z@{size\_z}}
+\index{size\_z@{size\_z}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{size\_z}{size\_z}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::size\+\_\+z = 1.\+75}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ad762aaf9365ee8a9b826bb52c96c7d20}\label{structPlanningEnv__S_ad762aaf9365ee8a9b826bb52c96c7d20}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!speed\_x@{speed\_x}}
+\index{speed\_x@{speed\_x}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{speed\_x}{speed\_x}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::speed\+\_\+x = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a8e57e8d8baa3bba897db6311127eaeb3}\label{structPlanningEnv__S_a8e57e8d8baa3bba897db6311127eaeb3}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!tf@{tf}}
+\index{tf@{tf}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{tf}{tf}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::tf = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a869ca7c367cb3f19a65a298644c3a35a}\label{structPlanningEnv__S_a869ca7c367cb3f19a65a298644c3a35a}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!tf\_max@{tf\_max}}
+\index{tf\_max@{tf\_max}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{tf\_max}{tf\_max}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::tf\+\_\+max = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_af4099e14975c7ed2ba275851a21ba555}\label{structPlanningEnv__S_af4099e14975c7ed2ba275851a21ba555}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!tf\_min@{tf\_min}}
+\index{tf\_min@{tf\_min}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{tf\_min}{tf\_min}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::tf\+\_\+min = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a43f7f833ed675ab4d1077435b5c2d1a0}\label{structPlanningEnv__S_a43f7f833ed675ab4d1077435b5c2d1a0}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::timestamp = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a06f621c817ec1aa1005f69405d7d091c}\label{structPlanningEnv__S_a06f621c817ec1aa1005f69405d7d091c}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!vd\_yield@{vd\_yield}}
+\index{vd\_yield@{vd\_yield}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{vd\_yield}{vd\_yield}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::vd\+\_\+yield = 50}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a86d1ca45ddc61c2559a4527398295235}\label{structPlanningEnv__S_a86d1ca45ddc61c2559a4527398295235}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!wheelbase@{wheelbase}}
+\index{wheelbase@{wheelbase}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{wheelbase}{wheelbase}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::wheelbase = 2.\+85}
+
+\mbox{\Hypertarget{structPlanningEnv__S_af2378a89d53e2b20c101c35037f62b25}\label{structPlanningEnv__S_af2378a89d53e2b20c101c35037f62b25}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!whole\_path@{whole\_path}}
+\index{whole\_path@{whole\_path}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{whole\_path}{whole\_path}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classX__Point}{X\+\_\+\+Point}}$>$ Planning\+Env\+\_\+\+S\+::whole\+\_\+path}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ab411e4332f91201cd9c7bb5e4f270181}\label{structPlanningEnv__S_ab411e4332f91201cd9c7bb5e4f270181}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!world\_cx@{world\_cx}}
+\index{world\_cx@{world\_cx}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{world\_cx}{world\_cx}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::world\+\_\+cx = 443673.\+722475}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a1a42aba43a9832e140ddcb997c0de2ec}\label{structPlanningEnv__S_a1a42aba43a9832e140ddcb997c0de2ec}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!world\_cy@{world\_cy}}
+\index{world\_cy@{world\_cy}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{world\_cy}{world\_cy}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::world\+\_\+cy = 4429497.\+481223}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a309c0c78750a6dee7f023dfb0742b506}\label{structPlanningEnv__S_a309c0c78750a6dee7f023dfb0742b506}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!x@{x}}
+\index{x@{x}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::x = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_aae53b4dd1400ae4b8ffddf01d846d839}\label{structPlanningEnv__S_aae53b4dd1400ae4b8ffddf01d846d839}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!xf@{xf}}
+\index{xf@{xf}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{xf}{xf}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::xf = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ac08acdb6a13f7c83a793c013f9c4338b}\label{structPlanningEnv__S_ac08acdb6a13f7c83a793c013f9c4338b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!xf\_d@{xf\_d}}
+\index{xf\_d@{xf\_d}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{xf\_d}{xf\_d}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::xf\+\_\+d = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a6c30af6bd9bdd1fd7cb1aeed54f50636}\label{structPlanningEnv__S_a6c30af6bd9bdd1fd7cb1aeed54f50636}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!xf\_dd@{xf\_dd}}
+\index{xf\_dd@{xf\_dd}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{xf\_dd}{xf\_dd}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::xf\+\_\+dd = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a2dc3b5d2c2947fc68703d8b3bef9222b}\label{structPlanningEnv__S_a2dc3b5d2c2947fc68703d8b3bef9222b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!xf\_max@{xf\_max}}
+\index{xf\_max@{xf\_max}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{xf\_max}{xf\_max}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::xf\+\_\+max = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ae44aecd35a3ed299a7fa2440e0ce312b}\label{structPlanningEnv__S_ae44aecd35a3ed299a7fa2440e0ce312b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!xf\_min@{xf\_min}}
+\index{xf\_min@{xf\_min}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{xf\_min}{xf\_min}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::xf\+\_\+min = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a6641d783abf6bd711c9a6cbbfb013afd}\label{structPlanningEnv__S_a6641d783abf6bd711c9a6cbbfb013afd}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!y@{y}}
+\index{y@{y}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::y = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a5f351a1aefb766dbb4c3022a6178aa6b}\label{structPlanningEnv__S_a5f351a1aefb766dbb4c3022a6178aa6b}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!yaw\_rate@{yaw\_rate}}
+\index{yaw\_rate@{yaw\_rate}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{yaw\_rate}{yaw\_rate}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::yaw\+\_\+rate = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a98e09c1a9c3903f1d9fffc576d4d2de6}\label{structPlanningEnv__S_a98e09c1a9c3903f1d9fffc576d4d2de6}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!yf@{yf}}
+\index{yf@{yf}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{yf}{yf}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::yf = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_a9d1000c45aac81289179f9987bae2a36}\label{structPlanningEnv__S_a9d1000c45aac81289179f9987bae2a36}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!yf\_max@{yf\_max}}
+\index{yf\_max@{yf\_max}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{yf\_max}{yf\_max}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::yf\+\_\+max = 0}
+
+\mbox{\Hypertarget{structPlanningEnv__S_ae71823de010f363ab8d55c349baaab79}\label{structPlanningEnv__S_ae71823de010f363ab8d55c349baaab79}} 
+\index{PlanningEnv\_S@{PlanningEnv\_S}!yf\_min@{yf\_min}}
+\index{yf\_min@{yf\_min}!PlanningEnv\_S@{PlanningEnv\_S}}
+\doxysubsubsection{\texorpdfstring{yf\_min}{yf\_min}}
+{\footnotesize\ttfamily double Planning\+Env\+\_\+\+S\+::yf\+\_\+min = 0}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{dataDefine_8hpp}{data\+Define.\+hpp}}\end{DoxyCompactItemize}

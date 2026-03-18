@@ -1,0 +1,197 @@
+\hypertarget{UTM_8h}{}\doxysection{include/math/\+U\+TM.h File Reference}
+\label{UTM_8h}\index{include/math/UTM.h@{include/math/UTM.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for U\+T\+M.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{UTM_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{UTM_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceUTM}{U\+TM}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a5c2b7fface7ec13390913124d6afb068}{U\+T\+M\+\_\+\+N\+UM}}~(50)
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}~(3.\+14159265)
+\item 
+\#define \mbox{\hyperlink{UTM_8h_aff5fed76331a27539d98dae83b8d45c5}{P\+I\+\_\+L}}~(3141592L)
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a3478b02a2cce17123c3d98aa39decee1}{R\+A\+D\+I\+A\+N\+S\+\_\+\+P\+E\+R\+\_\+\+D\+E\+G\+R\+EE}}~(\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}/180.\+0)
+\item 
+\#define \mbox{\hyperlink{UTM_8h_af65f0fc64856d532f66e45529cabe800}{D\+E\+G\+R\+E\+E\+S\+\_\+\+P\+E\+R\+\_\+\+R\+A\+D\+I\+AN}}~(180.\+0/\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a8ed7b6a1f199b6d2af90e642918cf271}{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}}(x)~((double)((x)$\ast$\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})/180.\+0)
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a77dd57594a038f87051b324cee42c531}{R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG}}(x)~((double)((x)$\ast$180.\+0)/\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})
+\item 
+\#define \mbox{\hyperlink{UTM_8h_aa09b7cbfbfc67364d373c1a238784a8f}{W\+G\+S84\+\_\+A}}~6378137.\+0
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a91f1c3dfc4df09a0dc868e61da32d5e5}{W\+G\+S84\+\_\+B}}~6356752.\+31424518
+\item 
+\#define \mbox{\hyperlink{UTM_8h_ae90bd6b6a77238cf3358909bedb5ea9b}{W\+G\+S84\+\_\+F}}~0.\+0033528107
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}{W\+G\+S84\+\_\+E}}~0.\+0818191908
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a3b6878739287dd308c1b73f1680d6ed1}{W\+G\+S84\+\_\+\+EP}}~0.\+0820944379
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a087318ddc1531ba44bcfd0b68110c6ac}{U\+T\+M\+\_\+\+K0}}~0.\+9996
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a6dd2db2537a9d61e2539eab36b145c49}{U\+T\+M\+\_\+\+FE}}~500000.\+0
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a5e980ba48646f6cc9acf28a343339bfe}{U\+T\+M\+\_\+\+F\+N\+\_\+N}}~0.\+0
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a5be693257749cb78e30ac722829761f3}{U\+T\+M\+\_\+\+F\+N\+\_\+S}}~10000000.\+0
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}~(\mbox{\hyperlink{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}{W\+G\+S84\+\_\+E}}$\ast$\mbox{\hyperlink{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}{W\+G\+S84\+\_\+E}})
+\item 
+\#define \mbox{\hyperlink{UTM_8h_af78f8bbfc681107b474cc625b44f3024}{U\+T\+M\+\_\+\+E4}}~(\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}$\ast$\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}})
+\item 
+\#define \mbox{\hyperlink{UTM_8h_a7411578a5ceb861e0a291903a95c81c1}{U\+T\+M\+\_\+\+E6}}~(\mbox{\hyperlink{UTM_8h_af78f8bbfc681107b474cc625b44f3024}{U\+T\+M\+\_\+\+E4}}$\ast$\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}})
+\item 
+\#define \mbox{\hyperlink{UTM_8h_ad9d8ad59cbe8605e21c59ee3dbecc660}{U\+T\+M\+\_\+\+E\+P2}}~(\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}/(1-\/\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{namespaceUTM_a79f3126fc1c850a6a88b6165e3c01bc0}{U\+T\+M\+::grid\+\_\+size}} = 100000.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{UTM_8h_a8ed7b6a1f199b6d2af90e642918cf271}\label{UTM_8h_a8ed7b6a1f199b6d2af90e642918cf271}} 
+\index{UTM.h@{UTM.h}!DEG\_TO\_RAD@{DEG\_TO\_RAD}}
+\index{DEG\_TO\_RAD@{DEG\_TO\_RAD}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_TO\_RAD}{DEG\_TO\_RAD}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((double)((x)$\ast$\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})/180.\+0)}
+
+\mbox{\Hypertarget{UTM_8h_af65f0fc64856d532f66e45529cabe800}\label{UTM_8h_af65f0fc64856d532f66e45529cabe800}} 
+\index{UTM.h@{UTM.h}!DEGREES\_PER\_RADIAN@{DEGREES\_PER\_RADIAN}}
+\index{DEGREES\_PER\_RADIAN@{DEGREES\_PER\_RADIAN}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{DEGREES\_PER\_RADIAN}{DEGREES\_PER\_RADIAN}}
+{\footnotesize\ttfamily \#define D\+E\+G\+R\+E\+E\+S\+\_\+\+P\+E\+R\+\_\+\+R\+A\+D\+I\+AN~(180.\+0/\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})}
+
+\mbox{\Hypertarget{UTM_8h_a598a3330b3c21701223ee0ca14316eca}\label{UTM_8h_a598a3330b3c21701223ee0ca14316eca}} 
+\index{UTM.h@{UTM.h}!PI@{PI}}
+\index{PI@{PI}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~(3.\+14159265)}
+
+\mbox{\Hypertarget{UTM_8h_aff5fed76331a27539d98dae83b8d45c5}\label{UTM_8h_aff5fed76331a27539d98dae83b8d45c5}} 
+\index{UTM.h@{UTM.h}!PI\_L@{PI\_L}}
+\index{PI\_L@{PI\_L}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{PI\_L}{PI\_L}}
+{\footnotesize\ttfamily \#define P\+I\+\_\+L~(3141592L)}
+
+\mbox{\Hypertarget{UTM_8h_a77dd57594a038f87051b324cee42c531}\label{UTM_8h_a77dd57594a038f87051b324cee42c531}} 
+\index{UTM.h@{UTM.h}!RAD\_TO\_DEG@{RAD\_TO\_DEG}}
+\index{RAD\_TO\_DEG@{RAD\_TO\_DEG}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{RAD\_TO\_DEG}{RAD\_TO\_DEG}}
+{\footnotesize\ttfamily \#define R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((double)((x)$\ast$180.\+0)/\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}})}
+
+\mbox{\Hypertarget{UTM_8h_a3478b02a2cce17123c3d98aa39decee1}\label{UTM_8h_a3478b02a2cce17123c3d98aa39decee1}} 
+\index{UTM.h@{UTM.h}!RADIANS\_PER\_DEGREE@{RADIANS\_PER\_DEGREE}}
+\index{RADIANS\_PER\_DEGREE@{RADIANS\_PER\_DEGREE}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{RADIANS\_PER\_DEGREE}{RADIANS\_PER\_DEGREE}}
+{\footnotesize\ttfamily \#define R\+A\+D\+I\+A\+N\+S\+\_\+\+P\+E\+R\+\_\+\+D\+E\+G\+R\+EE~(\mbox{\hyperlink{XM__define_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}/180.\+0)}
+
+\mbox{\Hypertarget{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}\label{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}} 
+\index{UTM.h@{UTM.h}!UTM\_E2@{UTM\_E2}}
+\index{UTM\_E2@{UTM\_E2}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_E2}{UTM\_E2}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+E2~(\mbox{\hyperlink{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}{W\+G\+S84\+\_\+E}}$\ast$\mbox{\hyperlink{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}{W\+G\+S84\+\_\+E}})}
+
+\mbox{\Hypertarget{UTM_8h_af78f8bbfc681107b474cc625b44f3024}\label{UTM_8h_af78f8bbfc681107b474cc625b44f3024}} 
+\index{UTM.h@{UTM.h}!UTM\_E4@{UTM\_E4}}
+\index{UTM\_E4@{UTM\_E4}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_E4}{UTM\_E4}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+E4~(\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}$\ast$\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}})}
+
+\mbox{\Hypertarget{UTM_8h_a7411578a5ceb861e0a291903a95c81c1}\label{UTM_8h_a7411578a5ceb861e0a291903a95c81c1}} 
+\index{UTM.h@{UTM.h}!UTM\_E6@{UTM\_E6}}
+\index{UTM\_E6@{UTM\_E6}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_E6}{UTM\_E6}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+E6~(\mbox{\hyperlink{UTM_8h_af78f8bbfc681107b474cc625b44f3024}{U\+T\+M\+\_\+\+E4}}$\ast$\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}})}
+
+\mbox{\Hypertarget{UTM_8h_ad9d8ad59cbe8605e21c59ee3dbecc660}\label{UTM_8h_ad9d8ad59cbe8605e21c59ee3dbecc660}} 
+\index{UTM.h@{UTM.h}!UTM\_EP2@{UTM\_EP2}}
+\index{UTM\_EP2@{UTM\_EP2}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_EP2}{UTM\_EP2}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+E\+P2~(\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}/(1-\/\mbox{\hyperlink{UTM_8h_a8ceb5d1234972ff5e235776268d12e6b}{U\+T\+M\+\_\+\+E2}}))}
+
+\mbox{\Hypertarget{UTM_8h_a6dd2db2537a9d61e2539eab36b145c49}\label{UTM_8h_a6dd2db2537a9d61e2539eab36b145c49}} 
+\index{UTM.h@{UTM.h}!UTM\_FE@{UTM\_FE}}
+\index{UTM\_FE@{UTM\_FE}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_FE}{UTM\_FE}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+FE~500000.\+0}
+
+\mbox{\Hypertarget{UTM_8h_a5e980ba48646f6cc9acf28a343339bfe}\label{UTM_8h_a5e980ba48646f6cc9acf28a343339bfe}} 
+\index{UTM.h@{UTM.h}!UTM\_FN\_N@{UTM\_FN\_N}}
+\index{UTM\_FN\_N@{UTM\_FN\_N}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_FN\_N}{UTM\_FN\_N}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+F\+N\+\_\+N~0.\+0}
+
+\mbox{\Hypertarget{UTM_8h_a5be693257749cb78e30ac722829761f3}\label{UTM_8h_a5be693257749cb78e30ac722829761f3}} 
+\index{UTM.h@{UTM.h}!UTM\_FN\_S@{UTM\_FN\_S}}
+\index{UTM\_FN\_S@{UTM\_FN\_S}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_FN\_S}{UTM\_FN\_S}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+F\+N\+\_\+S~10000000.\+0}
+
+\mbox{\Hypertarget{UTM_8h_a087318ddc1531ba44bcfd0b68110c6ac}\label{UTM_8h_a087318ddc1531ba44bcfd0b68110c6ac}} 
+\index{UTM.h@{UTM.h}!UTM\_K0@{UTM\_K0}}
+\index{UTM\_K0@{UTM\_K0}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_K0}{UTM\_K0}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+K0~0.\+9996}
+
+\mbox{\Hypertarget{UTM_8h_a5c2b7fface7ec13390913124d6afb068}\label{UTM_8h_a5c2b7fface7ec13390913124d6afb068}} 
+\index{UTM.h@{UTM.h}!UTM\_NUM@{UTM\_NUM}}
+\index{UTM\_NUM@{UTM\_NUM}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{UTM\_NUM}{UTM\_NUM}}
+{\footnotesize\ttfamily \#define U\+T\+M\+\_\+\+N\+UM~(50)}
+
+\mbox{\Hypertarget{UTM_8h_aa09b7cbfbfc67364d373c1a238784a8f}\label{UTM_8h_aa09b7cbfbfc67364d373c1a238784a8f}} 
+\index{UTM.h@{UTM.h}!WGS84\_A@{WGS84\_A}}
+\index{WGS84\_A@{WGS84\_A}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{WGS84\_A}{WGS84\_A}}
+{\footnotesize\ttfamily \#define W\+G\+S84\+\_\+A~6378137.\+0}
+
+\mbox{\Hypertarget{UTM_8h_a91f1c3dfc4df09a0dc868e61da32d5e5}\label{UTM_8h_a91f1c3dfc4df09a0dc868e61da32d5e5}} 
+\index{UTM.h@{UTM.h}!WGS84\_B@{WGS84\_B}}
+\index{WGS84\_B@{WGS84\_B}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{WGS84\_B}{WGS84\_B}}
+{\footnotesize\ttfamily \#define W\+G\+S84\+\_\+B~6356752.\+31424518}
+
+\mbox{\Hypertarget{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}\label{UTM_8h_a7f23e711b700027b3c3c4b5dff6585b0}} 
+\index{UTM.h@{UTM.h}!WGS84\_E@{WGS84\_E}}
+\index{WGS84\_E@{WGS84\_E}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{WGS84\_E}{WGS84\_E}}
+{\footnotesize\ttfamily \#define W\+G\+S84\+\_\+E~0.\+0818191908}
+
+\mbox{\Hypertarget{UTM_8h_a3b6878739287dd308c1b73f1680d6ed1}\label{UTM_8h_a3b6878739287dd308c1b73f1680d6ed1}} 
+\index{UTM.h@{UTM.h}!WGS84\_EP@{WGS84\_EP}}
+\index{WGS84\_EP@{WGS84\_EP}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{WGS84\_EP}{WGS84\_EP}}
+{\footnotesize\ttfamily \#define W\+G\+S84\+\_\+\+EP~0.\+0820944379}
+
+\mbox{\Hypertarget{UTM_8h_ae90bd6b6a77238cf3358909bedb5ea9b}\label{UTM_8h_ae90bd6b6a77238cf3358909bedb5ea9b}} 
+\index{UTM.h@{UTM.h}!WGS84\_F@{WGS84\_F}}
+\index{WGS84\_F@{WGS84\_F}!UTM.h@{UTM.h}}
+\doxysubsubsection{\texorpdfstring{WGS84\_F}{WGS84\_F}}
+{\footnotesize\ttfamily \#define W\+G\+S84\+\_\+F~0.\+0033528107}
+

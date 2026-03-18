@@ -1,0 +1,64 @@
+\hypertarget{opt_8h}{}\doxysection{src/traj\+\_\+generator\+\_\+template/include/opt.h File Reference}
+\label{opt_8h}\index{src/traj\_generator\_template/include/opt.h@{src/traj\_generator\_template/include/opt.h}}
+{\ttfamily \#include \char`\"{}X\+M\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spline.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}data\+Define.\+hpp\char`\"{}}\newline
+Include dependency graph for opt.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPoint__Xd}{Point\+\_\+\+Xd}}
+\item 
+class \mbox{\hyperlink{classTrajectory__S}{Trajectory\+\_\+S}}
+\item 
+class \mbox{\hyperlink{classOpt}{Opt}}
+\begin{DoxyCompactList}\small\item\em The main class for optimal trajectory generation. You need to utilize info in {\ttfamily \mbox{\hyperlink{structPlanningEnv__S}{Planning\+Env\+\_\+S}}} to generate optimal trajectory {\ttfamily traj\+\_\+best} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{opt_8h_a2143cc9b084cbf4fe0a0761d92f88b32}{T\+I\+M\+E\+\_\+\+G\+A\+P\+\_\+\+P\+A\+TH}}~(0.\+25)
+\item 
+\#define \mbox{\hyperlink{opt_8h_ac784078887b8c7a0085917fbb1921685}{T\+I\+M\+E\+\_\+\+G\+A\+P\+\_\+\+C\+O\+N\+T\+R\+OL}}~(0.\+04)
+\item 
+\#define \mbox{\hyperlink{opt_8h_a997d6f89704e4b019238170d71f40627}{M\+A\+X\+\_\+\+A\+C\+C\+U\+R\+A\+N\+CY}}~(0.\+1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{opt_8h_a997d6f89704e4b019238170d71f40627}\label{opt_8h_a997d6f89704e4b019238170d71f40627}} 
+\index{opt.h@{opt.h}!MAX\_ACCURANCY@{MAX\_ACCURANCY}}
+\index{MAX\_ACCURANCY@{MAX\_ACCURANCY}!opt.h@{opt.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ACCURANCY}{MAX\_ACCURANCY}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+C\+C\+U\+R\+A\+N\+CY~(0.\+1)}
+
+\mbox{\Hypertarget{opt_8h_ac784078887b8c7a0085917fbb1921685}\label{opt_8h_ac784078887b8c7a0085917fbb1921685}} 
+\index{opt.h@{opt.h}!TIME\_GAP\_CONTROL@{TIME\_GAP\_CONTROL}}
+\index{TIME\_GAP\_CONTROL@{TIME\_GAP\_CONTROL}!opt.h@{opt.h}}
+\doxysubsubsection{\texorpdfstring{TIME\_GAP\_CONTROL}{TIME\_GAP\_CONTROL}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+G\+A\+P\+\_\+\+C\+O\+N\+T\+R\+OL~(0.\+04)}
+
+\mbox{\Hypertarget{opt_8h_a2143cc9b084cbf4fe0a0761d92f88b32}\label{opt_8h_a2143cc9b084cbf4fe0a0761d92f88b32}} 
+\index{opt.h@{opt.h}!TIME\_GAP\_PATH@{TIME\_GAP\_PATH}}
+\index{TIME\_GAP\_PATH@{TIME\_GAP\_PATH}!opt.h@{opt.h}}
+\doxysubsubsection{\texorpdfstring{TIME\_GAP\_PATH}{TIME\_GAP\_PATH}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+G\+A\+P\+\_\+\+P\+A\+TH~(0.\+25)}
+

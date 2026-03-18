@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC   -shared -Wl,-soname,libgmock_main.so -o ../lib/libgmock_main.so CMakeFiles/gmock_main.dir/src/gmock_main.cc.o  -Wl,-rpath,/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/gtest/lib ../lib/libgmock.so ../lib/libgtest.so -lpthread 

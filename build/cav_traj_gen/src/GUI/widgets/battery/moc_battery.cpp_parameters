@@ -1,0 +1,7 @@
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="cav_traj_gen"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-o
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_traj_gen/src/GUI/widgets/battery/moc_battery.cpp
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_traj_gen/src/GUI/widgets/battery/battery.h

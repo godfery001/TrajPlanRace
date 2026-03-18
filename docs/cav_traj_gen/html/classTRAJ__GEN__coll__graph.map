@@ -1,0 +1,11 @@
+<map id="TRAJ_GEN" name="TRAJ_GEN">
+<area shape="rect" id="node1" title=" " alt="" coords="301,1013,413,1091"/>
+<area shape="rect" id="node2" href="$structDataPool__S.html" title="data definition for data pool" alt="" coords="5,785,147,863"/>
+<area shape="rect" id="node3" href="$structPlanningEnv__S.html" title="data structure for planning environment" alt="" coords="17,389,135,613"/>
+<area shape="rect" id="node4" href="$classROSNode.html" title=" " alt="" coords="171,719,333,929"/>
+<area shape="rect" id="node5" href="$classPath__Slicer.html" title=" " alt="" coords="357,756,568,892"/>
+<area shape="rect" id="node6" href="$classOpt.html" title="The main class for optimal trajectory generation. You need to utilize info in PlanningEnv_S to genera..." alt="" coords="592,697,787,951"/>
+<area shape="rect" id="node7" href="$classTrajectory__S.html" title=" " alt="" coords="563,381,690,620"/>
+<area shape="rect" id="node8" href="$classPoint__Xd.html" title=" " alt="" coords="715,396,829,605"/>
+<area shape="rect" id="node9" href="$classX__Point.html" title=" " alt="" coords="715,5,829,332"/>
+</map>

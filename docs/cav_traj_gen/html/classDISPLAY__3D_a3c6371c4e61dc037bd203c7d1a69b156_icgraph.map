@@ -1,0 +1,5 @@
+<map id="DISPLAY_3D::drawObstacle_3d" name="DISPLAY_3D::drawObstacle_3d">
+<area shape="rect" id="node1" title="Renders 3D obstacle models with proper transformations." alt="" coords="456,5,679,32"/>
+<area shape="rect" id="node2" href="$classDISPLAY__3D.html#ad39b33c0d9f122dc0474cbebcb0b304f" title="Main rendering pipeline for driver perspective Visualizes 6 key components:" alt="" coords="213,5,408,32"/>
+<area shape="rect" id="node3" href="$classDISPLAY__3D.html#ac32605d74a2f76173d3c4655be68d78d" title=" " alt="" coords="5,5,165,32"/>
+</map>

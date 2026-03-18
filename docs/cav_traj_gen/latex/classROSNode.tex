@@ -1,0 +1,158 @@
+\hypertarget{classROSNode}{}\doxysection{R\+O\+S\+Node Class Reference}
+\label{classROSNode}\index{ROSNode@{ROSNode}}
+
+
+{\ttfamily \#include $<$ros\+Node.\+h$>$}
+
+
+
+Collaboration diagram for R\+O\+S\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classROSNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classROSNode_a7cf19da2d66ee80e793c88906a513b8d}{R\+O\+S\+Node}} ()
+\item 
+\mbox{\hyperlink{classROSNode_a065cd5d905eef6f7d64576875543ef71}{$\sim$\+R\+O\+S\+Node}} ()
+\item 
+void \mbox{\hyperlink{classROSNode_a52356142eb0ad4e51f4c7416cf4a5619}{ini}} (ros\+::\+Node\+Handle $\ast$const ros\+NodeH, \mbox{\hyperlink{structDataPool__S}{Data\+Pool\+\_\+S}} $\ast$const ss\+Data)
+\item 
+void \mbox{\hyperlink{classROSNode_a1061c585b6ed3b8da01651225ad7827a}{publish\+Plan\+Result}} (std\+::vector$<$ \mbox{\hyperlink{classPoint__Xd}{Point\+\_\+\+Xd}} $>$ \&vec)
+\item 
+void \mbox{\hyperlink{classROSNode_aab0a625cef1f85339642b85acc5ac836}{goal\+CB}} (const cav\+\_\+msgs\+::\+Goal\+::\+Const\+Ptr \&msg)
+\item 
+void \mbox{\hyperlink{classROSNode_abed167d78f2e0d08ec83da27c10a5093}{vehstate\+CB}} (const cav\+\_\+msgs\+::\+Vehicle\+State\+::\+Const\+Ptr \&msg)
+\item 
+void \mbox{\hyperlink{classROSNode_a36ed77cb0bbf0c3b8d9710e731b6f5ad}{obstacles\+CB}} (const cav\+\_\+msgs\+::\+Obstacle\+Vec\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{classROSNode_aadf6acd0a7177fde2229bae0cf982c66}{pub\+\_\+plan\+\_\+result}}
+\item 
+ros\+::\+Subscriber \mbox{\hyperlink{classROSNode_ab9f3fbb3f3467338d1af0e500bbc87d6}{sub\+\_\+goal}}
+\item 
+ros\+::\+Subscriber \mbox{\hyperlink{classROSNode_a5137312cb7966f1fa8d89493c631e918}{sub\+\_\+vehstate}}
+\item 
+ros\+::\+Subscriber \mbox{\hyperlink{classROSNode_a997ee98feb5c9019b15f0db4df5bd04b}{sub\+\_\+obstacles}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classROSNode_a7cf19da2d66ee80e793c88906a513b8d}\label{classROSNode_a7cf19da2d66ee80e793c88906a513b8d}} 
+\index{ROSNode@{ROSNode}!ROSNode@{ROSNode}}
+\index{ROSNode@{ROSNode}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{ROSNode()}{ROSNode()}}
+{\footnotesize\ttfamily R\+O\+S\+Node\+::\+R\+O\+S\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classROSNode_a065cd5d905eef6f7d64576875543ef71}\label{classROSNode_a065cd5d905eef6f7d64576875543ef71}} 
+\index{ROSNode@{ROSNode}!````~ROSNode@{$\sim$ROSNode}}
+\index{````~ROSNode@{$\sim$ROSNode}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{$\sim$ROSNode()}{~ROSNode()}}
+{\footnotesize\ttfamily R\+O\+S\+Node\+::$\sim$\+R\+O\+S\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classROSNode_aab0a625cef1f85339642b85acc5ac836}\label{classROSNode_aab0a625cef1f85339642b85acc5ac836}} 
+\index{ROSNode@{ROSNode}!goalCB@{goalCB}}
+\index{goalCB@{goalCB}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{goalCB()}{goalCB()}}
+{\footnotesize\ttfamily void R\+O\+S\+Node\+::goal\+CB (\begin{DoxyParamCaption}\item[{const cav\+\_\+msgs\+::\+Goal\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{classROSNode_aab0a625cef1f85339642b85acc5ac836_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classROSNode_a52356142eb0ad4e51f4c7416cf4a5619}\label{classROSNode_a52356142eb0ad4e51f4c7416cf4a5619}} 
+\index{ROSNode@{ROSNode}!ini@{ini}}
+\index{ini@{ini}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{ini()}{ini()}}
+{\footnotesize\ttfamily void R\+O\+S\+Node\+::ini (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$const}]{ros\+NodeH,  }\item[{\mbox{\hyperlink{structDataPool__S}{Data\+Pool\+\_\+S}} $\ast$const}]{ss\+Data }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classROSNode_a52356142eb0ad4e51f4c7416cf4a5619_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classROSNode_a36ed77cb0bbf0c3b8d9710e731b6f5ad}\label{classROSNode_a36ed77cb0bbf0c3b8d9710e731b6f5ad}} 
+\index{ROSNode@{ROSNode}!obstaclesCB@{obstaclesCB}}
+\index{obstaclesCB@{obstaclesCB}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{obstaclesCB()}{obstaclesCB()}}
+{\footnotesize\ttfamily void R\+O\+S\+Node\+::obstacles\+CB (\begin{DoxyParamCaption}\item[{const cav\+\_\+msgs\+::\+Obstacle\+Vec\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classROSNode_a36ed77cb0bbf0c3b8d9710e731b6f5ad_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classROSNode_a1061c585b6ed3b8da01651225ad7827a}\label{classROSNode_a1061c585b6ed3b8da01651225ad7827a}} 
+\index{ROSNode@{ROSNode}!publishPlanResult@{publishPlanResult}}
+\index{publishPlanResult@{publishPlanResult}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{publishPlanResult()}{publishPlanResult()}}
+{\footnotesize\ttfamily void R\+O\+S\+Node\+::publish\+Plan\+Result (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classPoint__Xd}{Point\+\_\+\+Xd}} $>$ \&}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classROSNode_abed167d78f2e0d08ec83da27c10a5093}\label{classROSNode_abed167d78f2e0d08ec83da27c10a5093}} 
+\index{ROSNode@{ROSNode}!vehstateCB@{vehstateCB}}
+\index{vehstateCB@{vehstateCB}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{vehstateCB()}{vehstateCB()}}
+{\footnotesize\ttfamily void R\+O\+S\+Node\+::vehstate\+CB (\begin{DoxyParamCaption}\item[{const cav\+\_\+msgs\+::\+Vehicle\+State\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classROSNode_abed167d78f2e0d08ec83da27c10a5093_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classROSNode_aadf6acd0a7177fde2229bae0cf982c66}\label{classROSNode_aadf6acd0a7177fde2229bae0cf982c66}} 
+\index{ROSNode@{ROSNode}!pub\_plan\_result@{pub\_plan\_result}}
+\index{pub\_plan\_result@{pub\_plan\_result}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{pub\_plan\_result}{pub\_plan\_result}}
+{\footnotesize\ttfamily ros\+::\+Publisher R\+O\+S\+Node\+::pub\+\_\+plan\+\_\+result}
+
+\mbox{\Hypertarget{classROSNode_ab9f3fbb3f3467338d1af0e500bbc87d6}\label{classROSNode_ab9f3fbb3f3467338d1af0e500bbc87d6}} 
+\index{ROSNode@{ROSNode}!sub\_goal@{sub\_goal}}
+\index{sub\_goal@{sub\_goal}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{sub\_goal}{sub\_goal}}
+{\footnotesize\ttfamily ros\+::\+Subscriber R\+O\+S\+Node\+::sub\+\_\+goal}
+
+\mbox{\Hypertarget{classROSNode_a997ee98feb5c9019b15f0db4df5bd04b}\label{classROSNode_a997ee98feb5c9019b15f0db4df5bd04b}} 
+\index{ROSNode@{ROSNode}!sub\_obstacles@{sub\_obstacles}}
+\index{sub\_obstacles@{sub\_obstacles}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{sub\_obstacles}{sub\_obstacles}}
+{\footnotesize\ttfamily ros\+::\+Subscriber R\+O\+S\+Node\+::sub\+\_\+obstacles}
+
+\mbox{\Hypertarget{classROSNode_a5137312cb7966f1fa8d89493c631e918}\label{classROSNode_a5137312cb7966f1fa8d89493c631e918}} 
+\index{ROSNode@{ROSNode}!sub\_vehstate@{sub\_vehstate}}
+\index{sub\_vehstate@{sub\_vehstate}!ROSNode@{ROSNode}}
+\doxysubsubsection{\texorpdfstring{sub\_vehstate}{sub\_vehstate}}
+{\footnotesize\ttfamily ros\+::\+Subscriber R\+O\+S\+Node\+::sub\+\_\+vehstate}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/ros\+Node/\mbox{\hyperlink{rosNode_8h}{ros\+Node.\+h}}\item 
+src/ros\+Node/\mbox{\hyperlink{pub_8cpp}{pub.\+cpp}}\item 
+src/ros\+Node/\mbox{\hyperlink{recv_8cpp}{recv.\+cpp}}\end{DoxyCompactItemize}

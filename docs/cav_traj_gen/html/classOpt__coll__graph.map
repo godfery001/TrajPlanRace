@@ -1,0 +1,6 @@
+<map id="Opt" name="Opt">
+<area shape="rect" id="node1" title="The main class for optimal trajectory generation. You need to utilize info in PlanningEnv_S to genera..." alt="" coords="23,697,218,951"/>
+<area shape="rect" id="node2" href="$classTrajectory__S.html" title=" " alt="" coords="5,381,132,620"/>
+<area shape="rect" id="node3" href="$classPoint__Xd.html" title=" " alt="" coords="157,396,271,605"/>
+<area shape="rect" id="node4" href="$classX__Point.html" title=" " alt="" coords="157,5,271,332"/>
+</map>

@@ -1,0 +1,24 @@
+<map id="DISPLAY_3D::paintGL" name="DISPLAY_3D::paintGL">
+<area shape="rect" id="node1" title=" " alt="" coords="5,335,165,361"/>
+<area shape="rect" id="node2" href="$classDISPLAY__3D.html#a6b0f466eecd6f870481b251389e10414" title="Main rendering pipeline for bird&#39;s&#45;eye view Visualizes 7 key components:" alt="" coords="213,157,408,184"/>
+<area shape="rect" id="node15" href="$classDISPLAY__3D.html#ad39b33c0d9f122dc0474cbebcb0b304f" title="Main rendering pipeline for driver perspective Visualizes 6 key components:" alt="" coords="213,309,408,336"/>
+<area shape="rect" id="node20" href="$classDISPLAY__3D.html#a5ebe81de84c015d17313a5006d04e393" title="Maintains historical path buffer." alt="" coords="215,360,406,387"/>
+<area shape="rect" id="node22" href="$classDISPLAY__3D.html#ac9e69fbe5c50d774d16296cde7e6b4b5" title=" " alt="" coords="231,411,390,437"/>
+<area shape="rect" id="node3" href="$classDISPLAY__3D.html#acd077f851eb18b4e8627a5b319d37e34" title="Renders 2D obstacle representations." alt="" coords="468,5,667,32"/>
+<area shape="rect" id="node4" href="$namespaceD3D.html#a831658ddc09d18faf03edbf3eea6f4a8" title=" " alt="" coords="757,5,911,32"/>
+<area shape="rect" id="node5" href="$namespaceD3D.html#ad97ec3c7a4983a85e9a16ee7987d8731" title=" " alt="" coords="483,107,651,133"/>
+<area shape="rect" id="node6" href="$classDISPLAY__3D.html#a7c137fa00e10fe6406f6d569bf400fba" title="Generic trajectory visualization template." alt="" coords="484,157,651,184"/>
+<area shape="rect" id="node12" href="$classDISPLAY__3D.html#a24a8257a78103403900fcfd524c6ffcd" title=" " alt="" coords="472,208,663,235"/>
+<area shape="rect" id="node14" href="$classDISPLAY__3D.html#a8a93eca5e4fbae9bda47764b736c3b4b" title=" " alt="" coords="481,259,653,285"/>
+<area shape="rect" id="node7" href="$namespaceD3D.html#a306800142802ebb8365ddc7d85f98189" title=" " alt="" coords="753,309,915,336"/>
+<area shape="rect" id="node8" href="$namespaceD3D.html#ac8e862578a2bbed1e9576e5dce05d474" title=" " alt="" coords="743,157,925,184"/>
+<area shape="rect" id="node9" href="$namespaceD3D.html#a6e8e971ce159a1efcbd787d9c1c95660" title=" " alt="" coords="747,208,921,235"/>
+<area shape="rect" id="node10" href="$namespaceD3D.html#abeef5e38a0aa42b197cea105fbb15c0d" title=" " alt="" coords="761,56,907,83"/>
+<area shape="rect" id="node11" href="$namespaceD3D.html#aa433883b8d11390e765fb5a176b102e9" title=" " alt="" coords="753,107,915,133"/>
+<area shape="rect" id="node13" href="$classObjLoader.html#a66456143cc2b54525d937c074d3f38ec" title="Renders model with texture mapping." alt="" coords="735,259,933,285"/>
+<area shape="rect" id="node16" href="$classDISPLAY__3D.html#a3c6371c4e61dc037bd203c7d1a69b156" title="Renders 3D obstacle models with proper transformations." alt="" coords="456,411,679,437"/>
+<area shape="rect" id="node18" href="$namespaceD3D.html#a09741305fb6192c04e46bea7c9634eed" title=" " alt="" coords="768,360,900,387"/>
+<area shape="rect" id="node19" href="$classDISPLAY__3D.html#ac5f311be9b64fff477a12accbed1a1c4" title="Renders trajectory with distance&#45;based alpha attenuation." alt="" coords="470,309,665,336"/>
+<area shape="rect" id="node17" href="$namespaceD3D.html#a1fd7ec08d07896c8cbd447c79b5d65b3" title=" " alt="" coords="727,411,941,437"/>
+<area shape="rect" id="node21" href="$namespaceXM.html#af3dba0e671acc4fc93bb5d06504ed2a6" title=" " alt="" coords="505,461,630,488"/>
+</map>

@@ -1,0 +1,40 @@
+\hypertarget{display__3d__mode1_8cpp}{}\doxysection{src/\+G\+U\+I/widgets/3d\+\_\+display/display\+\_\+3d\+\_\+mode1.cpp File Reference}
+\label{display__3d__mode1_8cpp}\index{src/GUI/widgets/3d\_display/display\_3d\_mode1.cpp@{src/GUI/widgets/3d\_display/display\_3d\_mode1.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}display\+\_\+3d.\+h\char`\"{}}\newline
+Include dependency graph for display\+\_\+3d\+\_\+mode1.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{display__3d__mode1_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{display__3d__mode1_8cpp_a52f48612cbc811224e4f00a418a50df9}{calc\+Norm\+Vec}} (double x1, double y1, double z1, double x2, double y2, double z2, double \&x\+\_\+norm, double \&y\+\_\+norm, double \&z\+\_\+norm)
+\begin{DoxyCompactList}\small\item\em Computes normalized vector perpendicular to input vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{display__3d__mode1_8cpp_a52f48612cbc811224e4f00a418a50df9}\label{display__3d__mode1_8cpp_a52f48612cbc811224e4f00a418a50df9}} 
+\index{display\_3d\_mode1.cpp@{display\_3d\_mode1.cpp}!calcNormVec@{calcNormVec}}
+\index{calcNormVec@{calcNormVec}!display\_3d\_mode1.cpp@{display\_3d\_mode1.cpp}}
+\doxysubsubsection{\texorpdfstring{calcNormVec()}{calcNormVec()}}
+{\footnotesize\ttfamily void calc\+Norm\+Vec (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{z1,  }\item[{double}]{x2,  }\item[{double}]{y2,  }\item[{double}]{z2,  }\item[{double \&}]{x\+\_\+norm,  }\item[{double \&}]{y\+\_\+norm,  }\item[{double \&}]{z\+\_\+norm }\end{DoxyParamCaption})}
+
+
+
+Computes normalized vector perpendicular to input vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1,y1,z1} & Components of first vector \\
+\hline
+{\em x2,y2,z2} & Components of second vector \\
+\hline
+{\em x\+\_\+norm,y\+\_\+norm,z\+\_\+norm} & Output normalized orthogonal vector\\
+\hline
+\end{DoxyParams}
+Calculates cross product and normalizes to unit length\+: result = (v1 × v2) / $\vert$$\vert$v1 × v2$\vert$$\vert$ 

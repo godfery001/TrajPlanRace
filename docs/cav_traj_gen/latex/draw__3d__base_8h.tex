@@ -1,0 +1,63 @@
+\hypertarget{draw__3d__base_8h}{}\doxysection{include/math/draw\+\_\+3d\+\_\+base.h File Reference}
+\label{draw__3d__base_8h}\index{include/math/draw\_3d\_base.h@{include/math/draw\_3d\_base.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$Q\+G\+L\+Widget$>$}\newline
+{\ttfamily \#include $<$Q\+Text\+Stream$>$}\newline
+{\ttfamily \#include $<$Q\+Key\+Event$>$}\newline
+{\ttfamily \#include $<$G\+L/glu.\+h$>$}\newline
+{\ttfamily \#include $<$G\+L/freeglut.\+h$>$}\newline
+{\ttfamily \#include $<$Q\+Message\+Box$>$}\newline
+{\ttfamily \#include $<$Q\+Application$>$}\newline
+{\ttfamily \#include \char`\"{}X\+Math.\+h\char`\"{}}\newline
+Include dependency graph for draw\+\_\+3d\+\_\+base.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{draw__3d__base_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{draw__3d__base_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceD3D}{D3D}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceD3D_ad97ec3c7a4983a85e9a16ee7987d8731}{D3\+D\+::draw\+One\+Triangle}} (double x, double y, double h, double hg, double size, double level, bool filled=true)
+\item 
+void \mbox{\hyperlink{namespaceD3D_a09741305fb6192c04e46bea7c9634eed}{D3\+D\+::draw\+One\+PT}} (double x1, double y1, double h1, double x2, double y2, double h2, double size, double level)
+\item 
+void \mbox{\hyperlink{namespaceD3D_ac5f5ac28bf81555b290a75a36dc0a5a1}{D3\+D\+::draw\+One\+PT}} (double x, double y, double size\+\_\+x, double size\+\_\+y, double level)
+\item 
+void \mbox{\hyperlink{namespaceD3D_a831658ddc09d18faf03edbf3eea6f4a8}{D3\+D\+::draw\+One\+Circle}} (double x, double y, double r, int num, double level, bool filled)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_aa433883b8d11390e765fb5a176b102e9}{D3\+D\+::draw\+Traj\+\_\+points}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double size, bool filled, double line\+\_\+width)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_abeef5e38a0aa42b197cea105fbb15c0d}{D3\+D\+::draw\+Traj\+\_\+line}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double line\+\_\+width)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_a6e8e971ce159a1efcbd787d9c1c95660}{D3\+D\+::draw\+Traj\+\_\+heading}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double line\+\_\+width)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_a16f6dbba3b77f89a2a8d7f7afc79b6fb}{D3\+D\+::draw\+Traj\+\_\+speed}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double line\+\_\+width)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_ac8e862578a2bbed1e9576e5dce05d474}{D3\+D\+::draw\+Traj\+\_\+curvature}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double line\+\_\+width)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceD3D_a306800142802ebb8365ddc7d85f98189}{D3\+D\+::draw\+Traj\+\_\+bound}} (std\+::vector$<$ T $>$ $\ast$vec, double r, double g, double b, int gap, double level, double line\+\_\+width, bool en\+\_\+left, bool en\+\_\+right)
+\item 
+void \mbox{\hyperlink{namespaceD3D_a1fd7ec08d07896c8cbd447c79b5d65b3}{D3\+D\+::draw\+One3\+D\+Obj\+\_\+cylinder}} (double cx, double cy, double cz, double radius, double height, double r, double g, double b, double alp)
+\end{DoxyCompactItemize}

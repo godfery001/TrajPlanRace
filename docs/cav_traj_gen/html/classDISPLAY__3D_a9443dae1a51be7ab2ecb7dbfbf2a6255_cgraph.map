@@ -1,0 +1,8 @@
+<map id="DISPLAY_3D::initializeGL" name="DISPLAY_3D::initializeGL">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,188,83"/>
+<area shape="rect" id="node2" href="$classDISPLAY__3D.html#a7df043856ebb1b561fd218e405f20ae8" title=" " alt="" coords="236,56,439,83"/>
+<area shape="rect" id="node3" href="$classObjLoader.html#a8075a69ea75b2447d2f542c42774ea5c" title="Main model loading interface." alt="" coords="491,31,617,57"/>
+<area shape="rect" id="node6" href="$classObjLoader.html#aa43fa323edf504e3fae6db1ed92b212d" title="Scales model and calculates bounding dimensions." alt="" coords="487,81,621,108"/>
+<area shape="rect" id="node4" href="$classObjLoader.html#a043906dc174f5be4fe3982087c954b3b" title="Parses Wavefront OBJ file." alt="" coords="671,5,839,32"/>
+<area shape="rect" id="node5" href="$classObjLoader.html#a3ca1d2931b5fa96057ce31f78465e57f" title="Loads texture image into OpenGL." alt="" coords="669,56,841,83"/>
+</map>

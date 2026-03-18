@@ -1,0 +1,2 @@
+CSSR:cav_control:cav_msgs:cav_path_pub:cav_traj_gen
+-DCATKIN_DEVEL_PREFIX=/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel -DCMAKE_INSTALL_PREFIX=/home/siegf/Downloads/path_planning_test/TrajPlanRace/install -G Unix Makefiles

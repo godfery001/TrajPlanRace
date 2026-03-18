@@ -1,0 +1,15 @@
+<map id="DISPLAY_3D::draw_mode1" name="DISPLAY_3D::draw_mode1">
+<area shape="rect" id="node1" title="Main rendering pipeline for bird&#39;s&#45;eye view Visualizes 7 key components:" alt="" coords="5,132,200,159"/>
+<area shape="rect" id="node2" href="$classDISPLAY__3D.html#acd077f851eb18b4e8627a5b319d37e34" title="Renders 2D obstacle representations." alt="" coords="248,5,447,32"/>
+<area shape="rect" id="node3" href="$namespaceD3D.html#a831658ddc09d18faf03edbf3eea6f4a8" title=" " alt="" coords="517,5,670,32"/>
+<area shape="rect" id="node4" href="$namespaceD3D.html#ad97ec3c7a4983a85e9a16ee7987d8731" title=" " alt="" coords="263,107,431,133"/>
+<area shape="rect" id="node5" href="$classDISPLAY__3D.html#a7c137fa00e10fe6406f6d569bf400fba" title="Generic trajectory visualization template." alt="" coords="264,157,431,184"/>
+<area shape="rect" id="node11" href="$classDISPLAY__3D.html#a24a8257a78103403900fcfd524c6ffcd" title=" " alt="" coords="252,208,443,235"/>
+<area shape="rect" id="node13" href="$classDISPLAY__3D.html#a8a93eca5e4fbae9bda47764b736c3b4b" title=" " alt="" coords="261,259,433,285"/>
+<area shape="rect" id="node6" href="$namespaceD3D.html#a306800142802ebb8365ddc7d85f98189" title=" " alt="" coords="513,56,674,83"/>
+<area shape="rect" id="node7" href="$namespaceD3D.html#ac8e862578a2bbed1e9576e5dce05d474" title=" " alt="" coords="502,107,685,133"/>
+<area shape="rect" id="node8" href="$namespaceD3D.html#a6e8e971ce159a1efcbd787d9c1c95660" title=" " alt="" coords="507,157,680,184"/>
+<area shape="rect" id="node9" href="$namespaceD3D.html#abeef5e38a0aa42b197cea105fbb15c0d" title=" " alt="" coords="521,208,666,235"/>
+<area shape="rect" id="node10" href="$namespaceD3D.html#aa433883b8d11390e765fb5a176b102e9" title=" " alt="" coords="513,259,674,285"/>
+<area shape="rect" id="node12" href="$classObjLoader.html#a66456143cc2b54525d937c074d3f38ec" title="Renders model with texture mapping." alt="" coords="495,309,692,336"/>
+</map>

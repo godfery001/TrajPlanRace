@@ -1,0 +1,11 @@
+<map id="DISPLAY_3D::draw_mode2" name="DISPLAY_3D::draw_mode2">
+<area shape="rect" id="node1" title="Main rendering pipeline for driver perspective Visualizes 6 key components:" alt="" coords="5,107,200,133"/>
+<area shape="rect" id="node2" href="$classDISPLAY__3D.html#a3c6371c4e61dc037bd203c7d1a69b156" title="Renders 3D obstacle models with proper transformations." alt="" coords="248,5,471,32"/>
+<area shape="rect" id="node4" href="$namespaceD3D.html#a09741305fb6192c04e46bea7c9634eed" title=" " alt="" coords="560,56,692,83"/>
+<area shape="rect" id="node5" href="$classDISPLAY__3D.html#ac5f311be9b64fff477a12accbed1a1c4" title="Renders trajectory with distance&#45;based alpha attenuation." alt="" coords="262,107,457,133"/>
+<area shape="rect" id="node7" href="$classDISPLAY__3D.html#a24a8257a78103403900fcfd524c6ffcd" title=" " alt="" coords="264,157,455,184"/>
+<area shape="rect" id="node9" href="$classDISPLAY__3D.html#a8a93eca5e4fbae9bda47764b736c3b4b" title=" " alt="" coords="273,208,445,235"/>
+<area shape="rect" id="node3" href="$namespaceD3D.html#a1fd7ec08d07896c8cbd447c79b5d65b3" title=" " alt="" coords="519,5,733,32"/>
+<area shape="rect" id="node6" href="$namespaceD3D.html#a306800142802ebb8365ddc7d85f98189" title=" " alt="" coords="545,107,707,133"/>
+<area shape="rect" id="node8" href="$classObjLoader.html#a66456143cc2b54525d937c074d3f38ec" title="Renders model with texture mapping." alt="" coords="527,157,725,184"/>
+</map>

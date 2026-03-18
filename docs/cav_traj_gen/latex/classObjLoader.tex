@@ -1,0 +1,346 @@
+\hypertarget{classObjLoader}{}\doxysection{Obj\+Loader Class Reference}
+\label{classObjLoader}\index{ObjLoader@{ObjLoader}}
+
+
+{\ttfamily \#include $<$objloader.\+h$>$}
+
+
+
+Collaboration diagram for Obj\+Loader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{classObjLoader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classObjLoader_afb5e3f9b49676580b03673c92255ac2b}{Obj\+Loader}} ()
+\item 
+bool \mbox{\hyperlink{classObjLoader_a8075a69ea75b2447d2f542c42774ea5c}{Load}} (Q\+String obj\+File, Q\+String texture\+File)
+\begin{DoxyCompactList}\small\item\em Main model loading interface. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classObjLoader_a043906dc174f5be4fe3982087c954b3b}{load\+Obj\+File}} (Q\+String path\+To\+File)
+\begin{DoxyCompactList}\small\item\em Parses Wavefront O\+BJ file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classObjLoader_a3ca1d2931b5fa96057ce31f78465e57f}{load\+Texture}} (Q\+String texture\+File)
+\begin{DoxyCompactList}\small\item\em Loads texture image into Open\+GL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObjLoader_aa43fa323edf504e3fae6db1ed92b212d}{resize}} (float k)
+\begin{DoxyCompactList}\small\item\em Scales model and calculates bounding dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObjLoader_a66456143cc2b54525d937c074d3f38ec}{Render\+\_\+\+Texture}} (float sx, float sy, float sz)
+\begin{DoxyCompactList}\small\item\em Renders model with texture mapping. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObjLoader_a40da1109cf1f8ebfe31f5823609eefd8}{Render}} (float sx, float sy, float sz, float r, float g, float b)
+\begin{DoxyCompactList}\small\item\em Renders model with uniform color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classObjLoader_a8a8ba968d733b565bcfd8ba34cf27193}{target\+Texture}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structVertex}{Vertex}} $>$ \mbox{\hyperlink{classObjLoader_abbe79585390603518a9ac4373eaca441}{m\+Vertices}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structNormal}{Normal}} $>$ \mbox{\hyperlink{classObjLoader_a736a6e3019dfbaf03bad8fbcedb620d5}{m\+Normals}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTexture}{Texture}} $>$ \mbox{\hyperlink{classObjLoader_a7ac182aeb6cf8db89f969a3f9eef39de}{m\+Textures}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structFace}{Face}} $>$ \mbox{\hyperlink{classObjLoader_a836efd2b94491ac41fe6cff5c7d679a6}{m\+Faces}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a25dca72157663b5c757fe862e3e9cf4a}{max\+\_\+x}}
+\item 
+float \mbox{\hyperlink{classObjLoader_aeceb77b7287ae58c602139ddd0605549}{min\+\_\+x}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a09ca22c63c045f71819eee8a8de1da39}{max\+\_\+y}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a851f76626a3dfb8ae08eba9c29938692}{min\+\_\+y}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a79f50d9f0dc86089b4fd068f2409c2f6}{max\+\_\+z}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a0a6fb846c3939145c4a2337e6e67f5c2}{min\+\_\+z}}
+\item 
+float \mbox{\hyperlink{classObjLoader_af4f5a7b5f6ba7b3738a28f4c90c43211}{size\+\_\+x}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a42553039a5921ce9360a56bced2242f0}{size\+\_\+y}}
+\item 
+float \mbox{\hyperlink{classObjLoader_a16b2bb5824efa83c583a271dbb318b5c}{size\+\_\+z}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classObjLoader_afb5e3f9b49676580b03673c92255ac2b}\label{classObjLoader_afb5e3f9b49676580b03673c92255ac2b}} 
+\index{ObjLoader@{ObjLoader}!ObjLoader@{ObjLoader}}
+\index{ObjLoader@{ObjLoader}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{ObjLoader()}{ObjLoader()}}
+{\footnotesize\ttfamily Obj\+Loader\+::\+Obj\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classObjLoader_a8075a69ea75b2447d2f542c42774ea5c}\label{classObjLoader_a8075a69ea75b2447d2f542c42774ea5c}} 
+\index{ObjLoader@{ObjLoader}!Load@{Load}}
+\index{Load@{Load}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Obj\+Loader\+::\+Load (\begin{DoxyParamCaption}\item[{Q\+String}]{obj\+File,  }\item[{Q\+String}]{texture\+File }\end{DoxyParamCaption})}
+
+
+
+Main model loading interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+File} & Path to .obj model file \\
+\hline
+{\em texture\+File} & Path to texture image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both model and texture loaded successfully 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classObjLoader_a8075a69ea75b2447d2f542c42774ea5c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObjLoader_a8075a69ea75b2447d2f542c42774ea5c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classObjLoader_a043906dc174f5be4fe3982087c954b3b}\label{classObjLoader_a043906dc174f5be4fe3982087c954b3b}} 
+\index{ObjLoader@{ObjLoader}!loadObjFile@{loadObjFile}}
+\index{loadObjFile@{loadObjFile}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{loadObjFile()}{loadObjFile()}}
+{\footnotesize\ttfamily int Obj\+Loader\+::load\+Obj\+File (\begin{DoxyParamCaption}\item[{Q\+String}]{path\+To\+File }\end{DoxyParamCaption})}
+
+
+
+Parses Wavefront O\+BJ file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+To\+File} & O\+BJ file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/2 on file error
+\end{DoxyReturn}
+Processes\+:
+\begin{DoxyItemize}
+\item v\+: \mbox{\hyperlink{structVertex}{Vertex}} positions
+\item vt\+: \mbox{\hyperlink{structTexture}{Texture}} coordinates
+\item vn\+: \mbox{\hyperlink{structNormal}{Normal}} vectors
+\item f\+: \mbox{\hyperlink{structFace}{Face}} definitions with indices 
+\end{DoxyItemize}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObjLoader_a043906dc174f5be4fe3982087c954b3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classObjLoader_a3ca1d2931b5fa96057ce31f78465e57f}\label{classObjLoader_a3ca1d2931b5fa96057ce31f78465e57f}} 
+\index{ObjLoader@{ObjLoader}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily int Obj\+Loader\+::load\+Texture (\begin{DoxyParamCaption}\item[{Q\+String}]{texture\+File }\end{DoxyParamCaption})}
+
+
+
+Loads texture image into Open\+GL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture\+File} & Image file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item Converts image to R\+G\+B888 format
+\item Mirrors vertically for Open\+GL texture coordinates
+\item Generates Open\+GL texture with linear filtering 
+\end{DoxyItemize}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObjLoader_a3ca1d2931b5fa96057ce31f78465e57f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classObjLoader_a40da1109cf1f8ebfe31f5823609eefd8}\label{classObjLoader_a40da1109cf1f8ebfe31f5823609eefd8}} 
+\index{ObjLoader@{ObjLoader}!Render@{Render}}
+\index{Render@{Render}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Obj\+Loader\+::\+Render (\begin{DoxyParamCaption}\item[{float}]{sx,  }\item[{float}]{sy,  }\item[{float}]{sz,  }\item[{float}]{r,  }\item[{float}]{g,  }\item[{float}]{b }\end{DoxyParamCaption})}
+
+
+
+Renders model with uniform color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sx,sy,sz} & Scale factors per axis \\
+\hline
+{\em r,g,b} & R\+GB color components \mbox{[}0-\/1\mbox{]}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item Centers model around origin
+\item Applies axis-\/specific scaling
+\item Uses face normal data for lighting 
+\end{DoxyItemize}\mbox{\Hypertarget{classObjLoader_a66456143cc2b54525d937c074d3f38ec}\label{classObjLoader_a66456143cc2b54525d937c074d3f38ec}} 
+\index{ObjLoader@{ObjLoader}!Render\_Texture@{Render\_Texture}}
+\index{Render\_Texture@{Render\_Texture}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{Render\_Texture()}{Render\_Texture()}}
+{\footnotesize\ttfamily void Obj\+Loader\+::\+Render\+\_\+\+Texture (\begin{DoxyParamCaption}\item[{float}]{sx,  }\item[{float}]{sy,  }\item[{float}]{sz }\end{DoxyParamCaption})}
+
+
+
+Renders model with texture mapping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sx,sy,sz} & Scale factors per axis\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item Enables texture mapping
+\item Centers and scales model
+\item Uses UV coordinates from O\+BJ file 
+\end{DoxyItemize}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObjLoader_a66456143cc2b54525d937c074d3f38ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classObjLoader_aa43fa323edf504e3fae6db1ed92b212d}\label{classObjLoader_aa43fa323edf504e3fae6db1ed92b212d}} 
+\index{ObjLoader@{ObjLoader}!resize@{resize}}
+\index{resize@{resize}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Obj\+Loader\+::resize (\begin{DoxyParamCaption}\item[{float}]{scale }\end{DoxyParamCaption})}
+
+
+
+Scales model and calculates bounding dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale} & Uniform scaling factor\\
+\hline
+\end{DoxyParams}
+Processes\+:
+\begin{DoxyEnumerate}
+\item Applies scaling to vertex positions
+\item Calculates model bounding box
+\item Stores final dimensions (size\+\_\+x/y/z) 
+\end{DoxyEnumerate}Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObjLoader_aa43fa323edf504e3fae6db1ed92b212d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classObjLoader_a25dca72157663b5c757fe862e3e9cf4a}\label{classObjLoader_a25dca72157663b5c757fe862e3e9cf4a}} 
+\index{ObjLoader@{ObjLoader}!max\_x@{max\_x}}
+\index{max\_x@{max\_x}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{max\_x}{max\_x}}
+{\footnotesize\ttfamily float Obj\+Loader\+::max\+\_\+x}
+
+\mbox{\Hypertarget{classObjLoader_a09ca22c63c045f71819eee8a8de1da39}\label{classObjLoader_a09ca22c63c045f71819eee8a8de1da39}} 
+\index{ObjLoader@{ObjLoader}!max\_y@{max\_y}}
+\index{max\_y@{max\_y}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{max\_y}{max\_y}}
+{\footnotesize\ttfamily float Obj\+Loader\+::max\+\_\+y}
+
+\mbox{\Hypertarget{classObjLoader_a79f50d9f0dc86089b4fd068f2409c2f6}\label{classObjLoader_a79f50d9f0dc86089b4fd068f2409c2f6}} 
+\index{ObjLoader@{ObjLoader}!max\_z@{max\_z}}
+\index{max\_z@{max\_z}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{max\_z}{max\_z}}
+{\footnotesize\ttfamily float Obj\+Loader\+::max\+\_\+z}
+
+\mbox{\Hypertarget{classObjLoader_a836efd2b94491ac41fe6cff5c7d679a6}\label{classObjLoader_a836efd2b94491ac41fe6cff5c7d679a6}} 
+\index{ObjLoader@{ObjLoader}!mFaces@{mFaces}}
+\index{mFaces@{mFaces}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{mFaces}{mFaces}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structFace}{Face}}$>$ Obj\+Loader\+::m\+Faces}
+
+\mbox{\Hypertarget{classObjLoader_aeceb77b7287ae58c602139ddd0605549}\label{classObjLoader_aeceb77b7287ae58c602139ddd0605549}} 
+\index{ObjLoader@{ObjLoader}!min\_x@{min\_x}}
+\index{min\_x@{min\_x}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{min\_x}{min\_x}}
+{\footnotesize\ttfamily float Obj\+Loader\+::min\+\_\+x}
+
+\mbox{\Hypertarget{classObjLoader_a851f76626a3dfb8ae08eba9c29938692}\label{classObjLoader_a851f76626a3dfb8ae08eba9c29938692}} 
+\index{ObjLoader@{ObjLoader}!min\_y@{min\_y}}
+\index{min\_y@{min\_y}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{min\_y}{min\_y}}
+{\footnotesize\ttfamily float Obj\+Loader\+::min\+\_\+y}
+
+\mbox{\Hypertarget{classObjLoader_a0a6fb846c3939145c4a2337e6e67f5c2}\label{classObjLoader_a0a6fb846c3939145c4a2337e6e67f5c2}} 
+\index{ObjLoader@{ObjLoader}!min\_z@{min\_z}}
+\index{min\_z@{min\_z}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{min\_z}{min\_z}}
+{\footnotesize\ttfamily float Obj\+Loader\+::min\+\_\+z}
+
+\mbox{\Hypertarget{classObjLoader_a736a6e3019dfbaf03bad8fbcedb620d5}\label{classObjLoader_a736a6e3019dfbaf03bad8fbcedb620d5}} 
+\index{ObjLoader@{ObjLoader}!mNormals@{mNormals}}
+\index{mNormals@{mNormals}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{mNormals}{mNormals}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structNormal}{Normal}}$>$ Obj\+Loader\+::m\+Normals}
+
+\mbox{\Hypertarget{classObjLoader_a7ac182aeb6cf8db89f969a3f9eef39de}\label{classObjLoader_a7ac182aeb6cf8db89f969a3f9eef39de}} 
+\index{ObjLoader@{ObjLoader}!mTextures@{mTextures}}
+\index{mTextures@{mTextures}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{mTextures}{mTextures}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structTexture}{Texture}}$>$ Obj\+Loader\+::m\+Textures}
+
+\mbox{\Hypertarget{classObjLoader_abbe79585390603518a9ac4373eaca441}\label{classObjLoader_abbe79585390603518a9ac4373eaca441}} 
+\index{ObjLoader@{ObjLoader}!mVertices@{mVertices}}
+\index{mVertices@{mVertices}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{mVertices}{mVertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structVertex}{Vertex}}$>$ Obj\+Loader\+::m\+Vertices}
+
+\mbox{\Hypertarget{classObjLoader_af4f5a7b5f6ba7b3738a28f4c90c43211}\label{classObjLoader_af4f5a7b5f6ba7b3738a28f4c90c43211}} 
+\index{ObjLoader@{ObjLoader}!size\_x@{size\_x}}
+\index{size\_x@{size\_x}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{size\_x}{size\_x}}
+{\footnotesize\ttfamily float Obj\+Loader\+::size\+\_\+x}
+
+\mbox{\Hypertarget{classObjLoader_a42553039a5921ce9360a56bced2242f0}\label{classObjLoader_a42553039a5921ce9360a56bced2242f0}} 
+\index{ObjLoader@{ObjLoader}!size\_y@{size\_y}}
+\index{size\_y@{size\_y}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{size\_y}{size\_y}}
+{\footnotesize\ttfamily float Obj\+Loader\+::size\+\_\+y}
+
+\mbox{\Hypertarget{classObjLoader_a16b2bb5824efa83c583a271dbb318b5c}\label{classObjLoader_a16b2bb5824efa83c583a271dbb318b5c}} 
+\index{ObjLoader@{ObjLoader}!size\_z@{size\_z}}
+\index{size\_z@{size\_z}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{size\_z}{size\_z}}
+{\footnotesize\ttfamily float Obj\+Loader\+::size\+\_\+z}
+
+\mbox{\Hypertarget{classObjLoader_a8a8ba968d733b565bcfd8ba34cf27193}\label{classObjLoader_a8a8ba968d733b565bcfd8ba34cf27193}} 
+\index{ObjLoader@{ObjLoader}!targetTexture@{targetTexture}}
+\index{targetTexture@{targetTexture}!ObjLoader@{ObjLoader}}
+\doxysubsubsection{\texorpdfstring{targetTexture}{targetTexture}}
+{\footnotesize\ttfamily unsigned int Obj\+Loader\+::target\+Texture}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{objloader_8h}{objloader.\+h}}\item 
+src/\+G\+U\+I/widgets/3d\+\_\+display/\mbox{\hyperlink{objloader_8cpp}{objloader.\+cpp}}\end{DoxyCompactItemize}

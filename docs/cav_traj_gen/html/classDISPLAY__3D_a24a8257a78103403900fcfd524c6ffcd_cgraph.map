@@ -1,0 +1,4 @@
+<map id="DISPLAY_3D::drawVehicle" name="DISPLAY_3D::drawVehicle">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node2" href="$classObjLoader.html#a66456143cc2b54525d937c074d3f38ec" title="Renders model with texture mapping." alt="" coords="244,5,441,32"/>
+</map>

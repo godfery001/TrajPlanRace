@@ -167,11 +167,6 @@ public:
     double set_wait_speed = 1.5; //m/s
     double set_obstacle_sensitivity = 3.0; //[1,2,3,4,5]
 
-    // YY edit
-    // 存放采样模块生成的所有候选轨迹
-    std::vector<Trajectory_S> candidate_trajs;
-    // YY edit
-
 private:
     /// @brief The planning environment for trajectory optimization. 
     /// This pointer should point to the global planning environment in data pool DataPool.
@@ -180,21 +175,6 @@ private:
     void copy_generator();
 
     void genControlPath(Trajectory_S *const traj, double t_gap);
-
-	// YY edit
-	// ==========================================
-    // 约束筛选模块 (Constraint Filtering Module)
-    // ==========================================
-    // 1. 碰撞检测约束：检查轨迹是否与障碍物发生碰撞
-    bool checkCollision(Trajectory_S &traj);
-    // 2. 道路边界约束：检查轨迹是否超出可行驶区域边界
-    bool checkBoundary(Trajectory_S &traj);
-    // 3. 动力学约束：检查轨迹的速度、加速度、横摆角速度等是否超限
-    bool checkDynamics(Trajectory_S &traj);
-    // 4. 综合筛选与评价函数：遍历所有轨迹，调用上述约束，并计算可行轨迹的代价
-    void filterAndEvaluateTrajectories(); //函数名可能需要改，由负责轨迹代价计算的同学决定
-	// YY edit
-
 };
 
 #endif

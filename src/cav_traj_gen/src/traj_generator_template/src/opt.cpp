@@ -102,10 +102,9 @@ static void generate_frenet_paths(
 				FrenetPath fp;
 				fp.cost_lat = jerk_cost_lat;
 				fp.cost_lon = jerk_cost_lon;
-				fp.cost_total = 1.0 * fp.cost_lat +
-								1.0 * fp.cost_lon +
-								10.0 * std::pow(lat_f, 2) +
-								5.0 * std::pow(target_lon_v - lon_vf, 2);
+				// 保存终端状态以便后续计算目标差距代价
+				fp.lat_f_final = lat_f; 
+				fp.lon_vf_final = lon_vf;
 
 				// 生成密集时间序列轨迹点
 				for (double t = 0; t <= T; t += TIME_GAP_PATH)
@@ -218,7 +217,7 @@ void Opt::run()
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
 	double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed * 0.75;
+	double target_lon_v = set_max_speed / 2.0;
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,
@@ -228,31 +227,31 @@ void Opt::run()
 		tf_pcts, lat_pcts, lon_pcts,
 		candidate_trajs);
 
-	// -------------------------------------------------------------------
-	// Step 4: 坐标回转与约束筛选
+// Step 4: 坐标回转与约束筛选
 	// -------------------------------------------------------------------
 	double min_cost = 1e9;
 	int best_idx = -1;
 	double max_s_spline = s_vec.back();
 
-	// [新增] 提前计算车辆外接圆半径 (长5宽2，对角线的一半)，用于碰撞检测
 	double veh_radius = sqrt(pow(_env->size_x / 2.0, 2) + pow(_env->size_y / 2.0, 2));
 
 	for (size_t i = 0; i < candidate_trajs.size(); ++i)
 	{
 		FrenetPath &fp = candidate_trajs[i];
 		bool is_valid = true;
+		
+		// [新增] 用于代价计算的中间变量
+		double min_dist_obs = 100.0; 
+		double min_margin_bound = 100.0;
 
 		for (size_t j = 0; j < fp.lon_p.size(); ++j)
 		{
-			// 1. 样条曲线范围检查
 			if (fp.lon_p[j] > max_s_spline)
 			{
 				is_valid = false;
 				break;
 			}
 
-			// 坐标回转计算
 			double x_r = csp_x(fp.lon_p[j]);
 			double y_r = csp_y(fp.lon_p[j]);
 			double dx_r = csp_x.deriv(1, fp.lon_p[j]);
@@ -283,18 +282,19 @@ void Opt::run()
 			if (guiSet.flag_checkObstacles && !_env->obstacleVec.empty()) {
 				bool collision = false;
 				for (const auto &obs : _env->obstacleVec) {
-					// 计算轨迹点到障碍物中心的欧氏距离
 					double dist = sqrt(pow(pt.x - obs.x_local, 2) + pow(pt.y - obs.y_local, 2));
 					
-					// 碰撞条件：两圆心距离 < (车辆半径 + 障碍物半径 + 0.2m安全冗余)
+					// 更新最小距离用于代价计算
+					min_dist_obs = std::min(min_dist_obs, dist - obs.radius - veh_radius);
+
 					if (dist < (obs.radius + veh_radius + 0.2)) {
 						collision = true;
-						break; // 跳出障碍物循环
+						break; 
 					}
 				}
 				if (collision) {
 					is_valid = false;
-					break; // 发现碰撞，直接毙掉这条轨迹，跳出轨迹点循环
+					break; 
 				}
 			}
 
@@ -302,54 +302,69 @@ void Opt::run()
 			// [新增] 约束 3：道路边界约束
 			// ==========================================
 			if (!_env->refPathVec.empty()) {
-				// 找离当前轨迹点最近的参考路径点索引
 				int search_idx = XM::find_NPN(&_env->refPathVec, pt.x, pt.y);
 				search_idx = MAX(0, MIN((int)_env->refPathVec.size() - 1, search_idx));
 				const auto &ref_pt = _env->refPathVec[search_idx];
 
-				// 计算横向偏差
 				double dist_to_ref = sqrt(pow(pt.x - ref_pt.x, 2) + pow(pt.y - ref_pt.y, 2));
-				
-				// 提取道路真实边界与车辆半宽
 				double veh_half_width = _env->size_y / 2.0;
 				double current_bound = std::min(ref_pt.bound_left, ref_pt.bound_right);
 				
-				// 计算余量：留 0.2m 压线余量
 				double margin = current_bound - (dist_to_ref + veh_half_width);
+				
+				// 更新最小余量用于代价计算
+				min_margin_bound = std::min(min_margin_bound, margin);
+
 				if (margin < 0.2) {
 					is_valid = false;
-					break; // 发现越界，直接毙掉这条轨迹，跳出轨迹点循环
+					break; 
 				}
 			}
 		}
 
 		// 只有过五关斩六将（is_valid == true）存活下来的轨迹，才能参与最后的最优竞选
-		if (is_valid && fp.cost_total < min_cost)
+		if (is_valid)
 		{
-			min_cost = fp.cost_total;
-			best_idx = i;
+			// --- 四项综合代价计算 ，可由党瑞东调参---
+			double w_jerk = 1.0;
+			double w_target = 1.0;
+			double w_bound = 2.0;
+			double w_obs = 5.0;
+
+			// 1. 平顺性 (Jerk)
+			double cost_jerk = fp.cost_lat + fp.cost_lon;
+
+			// 2. 与局部目标的差距 (第一项惩罚偏离中心的轨迹，这里参数设置10可能有些高 + 速度差（倾向于让车辆实现定速巡航，不过我看评分标准好像是保证安全的情况下开的越快得分越高，具体可以先保证安全性了再调这个）)
+			double cost_target = 10.0 * std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
+
+			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
+			double cost_bound = 1.0 / (min_margin_bound + 0.1);
+
+			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
+			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / (min_dist_obs + 0.1)) : 0.0;
+
+			fp.cost_total = w_jerk * cost_jerk + w_target * cost_target + w_bound * cost_bound + w_obs * cost_obs;
+
+			if (fp.cost_total < min_cost)
+			{
+				min_cost = fp.cost_total;
+				best_idx = i;
+			}
 		}
 	}
-
-
 
 	
 	// -------------------------------------------------------------------
 	// Step 5: 最优轨迹定型并移交控制
 	// -------------------------------------------------------------------
-	if (best_idx != -1)
-	{
+	if (best_idx != -1) {
 		traj_best.path = candidate_trajs[best_idx].cartesian_path;
 		XM::cal_heading_by_2pts(&traj_best.path, 0.25, 2);
 		bool flag_fwd, flag_R;
 		XM::cal_curvature_x(&traj_best.path, 0.25, 4.0, flag_fwd, flag_R);
-
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
-		pt_goal_real = pt_goal;
 	}
-
-	// 重采样给控制层
 	genControlPath(&traj_best, TIME_GAP_CONTROL);
 	return;
 }

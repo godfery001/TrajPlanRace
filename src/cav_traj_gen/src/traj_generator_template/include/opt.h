@@ -185,7 +185,8 @@ struct FrenetPath
     double cost_lat = 0.0;
     double cost_lon = 0.0;
     double cost_total = 0.0;
-
+    double lat_f_final; 
+    double lon_vf_final;
     std::vector<Point_Xd> cartesian_path;
 };
 

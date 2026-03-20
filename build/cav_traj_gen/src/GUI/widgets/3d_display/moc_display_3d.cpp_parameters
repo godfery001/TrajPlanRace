@@ -1,7 +1,0 @@
--DROS_BUILD_SHARED_LIBS=1
--DROS_BUILD_SHARED_LIBS=1
--DROS_PACKAGE_NAME="cav_traj_gen"
--DROSCONSOLE_BACKEND_LOG4CXX
--o
-/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_traj_gen/src/GUI/widgets/3d_display/moc_display_3d.cpp
-/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_traj_gen/src/GUI/widgets/3d_display/display_3d.h

@@ -218,7 +218,7 @@ void Opt::run()
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
 	double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed / 2.0;
+	double target_lon_v = set_max_speed * 0.75;
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,

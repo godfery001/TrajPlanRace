@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20260320-0154-Experimental"
+	Name="siegf-ThinkBook-16-G6-IMH"
+	Generator="ctest-3.16.3"
+	CompilerName="/usr/bin/g++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="siegf-ThinkBook-16-G6-IMH"
+	OSRelease="6.6.5-060605-generic"
+	OSVersion="#202312091308-Ubuntu SMP PREEMPT_DYNAMIC Sat Dec  9 14:13:36 UTC"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="170"
+	ProcessorCacheSize="18432"
+	NumberOfLogicalCPU="18"
+	NumberOfPhysicalCPU="14"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="31701"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="4093.87"
+	>
+	<Testing>
+		<StartDateTime>Mar 20 09:54 CST</StartDateTime>
+		<StartTestTime>1773971661</StartTestTime>
+		<TestList/>
+		<EndDateTime>Mar 20 09:54 CST</EndDateTime>
+		<EndTestTime>1773971661</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

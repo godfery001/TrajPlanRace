@@ -120,6 +120,12 @@ iostream
 globalDef.hpp
 /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/globalDef.hpp
 
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/path_track/path_track.cpp
+ros/ros.h
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/path_track/ros/ros.h
+path_track.h
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/path_track/path_track.h
+
 /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/path_track/path_track.h
 iostream
 -
@@ -161,6 +167,18 @@ cav_msgs/PlanedPath.h
 /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/rosNode/cav_msgs/PlanedPath.h
 dataModel.hpp
 /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/rosNode/dataModel.hpp
+
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/speed_track/speed_track.cpp
+iostream
+-
+algorithm
+-
+math.h
+-
+ros/ros.h
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/speed_track/ros/ros.h
+speed_track.h
+/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/speed_track/speed_track.h
 
 /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/src/speed_track/speed_track.h
 iostream

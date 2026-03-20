@@ -202,7 +202,7 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	// Step 3: 采样生成候选轨迹集合
 	// -------------------------------------------------------------------
-	std::vector<double> tf_pcts = {0.0, -0.50, -0.30, -0.15, 0.15, 0.30, 0.45, 0.60};
+	std::vector<double> tf_pcts = {0.0, -0.50, -0.45, -0.30, -0.15, 0.15, 0.30, 0.45, 0.60};
 	std::vector<double> lat_pcts;
 	for (double p = -0.90; p <= 0.91; p += 0.1)
 		lat_pcts.push_back(p);
@@ -217,7 +217,7 @@ void Opt::run()
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
 	double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed / 2.0;
+	double target_lon_v = set_max_speed* 0.75;
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,
@@ -233,7 +233,10 @@ void Opt::run()
 	int best_idx = -1;
 	double max_s_spline = s_vec.back();
 
-	double veh_radius = sqrt(pow(_env->size_x / 2.0, 2) + pow(_env->size_y / 2.0, 2));
+	// Using two circles to approximate the vehicle shape for collision checking
+	double circ_r=sqrt(pow(_env->size_x/4.0,2)+pow(_env->size_y/2.0,2));
+
+	// double veh_radius = sqrt(pow(_env->size_x / 2.0, 2) + pow(_env->size_y / 2.0, 2));
 
 	for (size_t i = 0; i < candidate_trajs.size(); ++i)
 	{
@@ -264,6 +267,7 @@ void Opt::run()
 			pt.y = y_r + fp.lat_p[j] * cos(yaw_r);
 			pt.t = fp.t[j];
 			pt.v = sqrt(pow(fp.lon_v[j] * (1 - kr * fp.lat_p[j]), 2) + pow(fp.lat_v[j], 2));
+			pt.heading= atan2(fp.lat_v[j], fp.lon_v[j] * (1 - kr * fp.lat_p[j])) + yaw_r;
 
 			fp.cartesian_path.push_back(pt);
 
@@ -282,12 +286,18 @@ void Opt::run()
 			if (guiSet.flag_checkObstacles && !_env->obstacleVec.empty()) {
 				bool collision = false;
 				for (const auto &obs : _env->obstacleVec) {
-					double dist = sqrt(pow(pt.x - obs.x_local, 2) + pow(pt.y - obs.y_local, 2));
-					
-					// 更新最小距离用于代价计算
-					min_dist_obs = std::min(min_dist_obs, dist - obs.radius - veh_radius);
+					double circ1_x=pt.x + circ_r * cos(pt.heading);
+					double circ1_y=pt.y + circ_r * sin(pt.heading);
+					double circ2_x=pt.x - circ_r * cos(pt.heading);
+					double circ2_y=pt.y - circ_r * sin(pt.heading);
 
-					if (dist < (obs.radius + veh_radius + 0.2)) {
+					double dist1 = sqrt(pow(circ1_x - obs.x_local, 2) + pow(circ1_y - obs.y_local, 2));
+					double dist2 = sqrt(pow(circ2_x - obs.x_local, 2) + pow(circ2_y - obs.y_local, 2));
+
+					// 更新最小距离用于代价计算
+					min_dist_obs = std::min(min_dist_obs, std::min(dist1, dist2));
+
+					if (std::min(dist1, dist2) < (obs.radius + circ_r + 0.2)) {
 						collision = true;
 						break; 
 					}
@@ -335,13 +345,13 @@ void Opt::run()
 			double cost_jerk = fp.cost_lat + fp.cost_lon;
 
 			// 2. 与局部目标的差距 (第一项惩罚偏离中心的轨迹，这里参数设置10可能有些高 + 速度差（倾向于让车辆实现定速巡航，不过我看评分标准好像是保证安全的情况下开的越快得分越高，具体可以先保证安全性了再调这个）)
-			double cost_target = 10.0 * std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
+			double cost_target = std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
 
 			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
 			double cost_bound = 1.0 / (min_margin_bound + 0.1);
 
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
-			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / (min_dist_obs + 0.1)) : 0.0;
+			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;
 
 			fp.cost_total = w_jerk * cost_jerk + w_target * cost_target + w_bound * cost_bound + w_obs * cost_obs;
 

@@ -339,7 +339,7 @@ void Opt::run()
 			double w_jerk = 1.0;
 			double w_target = 1.0;
 			double w_bound = 2.0;
-			double w_obs = 5.0;
+			double w_obs = 10.0;
 
 			// 1. 平顺性 (Jerk)
 			double cost_jerk = fp.cost_lat + fp.cost_lon;
@@ -348,7 +348,7 @@ void Opt::run()
 			double cost_target = std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
 
 			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
-			double cost_bound = 1.0 / (min_margin_bound + 0.1);
+			double cost_bound = 1.0 / (min_margin_bound + 0.001);
 
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
 			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;

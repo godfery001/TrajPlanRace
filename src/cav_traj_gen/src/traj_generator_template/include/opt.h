@@ -13,6 +13,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <deque>
+#include <utility>
 #include "ros/ros.h"
 
 #include "spline.h"
@@ -114,7 +116,7 @@ public:
 
 /***********/
 
- // User defined code
+// User defined code
 //  ----------------------------------------------------
 //  1. 五次多项式求解器 (集成原函数解析积分求代价)
 //  ----------------------------------------------------
@@ -185,8 +187,18 @@ struct FrenetPath
     double cost_lat = 0.0;
     double cost_lon = 0.0;
     double cost_total = 0.0;
-    double lat_f_final; 
-    double lon_vf_final;
+    double lat_f_final = 0.0;
+    double lon_vf_final = 0.0;
+
+    // 仅用于 GUI 显示
+    double cost_jerk = 0.0;
+    double cost_target = 0.0;
+    double cost_bound = 0.0;
+    double cost_obs = 0.0;
+    double min_dist_obs = 100.0;
+    double min_margin_bound = 100.0;
+    bool valid = false;
+
     std::vector<Point_Xd> cartesian_path;
 };
 
@@ -226,10 +238,20 @@ public:
     Point_Xd pt_goal;
     Point_Xd pt_goal_real;
 
-    // =======================================================
-    // 【新增】将候选轨迹集合暴露为 public 成员，供 GUI 可视化调用
-    // =======================================================
+    // 候选轨迹集合，供 GUI 可视化调用
     std::vector<FrenetPath> candidate_trajs;
+
+    // 运行指标，仅用于 GUI 显示
+    double ui_latest_min_obs_dist = 100.0;
+    double ui_avg_min_obs_dist_10s = 100.0;
+    double ui_best_cost_total = 0.0;
+    double ui_best_cost_jerk = 0.0;
+    double ui_best_cost_target = 0.0;
+    double ui_best_cost_bound = 0.0;
+    double ui_best_cost_obs = 0.0;
+    double ui_best_min_margin_bound = 100.0;
+    int ui_candidate_total_num = 0;
+    int ui_candidate_valid_num = 0;
 
     //-----------------------------------
     // Settings for your trajectory generation, these are changed with gui (see mainloop.cpp)
@@ -251,6 +273,9 @@ private:
     /// @brief The planning environment for trajectory optimization.
     /// This pointer should point to the global planning environment in data pool DataPool.
     PlanningEnv_S *_env = NULL;
+
+    // 过去 10 秒每次规划得到的最优轨迹最近障碍物距离
+    std::deque<std::pair<double, double> > min_obs_dist_hist_10s;
 
     void copy_generator();
 

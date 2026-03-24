@@ -136,6 +136,7 @@ int Opt::ini(PlanningEnv_S *planning_env)
 {
 	_env = planning_env;
 	// TODO
+	last_traj_path.clear();
 	traj_best.path.clear();
 	traj_best.feasible = false;
 	return 0;
@@ -179,35 +180,63 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	// Step 2: Cartesian -> Frenet
 	// -------------------------------------------------------------------
-	int npn_idx = XM::find_NPN(&_env->refPathVec, _env->x, _env->y);
-	npn_idx = MAX(0, MIN((int)_env->refPathVec.size() - 1, npn_idx));
-	double lon_0 = _env->refPathVec[npn_idx].mileage;
+	// 默认使用车辆当前真实状态
+    double start_x = _env->x;
+    double start_y = _env->y;
+    double start_heading = _env->heading;
+    double start_v = _env->speed_x;
+    double start_a = _env->acc_x;
 
-	double xr = csp_x(lon_0), yr = csp_y(lon_0);
-	double dx = csp_x.deriv(1, lon_0), dy = csp_y.deriv(1, lon_0);
-	double ddx = csp_x.deriv(2, lon_0), ddy = csp_y.deriv(2, lon_0);
+	if (!last_traj_path.empty()) {
+        // 寻找当前实际位置在上一帧轨迹上的最近匹配点 (匹配误差在一定范围内才使用)
+        int last_idx = XM::find_NPN(&last_traj_path, _env->x, _env->y);
+        if (last_idx >= 0 && last_idx < last_traj_path.size()) {
+            start_x = last_traj_path[last_idx].x;
+            start_y = last_traj_path[last_idx].y;
+            start_heading = last_traj_path[last_idx].heading;
+            start_v = last_traj_path[last_idx].v;
+            
+            // 粗略估算纵向加速度 (差分)
+            if (last_idx + 1 < last_traj_path.size()) {
+                double dt = last_traj_path[last_idx+1].t - last_traj_path[last_idx].t;
+                if (dt > 0.001) {
+                    start_a = (last_traj_path[last_idx+1].v - last_traj_path[last_idx].v) / dt;
+                }
+            }
+        }
+    }
 
-	double theta_r = atan2(dy, dx);
-	double kr = (dx * ddy - dy * ddx) / pow(dx * dx + dy * dy, 1.5);
+    // 以 start_x, start_y 代替 _env->x, _env->y 寻找参考线上的 NPN
+    int npn_idx = XM::find_NPN(&_env->refPathVec, start_x, start_y);
+    npn_idx = MAX(0, MIN((int)_env->refPathVec.size() - 1, npn_idx));
+    double lon_0 = _env->refPathVec[npn_idx].mileage;
 
-	double delta_theta = _env->heading - theta_r;
-	double lat_0 = (_env->y - yr) * cos(theta_r) - (_env->x - xr) * sin(theta_r);
+    // 提取参考线属性
+    double xr = csp_x(lon_0), yr = csp_y(lon_0);
+    double dx = csp_x.deriv(1, lon_0), dy = csp_y.deriv(1, lon_0);
+    double ddx = csp_x.deriv(2, lon_0), ddy = csp_y.deriv(2, lon_0);
+    double theta_r = atan2(dy, dx);
+    double kr = (dx * ddy - dy * ddx) / pow(dx * dx + dy * dy, 1.5);
 
-	double lon_v0 = _env->speed_x * cos(delta_theta) / (1.0 - kr * lat_0);
-	double lat_v0 = _env->speed_x * sin(delta_theta);
-
-	double lon_a0 = _env->acc_x * cos(delta_theta);
-	double lat_a0 = _env->acc_x * sin(delta_theta);
+    // 计算平滑后的初始 Frenet 状态
+    double delta_theta = start_heading - theta_r;
+    double lat_0 = (start_y - yr) * cos(theta_r) - (start_x - xr) * sin(theta_r);
+    
+    double lon_v0 = start_v * cos(delta_theta) / (1.0 - kr * lat_0);
+    double lat_v0 = start_v * sin(delta_theta);
+    
+    double lon_a0 = start_a * cos(delta_theta);
+    double lat_a0 = start_a * sin(delta_theta);
 
 	// -------------------------------------------------------------------
 	// Step 3: 采样生成候选轨迹集合
 	// -------------------------------------------------------------------
-	std::vector<double> tf_pcts = {0.0, -0.50, -0.45, -0.30, -0.15, 0.15, 0.30, 0.45, 0.60};
+	std::vector<double> tf_pcts = {0.0, -0.50, -0.45, -0.30, -0.15};//, 0.15, 0.30, 0.45, 0.50};
 	std::vector<double> lat_pcts;
-	for (double p = -0.90; p <= 0.91; p += 0.1)
+	for (double p = -0.70; p <= 0.71; p += 0.1)
 		lat_pcts.push_back(p);
 	std::vector<double> lon_pcts = {0.0};
-	for (double p = -0.8; p <= 0.81; p += 0.2)
+	for (double p = -0.7; p <= 0.71; p += 0.2)
 		lon_pcts.push_back(p);
 
 	// 【修改点】删除原有的这行局部变量声明，改用 clear() 清空类的成员变量
@@ -338,7 +367,7 @@ void Opt::run()
 			// --- 四项综合代价计算 ，可由党瑞东调参---
 			double w_jerk = 1.0;
 			double w_target = 1.0;
-			double w_bound = 2.0;
+			double w_bound = 10.0;
 			double w_obs = 10.0;
 
 			// 1. 平顺性 (Jerk)
@@ -348,7 +377,7 @@ void Opt::run()
 			double cost_target = std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
 
 			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
-			double cost_bound = 1.0 / (min_margin_bound + 0.001);
+			double cost_bound = 1.0 / std::pow(min_margin_bound + 0.001, 2);
 
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
 			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;
@@ -375,6 +404,7 @@ void Opt::run()
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
 	}
+
 	genControlPath(&traj_best, TIME_GAP_CONTROL);
 	return;
 }

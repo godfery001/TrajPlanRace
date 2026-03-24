@@ -219,6 +219,7 @@ public:
     /// @brief The optimal planning result.
     /// This data structure should not be changed. Do remember to fill it after your planning.
     Trajectory_S traj_best;
+    std::vector<Point_Xd> last_traj_path;
 
     /// @brief [Example] The goal point for trajectory optimization.
     /// It will be shown in 3d display.

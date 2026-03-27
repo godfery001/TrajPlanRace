@@ -377,7 +377,7 @@ void Opt::run()
 			double cost_jerk = fp.cost_lat + fp.cost_lon;
 
 			// 2. 与局部目标的差距 (第一项惩罚偏离中心的轨迹，这里参数设置10可能有些高 + 速度差（倾向于让车辆实现定速巡航，不过我看评分标准好像是保证安全的情况下开的越快得分越高，具体可以先保证安全性了再调这个）)
-			double cost_target = std::pow(fp.lat_f_final, 2) + 2.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
+			double cost_target = std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
 
 			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
 			double cost_bound = 1.0 / std::pow(min_margin_bound + 0.001, 2);

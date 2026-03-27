@@ -276,6 +276,9 @@ void Opt::run()
 		double min_dist_obs = 100.0; 
 		double min_margin_bound = 100.0;
 
+		// [新增] 记录整条轨迹的最大横向加速度
+        double max_ay = 0.0;
+
 		for (size_t j = 0; j < fp.lon_p.size(); ++j)
 		{
 			if (fp.lon_p[j] > max_s_spline)
@@ -301,16 +304,63 @@ void Opt::run()
 			fp.cartesian_path.push_back(pt);
 
 			// ==========================================
-			// 约束 1：动力学约束 (队友已写好最大速度限制)
-			// ==========================================
-			if (pt.v > set_max_speed)
+            // [修改] 约束 1：最大速度与纵向加速度逐点硬约束
+            // ==========================================
+            if (pt.v > set_max_speed || fp.lon_a[j] > set_max_acc || fp.lon_a[j] < set_min_acc)
 			{
 				is_valid = false;
 				break;
 			}
 
 			// ==========================================
-			// [新增] 约束 2：障碍物碰撞检测
+            // [新增] 约束 2：横向动力学计算与硬约束
+            // ==========================================
+            if (j > 0)
+            {
+                double ds = fp.lon_p[j] - fp.lon_p[j - 1];
+                if (ds > 0.001) // 防止分母为0
+                {
+                    double d_yaw = pt.heading - fp.cartesian_path[j - 1].heading;
+                    // 航向角差值归一化到 [-PI, PI]
+                    while (d_yaw > M_PI) d_yaw -= 2.0 * M_PI;
+                    while (d_yaw < -M_PI) d_yaw += 2.0 * M_PI;
+
+                    double kappa = d_yaw / ds;
+                    pt.cr = kappa; // 记录曲率用于显示
+
+                    double ay = pt.v * pt.v * kappa; // 计算横向加速度
+                    double yaw_rate = pt.v * kappa;  // 计算横摆角速度
+
+                    // 更新轨迹的最大横向加速度
+                    max_ay = std::max(max_ay, std::abs(ay));
+
+                    // 1. 横摆角速度硬约束 (转方向盘速度超过物理极限直接剔除)
+                    if (std::abs(yaw_rate) > set_max_yawrate)
+                    {
+                        is_valid = false;
+                        break;
+                    }
+
+                    // 2. 横向加速度硬约束处理
+                    if (!guiSet.flag_ay_soft_const && std::abs(ay) > set_max_acc_y)
+                    {
+                        // 若GUI关闭了软约束，直接作为硬约束剔除
+                        is_valid = false;
+                        break;
+                    }
+                    if (std::abs(ay) > set_max_acc_y * 1.5)
+                    {
+                        // 即使开启了软约束，也必须保留一个绝对物理上限(防翻车或失控侧滑)
+                        is_valid = false;
+                        break;
+                    }
+                }
+            }
+
+
+
+			// ==========================================
+			// [新增] 约束 3：障碍物碰撞检测
 			// ==========================================
 			if (guiSet.flag_checkObstacles && !_env->obstacleVec.empty()) {
 				bool collision = false;
@@ -338,7 +388,7 @@ void Opt::run()
 			}
 
 			// ==========================================
-			// [新增] 约束 3：道路边界约束
+			// [新增] 约束 4：道路边界约束
 			// ==========================================
 			if (!_env->refPathVec.empty()) {
 				int search_idx = XM::find_NPN(&_env->refPathVec, pt.x, pt.y);
@@ -382,8 +432,20 @@ void Opt::run()
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
 			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;
 
-			fp.cost_total = w_jerk * cost_jerk + w_target * cost_target + w_bound * cost_bound + w_obs * cost_obs;
+			// [新增] 5. 横向加速度软约束代价计算
+            double cost_ay = 0.0;
+            if (guiSet.flag_ay_soft_const) {
+                w_ay = 10.0; // 若界面开启软约束，给予较高的惩罚权重
+                if (max_ay > set_max_acc_y) {
+                    // 超出额定横向加速度的部分，进行平方级惩罚
+                    cost_ay = std::pow(max_ay - set_max_acc_y, 2);
+                }
+            }
 
+            // [修改] 将横向加速度代价计入总代价
+            fp.cost_total = w_jerk * cost_jerk + w_target * cost_target + w_bound * cost_bound + w_obs * cost_obs + w_ay * cost_ay;
+
+			
 			if (fp.cost_total < min_cost)
 			{
 				min_cost = fp.cost_total;

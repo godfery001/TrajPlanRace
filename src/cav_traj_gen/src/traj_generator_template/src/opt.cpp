@@ -89,9 +89,8 @@ static void generate_frenet_paths(
 			{
 				// 2. 用纵向百分比对 "基准距离" 进行扰动采样
 				double delta_lon = base_lon_dist * (1.0 + lon_pct);
-
-				if (delta_lon< -lon_v0 *lon_v0 /min_acc) continue; // 过度减速的轨迹不采样
-
+				if (delta_lon< -lon_v0*lon_v0/(2.0*min_acc)) // 过近的目标点可能导致优化器求解困难，直接跳过
+					continue;
 				double lon_f = lon_0 + delta_lon;
 
 				// 3. 根据采样出来的距离，反算需要的终端速度
@@ -142,6 +141,27 @@ int Opt::ini(PlanningEnv_S *planning_env)
 	last_traj_path.clear();
 	traj_best.path.clear();
 	traj_best.feasible = false;
+	ui_candidate_total_num = 0;
+	ui_candidate_valid_num = 0;
+	ui_best_cost_total = 0.0;
+	ui_best_cost_jerk = 0.0;
+	ui_best_cost_target = 0.0;
+	ui_best_cost_bound = 0.0;
+	ui_best_cost_obs = 0.0;
+	ui_best_min_margin_bound = 0.0;
+	ui_latest_min_obs_dist = 100.0;
+	candidate_trajs.clear();
+	ui_min_obs_dist_hist.clear();
+	ui_latest_min_obs_dist = 100.0;
+	ui_avg_min_obs_dist_10s = 100.0;
+	ui_candidate_total_num = 0;
+	ui_candidate_valid_num = 0;
+	ui_best_cost_total = 0.0;
+	ui_best_cost_jerk = 0.0;
+	ui_best_cost_target = 0.0;
+	ui_best_cost_bound = 0.0;
+	ui_best_cost_obs = 0.0;
+	ui_best_min_margin_bound = 0.0;
 	return 0;
 }
 
@@ -239,7 +259,7 @@ void Opt::run()
 	for (double p = -0.70; p <= 0.71; p += 0.1)
 		lat_pcts.push_back(p);
 	std::vector<double> lon_pcts = {0.0};
-	for (double p = -0.70; p <= 1.21; p += 0.2)
+	for (double p = -0.70; p <= 0.91; p += 0.2)
 		lon_pcts.push_back(p);
 
 	// 【修改点】删除原有的这行局部变量声明，改用 clear() 清空类的成员变量
@@ -249,7 +269,7 @@ void Opt::run()
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
 	double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed* 0.95;
+	double target_lon_v = set_max_speed* 0.75;
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,
@@ -259,10 +279,18 @@ void Opt::run()
 		tf_pcts, lat_pcts, lon_pcts,
 		candidate_trajs);
 
+	ui_candidate_total_num = static_cast<int>(candidate_trajs.size());
+
 // Step 4: 坐标回转与约束筛选
 	// -------------------------------------------------------------------
 	double min_cost = 1e9;
 	int best_idx = -1;
+	double best_cost_jerk = 0.0;
+	double best_cost_target = 0.0;
+	double best_cost_bound = 0.0;
+	double best_cost_obs = 0.0;
+	double best_min_dist_obs = 100.0;
+	double best_min_margin_bound = 0.0;
 	double max_s_spline = s_vec.back();
 
 	// Using two circles to approximate the vehicle shape for collision checking
@@ -367,8 +395,8 @@ void Opt::run()
 		// 只有过五关斩六将（is_valid == true）存活下来的轨迹，才能参与最后的最优竞选
 		if (is_valid)
 		{
-			// --- 四项综合代价计算 ，可由党瑞东调参---
-			double w_jerk = 2.0;
+			++ui_candidate_valid_num;
+			double w_jerk = 2;
 			double w_target = 1.5;
 			double w_bound = 15.0;
 			double w_obs = 15.0;
@@ -377,7 +405,7 @@ void Opt::run()
 			double cost_jerk = fp.cost_lat + fp.cost_lon;
 
 			// 2. 与局部目标的差距 (第一项惩罚偏离中心的轨迹，这里参数设置10可能有些高 + 速度差（倾向于让车辆实现定速巡航，不过我看评分标准好像是保证安全的情况下开的越快得分越高，具体可以先保证安全性了再调这个）)
-			double cost_target = std::pow(fp.lat_f_final, 2) + 2.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
+			double cost_target = std::pow(fp.lat_f_final, 2) + 5.0 * std::pow(target_lon_v - fp.lon_vf_final, 2);
 
 			// 3. 惩罚与可通行区域边界的距离 (余量越小，代价越高，感觉这项是非必要项，没用可以直接删掉，但是会导致第四项直接跑出左右限定轨迹范围)
 			double cost_bound = 1.0 / std::pow(min_margin_bound + 0.001, 2);
@@ -385,24 +413,18 @@ void Opt::run()
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
 			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;
 
-			// 5. deviation from last trajectory goal (偏离上一次轨迹终点的距离，鼓励新轨迹不要大幅摆动，保持一定连续性)
-			double dxf_x0=pt_goal.x-start_x;
-			double dyf_y0=pt_goal.y-start_y;
-			double last_dir = atan2(dyf_y0, dxf_x0);
-			double dxf=fp.cartesian_path.back().x-pt_goal.x;
-			double dyf=fp.cartesian_path.back().y-pt_goal.y;
-			double change_dir=atan2(dyf, dxf);
-
-			// cost_target += 10.0 * std::pow(dxf, 2) + 10.0 * std::pow(dxf, 2);
-			// + 5.0 * std::pow((change_dir - last_dir)/PI*180, 2);
-			// cost_target += 10.0 * (std::pow(dxf, 2)+std::pow(dyf, 2)) + 5.0 * std::pow((change_dir - last_dir)/PI*180, 2);
-			
 			fp.cost_total = w_jerk * cost_jerk + w_target * cost_target + w_bound * cost_bound + w_obs * cost_obs;
 
 			if (fp.cost_total < min_cost)
 			{
 				min_cost = fp.cost_total;
 				best_idx = i;
+				best_cost_jerk = cost_jerk;
+				best_cost_target = cost_target;
+				best_cost_bound = cost_bound;
+				best_cost_obs = cost_obs;
+				best_min_dist_obs = min_dist_obs;
+				best_min_margin_bound = min_margin_bound;
 			}
 		}
 	}
@@ -418,6 +440,28 @@ void Opt::run()
 		XM::cal_curvature_x(&traj_best.path, 0.25, 4.0, flag_fwd, flag_R);
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
+
+		ui_best_cost_total = min_cost;
+		ui_best_cost_jerk = best_cost_jerk;
+		ui_best_cost_target = best_cost_target;
+		ui_best_cost_bound = best_cost_bound;
+		ui_best_cost_obs = best_cost_obs;
+		ui_best_min_margin_bound = best_min_margin_bound;
+		ui_latest_min_obs_dist = best_min_dist_obs;
+	} else {
+		ui_best_min_margin_bound = 0.0;
+		ui_latest_min_obs_dist = 100.0;
+	}
+
+	double now_sec = ros::Time::now().toSec();
+	ui_min_obs_dist_hist.emplace_back(now_sec, ui_latest_min_obs_dist);
+	while (!ui_min_obs_dist_hist.empty() && (now_sec - ui_min_obs_dist_hist.front().first) > 10.0)
+		ui_min_obs_dist_hist.pop_front();
+	if (!ui_min_obs_dist_hist.empty()) {
+		double sum = 0.0;
+		for (const auto &item : ui_min_obs_dist_hist)
+			sum += item.second;
+		ui_avg_min_obs_dist_10s = sum / static_cast<double>(ui_min_obs_dist_hist.size());
 	}
 
 	genControlPath(&traj_best, TIME_GAP_CONTROL);

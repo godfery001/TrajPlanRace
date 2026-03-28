@@ -46,7 +46,7 @@ void DISPLAY_3D::draw_mode1()
     for (auto &traj : TG.opt.candidate_trajs)
     {
         // 只有当存在转换后的笛卡尔坐标点时才绘制
-        if (!traj.cartesian_path.empty()) 
+        if (!traj.cartesian_path.empty())
         {
             // 使用通用模板函数绘制
             drawTraj(&traj.cartesian_path,
@@ -54,11 +54,11 @@ void DISPLAY_3D::draw_mode1()
                      1,      // gap: 逐点绘制
                      1.0,    // 线宽: 较细的1.0，避免干扰主干轨迹
                      0.1,    // Z高度(level): 0.1m, 低于最优轨迹的 0.2m，形成视觉分层
-                     false,  // 不画点标记
+                     false,  // 画点标记
                      true,   // 画连续连线
-                     false,  // 不画航向
+                     false,  // 画航向
                      false,  // 不画曲率
-                     false); // 不画边界
+                     true); // 不画边界
         }
     }
 
@@ -69,7 +69,7 @@ void DISPLAY_3D::draw_mode1()
         TG.opt.pt_goal.heading+M_PI, M_PI/6.0, // 30 degree arrow
         1.0, 0.2, true); // Size: 1.0m base, 0.2m height
 
-    D3D::drawOneCircle(TG.opt.pt_goal_real.x, TG.opt.pt_goal_real.y, 
+    D3D::drawOneCircle(TG.opt.pt_goal_real.x, TG.opt.pt_goal_real.y,
         0.25, 20, 0.2, true); // Radius: 0.25m, 20 segments
 
     // Stage 4: Draw obstacle bounding boxes
@@ -90,33 +90,33 @@ void DISPLAY_3D::draw_mode1()
                  true,  // Enable path lines
                  guiSet.flag_RefPath_Heading, // Heading arrows
                  guiSet.flag_RefPath_Cr,      // Curvature markers
-                 false); // Disable boundaries
+                 true); // Disable boundaries
     }
 
     // Stage 6: Draw global reference path (light orange with boundaries)
     drawTraj(&TG.ssData.goal.whole_path,
-                1, 170.0/255.0, 0, // light orange color
-                1,     // Plot every point
-                2.0,   // Line width
-                0.3,   // Z-level offset
-                false, // Disable point markers
-                true,  // Enable path lines
-                guiSet.flag_RefPath_Heading, 
-                guiSet.flag_RefPath_Cr, 
-                true); // Enable boundaries
+             1, 170.0/255.0, 0, // light orange color
+             1,     // Plot every point
+             2.0,   // Line width
+             0.3,   // Z-level offset
+             false, // Disable point markers
+             true,  // Enable path lines
+             guiSet.flag_RefPath_Heading,
+             guiSet.flag_RefPath_Cr,
+             true); // Enable boundaries
 
-    // Stage 7: Draw optimal path (yellow) if valid
+    // Stage 7: Draw optimal path (red) if valid
     if (guiSet.flag_BestPath && TG.opt.traj_best.feasible)
     {
         drawTraj(&TG.opt.traj_best.path,
-                 0.9, 0.9, 0, // Yellow color
+                 1.0, 0.0, 0.0, // Red color
                  1,    // Plot every point
                  2.0,  // Line width
                  0.2,  // Z-level offset
-                 true,  // Enable point markers
-                 false, // Disable path lines
-                 guiSet.flag_BestPath_Heading, 
-                 guiSet.flag_BestPath_Cr, 
+                 false,  // Enable point markers
+                 true, // Disable path lines
+                 guiSet.flag_BestPath_Heading,
+                 guiSet.flag_BestPath_Cr,
                  false);
     }
 }
@@ -139,7 +139,7 @@ void DISPLAY_3D::draw_mode1()
  */
 template <typename T>
 void DISPLAY_3D::drawTraj(std::vector<T> *const vec,
-                          double r, double g, double b, 
+                          double r, double g, double b,
                           int gap, double line_width, double level,
                           bool flag_point, bool flag_line,
                           bool flag_heading, bool flag_cr, bool flag_bound)
@@ -205,9 +205,9 @@ void DISPLAY_3D::drawObstacle(std::vector<Obstacle_S> *const p)
 
     glLineWidth(1.0);
     glColor3f(1, 0.5, 0.5); // 255, 170, 170
-    
+
     for (int i = 0; i < p->size(); ++i) {
-        D3D::drawOneCircle(p->at(i).x_local, p->at(i).y_local, p->at(i).radius,20,0.2,true);
+        D3D::drawOneCircle(p->at(i).x_local, p->at(i).y_local, p->at(i).radius, 20, 0.2, true);
     }
 }
 
@@ -216,13 +216,13 @@ void DISPLAY_3D::drawObstacle(std::vector<Obstacle_S> *const p)
  * @param x1,y1,z1 Components of first vector
  * @param x2,y2,z2 Components of second vector
  * @param x_norm,y_norm,z_norm Output normalized orthogonal vector
- * 
+ *
  * Calculates cross product and normalizes to unit length:
  * result = (v1 × v2) / ||v1 × v2||
  */
 void calcNormVec(
-    double x1, double y1, double z1, 
-    double x2, double y2, double z2, 
+    double x1, double y1, double z1,
+    double x2, double y2, double z2,
     double &x_norm, double &y_norm, double &z_norm)
 {
     // Cross product calculation
@@ -236,3 +236,4 @@ void calcNormVec(
     y_norm /= length;
     z_norm /= length;
 }
+

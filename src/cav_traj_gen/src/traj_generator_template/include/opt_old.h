@@ -12,7 +12,6 @@
 #include "XM_path.h"
 #include <iostream>
 #include <vector>
-#include <deque>
 #include <cmath>
 #include "ros/ros.h"
 
@@ -233,23 +232,11 @@ public:
     // =======================================================
     std::vector<FrenetPath> candidate_trajs;
 
-    // UI statistics for GUI/widgets/info.cpp
-    double ui_latest_min_obs_dist = 100.0;
-    double ui_avg_min_obs_dist_10s = 100.0;
-    int ui_candidate_total_num = 0;
-    int ui_candidate_valid_num = 0;
-    double ui_best_cost_total = 0.0;
-    double ui_best_cost_jerk = 0.0;
-    double ui_best_cost_target = 0.0;
-    double ui_best_cost_bound = 0.0;
-    double ui_best_cost_obs = 0.0;
-    double ui_best_min_margin_bound = 0.0;
-
     //-----------------------------------
     // Settings for your trajectory generation, these are changed with gui (see mainloop.cpp)
     bool flag_checkObstacles = true;
     bool flag_ay_soft_const = true;
-    double target_time = 4;
+    double target_time = 3;
 
     //-----------------------------------
     // Settings for your trajectory generation, these are changed in mainloop.cpp.
@@ -265,8 +252,6 @@ private:
     /// @brief The planning environment for trajectory optimization.
     /// This pointer should point to the global planning environment in data pool DataPool.
     PlanningEnv_S *_env = NULL;
-
-    std::deque<std::pair<double, double>> ui_min_obs_dist_hist;
 
     void copy_generator();
 

@@ -209,10 +209,12 @@ void Opt::run()
     double start_heading = _env->heading;
     double start_v = _env->speed_x;
     double start_a = _env->acc_x;
+	int Last_idx =-1;
 
 	if (!last_traj_path.empty()) {
         // 寻找当前实际位置在上一帧轨迹上的最近匹配点 (匹配误差在一定范围内才使用)
         int last_idx = XM::find_NPN(&last_traj_path, _env->x, _env->y);
+		Last_idx = last_idx;
         if (last_idx >= 0 && last_idx < last_traj_path.size()) {
             start_x = last_traj_path[last_idx].x;
             start_y = last_traj_path[last_idx].y;
@@ -269,7 +271,7 @@ void Opt::run()
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
 	double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed* 0.75;
+	double target_lon_v = set_max_speed* 0.95;
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,
@@ -448,7 +450,18 @@ void Opt::run()
 		ui_best_cost_obs = best_cost_obs;
 		ui_best_min_margin_bound = best_min_margin_bound;
 		ui_latest_min_obs_dist = best_min_dist_obs;
-	} else {
+	} 
+	else if (Last_idx>=0){
+		ROS_WARN("No valid candidate trajectory! Use last trajectory from index %d.", Last_idx);
+		for (size_t j= Last_idx; j<last_traj_path.size(); ++j){
+			traj_best.path.push_back(last_traj_path[j]);
+		}
+		traj_best.feasible = true;
+		pt_goal = traj_best.path.back();
+
+	}
+	else {
+		ROS_ERROR("No valid candidate trajectory and no last trajectory! Trajectory generation failed.");
 		ui_best_min_margin_bound = 0.0;
 		ui_latest_min_obs_dist = 100.0;
 	}
@@ -464,6 +477,7 @@ void Opt::run()
 		ui_avg_min_obs_dist_10s = sum / static_cast<double>(ui_min_obs_dist_hist.size());
 	}
 
+	last_traj_path=traj_best.path;
 	genControlPath(&traj_best, TIME_GAP_CONTROL);
 	return;
 }

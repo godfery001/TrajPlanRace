@@ -189,11 +189,13 @@ void Opt::run()
     double start_heading = _env->heading;
     double start_v = _env->speed_x;
     double start_a = _env->acc_x;
+	int Last_idx=-1;
 
 	if (!last_traj_path.empty()) {
         // 寻找当前实际位置在上一帧轨迹上的最近匹配点 (匹配误差在一定范围内才使用)
         int last_idx = XM::find_NPN(&last_traj_path, _env->x, _env->y);
         if (last_idx >= 0 && last_idx < last_traj_path.size()) {
+			Last_idx=last_idx;
             start_x = last_traj_path[last_idx].x;
             start_y = last_traj_path[last_idx].y;
             start_heading = last_traj_path[last_idx].heading;
@@ -234,10 +236,18 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	// Step 3: 采样生成候选轨迹集合
 	// -------------------------------------------------------------------
+	double left_bound =_env->refPathVec[0].bound_left;
+	double right_bound = _env->refPathVec[0].bound_right;
+	double max_lat_bound =max(fabs(left_bound), fabs(right_bound));
+	double lat_res=0.2;
+	double lat_per_res=lat_res/max_lat_bound;
+
 	std::vector<double> tf_pcts = {0.0, -0.50, -0.45, -0.30, -0.15};//, 0.15, 0.30, 0.45, 0.50};
-	std::vector<double> lat_pcts;
-	for (double p = -0.70; p <= 0.71; p += 0.1)
+	std::vector<double> lat_pcts={0.0};
+	for (double p = lat_per_res; p <= 0.95; p += lat_per_res){
 		lat_pcts.push_back(p);
+		lat_pcts.push_back(-p);
+	}
 	std::vector<double> lon_pcts = {0.0};
 	for (double p = -0.70; p <= 1.21; p += 0.2)
 		lon_pcts.push_back(p);
@@ -248,7 +258,7 @@ void Opt::run()
 
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
-	double max_lat_bound = 2.0;
+	// double max_lat_bound = 2.0;
 	double target_lon_v = set_max_speed* 0.95;
 
 	generate_frenet_paths(
@@ -470,7 +480,20 @@ void Opt::run()
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
 	}
+	else if (Last_idx>=0 && Last_idx < last_traj_path.size()) {
+		// 如果没有任何新轨迹通过约束筛选，且上一帧的轨迹仍然存在且合理，则继续沿用上一帧的轨迹（保持稳定性，避免频繁切换到完全不同的轨迹）
+		for(int j=Last_idx; j<last_traj_path.size(); ++j){
+			traj_best.path.push_back(last_traj_path[j]);
+		}
+		traj_best.feasible = true;
+		pt_goal = traj_best.path.back();
+		ROS_WARN("No valid trajectory found, fallback to last trajectory from index %d!", Last_idx); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
+	}
+	else {
+		ROS_ERROR("No valid trajectory found and no previous trajectory to fallback!"); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
+	}
 
+	last_traj_path = traj_best.path; // 更新上一帧轨迹
 	genControlPath(&traj_best, TIME_GAP_CONTROL);
 	return;
 }

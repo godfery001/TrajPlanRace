@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="output"            default="screen" /> <!-- screen/log -->
-    <param name="path_mode"        value="Sine" /> <!--mode can be "Circle" "Sine" "Line"--> 
+    <param name="path_mode"        value="Circle" /> <!--mode can be "Circle" "Sine" "Line"--> 
     <param name="speed"            value="3.5"/>
     <param name="length"           value="200"/>
     <param name="left_margin"      value="2"/>

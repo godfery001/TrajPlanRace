@@ -214,20 +214,23 @@ void Opt::run()
 	if (!last_traj_path.empty()) {
         // 寻找当前实际位置在上一帧轨迹上的最近匹配点 (匹配误差在一定范围内才使用)
         int last_idx = XM::find_NPN(&last_traj_path, _env->x, _env->y);
-		Last_idx = last_idx;
+		
         if (last_idx >= 0 && last_idx < last_traj_path.size()) {
-            start_x = last_traj_path[last_idx].x;
-            start_y = last_traj_path[last_idx].y;
-            start_heading = last_traj_path[last_idx].heading;
-            start_v = last_traj_path[last_idx].v;
+			Last_idx = last_idx;
+
+			/*取消选择上一帧轨迹最近点为当前规划起点*/
+            // start_x = last_traj_path[last_idx].x;
+            // start_y = last_traj_path[last_idx].y;
+            // start_heading = last_traj_path[last_idx].heading;
+            // start_v = last_traj_path[last_idx].v;
             
-            // 粗略估算纵向加速度 (差分)
-            if (last_idx + 1 < last_traj_path.size()) {
-                double dt = last_traj_path[last_idx+1].t - last_traj_path[last_idx].t;
-                if (dt > 0.001) {
-                    start_a = (last_traj_path[last_idx+1].v - last_traj_path[last_idx].v) / dt;
-                }
-            }
+            // // 粗略估算纵向加速度 (差分)
+            // if (last_idx + 1 < last_traj_path.size()) {
+            //     double dt = last_traj_path[last_idx+1].t - last_traj_path[last_idx].t;
+            //     if (dt > 0.001) {
+            //         start_a = (last_traj_path[last_idx+1].v - last_traj_path[last_idx].v) / dt;
+            //     }
+            // }
         }
     }
 
@@ -256,12 +259,20 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	// Step 3: 采样生成候选轨迹集合
 	// -------------------------------------------------------------------
+	double left_bound =_env->refPathVec[0].bound_left;
+	double right_bound =_env->refPathVec[0].bound_right;
+	double max_lat_bound = std::max(abs(left_bound), abs(right_bound));
+	double  lat_res=0.2;
+	double lat_per_res=lat_res/max_lat_bound;
+
 	std::vector<double> tf_pcts = {0.0, -0.50, -0.45, -0.30, -0.15};//, 0.15, 0.30, 0.45, 0.50};
-	std::vector<double> lat_pcts;
-	for (double p = -0.70; p <= 0.71; p += 0.1)
+	std::vector<double> lat_pcts ={0.0};
+	for (double p = lat_per_res; p <= 0.95; p += lat_per_res){
 		lat_pcts.push_back(p);
+		lat_pcts.push_back(-p);
+	}
 	std::vector<double> lon_pcts = {0.0};
-	for (double p = -0.70; p <= 0.91; p += 0.2)
+	for (double p = -0.70; p <= 1.21; p += 0.2)
 		lon_pcts.push_back(p);
 
 	// 【修改点】删除原有的这行局部变量声明，改用 clear() 清空类的成员变量
@@ -270,7 +281,6 @@ void Opt::run()
 
 	// 配置参数：将目标速度设为限制上限的一半
 	double base_time = target_time;
-	double max_lat_bound = 2.0;
 	double target_lon_v = set_max_speed* 0.95;
 
 	generate_frenet_paths(
@@ -451,15 +461,15 @@ void Opt::run()
 		ui_best_min_margin_bound = best_min_margin_bound;
 		ui_latest_min_obs_dist = best_min_dist_obs;
 	} 
-	else if (Last_idx>=0){
-		ROS_WARN("No valid candidate trajectory! Use last trajectory from index %d.", Last_idx);
-		for (size_t j= Last_idx; j<last_traj_path.size(); ++j){
-			traj_best.path.push_back(last_traj_path[j]);
-		}
-		traj_best.feasible = true;
-		pt_goal = traj_best.path.back();
+	// else if (Last_idx>=0){
+	// 	ROS_WARN("No valid candidate trajectory! Use last trajectory from index %d.", Last_idx);
+	// 	for (size_t j= Last_idx; j<last_traj_path.size(); ++j){
+	// 		traj_best.path.push_back(last_traj_path[j]);
+	// 	}
+	// 	traj_best.feasible = true;
+	// 	pt_goal = traj_best.path.back();
 
-	}
+	// }
 	else {
 		ROS_ERROR("No valid candidate trajectory and no last trajectory! Trajectory generation failed.");
 		ui_best_min_margin_bound = 0.0;

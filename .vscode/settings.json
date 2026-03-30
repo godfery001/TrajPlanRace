@@ -1,4 +1,13 @@
 {
     "ROS2.distro": "noetic",
-    "cmake.sourceDirectory": "/home/siegf/Downloads/path_planning_test/TrajPlanRace/src"
+    "cmake.sourceDirectory": "/home/siegf/Downloads/path_planning_test/TrajPlanRace/src",
+    "ros.distro": "noetic",
+    "python.autoComplete.extraPaths": [
+        "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }

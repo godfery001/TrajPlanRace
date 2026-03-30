@@ -196,18 +196,18 @@ void Opt::run()
         int last_idx = XM::find_NPN(&last_traj_path, _env->x, _env->y);
         if (last_idx >= 0 && last_idx < last_traj_path.size()) {
 			Last_idx=last_idx;
-            start_x = last_traj_path[last_idx].x;
-            start_y = last_traj_path[last_idx].y;
-            start_heading = last_traj_path[last_idx].heading;
-            start_v = last_traj_path[last_idx].v;
+            // start_x = last_traj_path[last_idx].x;
+            // start_y = last_traj_path[last_idx].y;
+            // start_heading = last_traj_path[last_idx].heading;
+            // start_v = last_traj_path[last_idx].v;
             
-            // 粗略估算纵向加速度 (差分)
-            if (last_idx + 1 < last_traj_path.size()) {
-                double dt = last_traj_path[last_idx+1].t - last_traj_path[last_idx].t;
-                if (dt > 0.001) {
-                    start_a = (last_traj_path[last_idx+1].v - last_traj_path[last_idx].v) / dt;
-                }
-            }
+            // // 粗略估算纵向加速度 (差分)
+            // if (last_idx + 1 < last_traj_path.size()) {
+            //     double dt = last_traj_path[last_idx+1].t - last_traj_path[last_idx].t;
+            //     if (dt > 0.001) {
+            //         start_a = (last_traj_path[last_idx+1].v - last_traj_path[last_idx].v) / dt;
+            //     }
+            // }
         }
     }
 
@@ -480,15 +480,15 @@ void Opt::run()
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
 	}
-	else if (Last_idx>=0 && Last_idx < last_traj_path.size()) {
-		// 如果没有任何新轨迹通过约束筛选，且上一帧的轨迹仍然存在且合理，则继续沿用上一帧的轨迹（保持稳定性，避免频繁切换到完全不同的轨迹）
-		for(int j=Last_idx; j<last_traj_path.size(); ++j){
-			traj_best.path.push_back(last_traj_path[j]);
-		}
-		traj_best.feasible = true;
-		pt_goal = traj_best.path.back();
-		ROS_WARN("No valid trajectory found, fallback to last trajectory from index %d!", Last_idx); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
-	}
+	// else if (Last_idx>=0 && Last_idx < last_traj_path.size()) {
+	// 	// 如果没有任何新轨迹通过约束筛选，且上一帧的轨迹仍然存在且合理，则继续沿用上一帧的轨迹（保持稳定性，避免频繁切换到完全不同的轨迹）
+	// 	for(int j=Last_idx; j<last_traj_path.size(); ++j){
+	// 		traj_best.path.push_back(last_traj_path[j]);
+	// 	}
+	// 	traj_best.feasible = true;
+	// 	pt_goal = traj_best.path.back();
+	// 	ROS_WARN("No valid trajectory found, fallback to last trajectory from index %d!", Last_idx); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
+	// }
 	else {
 		ROS_ERROR("No valid trajectory found and no previous trajectory to fallback!"); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
 	}

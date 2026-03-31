@@ -249,7 +249,7 @@ void Opt::run()
 		lat_pcts.push_back(-p);
 	}
 	std::vector<double> lon_pcts = {0.0};
-	for (double p = -0.70; p <= 1.21; p += 0.2)
+	for (double p = -0.70; p <= 1.31; p += 0.2)
 		lon_pcts.push_back(p);
 
 	// 【修改点】删除原有的这行局部变量声明，改用 clear() 清空类的成员变量

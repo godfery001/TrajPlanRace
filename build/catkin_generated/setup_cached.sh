@@ -7,4 +7,5 @@
 # new environment variables
 
 # modified environment variables
+export PATH='/opt/ros/noetic/bin:/home/siegf/.local/bin:/home/siegf/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PWD='/home/siegf/Downloads/path_planning_test/TrajPlanRace/build'

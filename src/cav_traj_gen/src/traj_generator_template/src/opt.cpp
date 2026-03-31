@@ -445,7 +445,7 @@ void Opt::run()
 			// 4. 惩罚与障碍物的距离 (势场，这项需要结合3的参数进行调参)
 			double cost_obs = (min_dist_obs < 3.0) ? (1.0 / std::pow(min_dist_obs + 0.001, 2)) : 0.0;
 
-			// [新增] 5. 横向加速度软约束代价计算
+			// // [新增] 5. 横向加速度软约束代价计算
             double cost_ay = 0.0;
 			double w_ay = 10.0; // 若界面开启软约束，给予较高的惩罚权重
             if (guiSet.flag_ay_soft_const) {

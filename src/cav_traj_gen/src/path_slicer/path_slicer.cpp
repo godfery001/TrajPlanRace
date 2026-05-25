@@ -11,6 +11,7 @@
 #include "path_slicer.h"
 #include "UTM.h"
 #include "dataDefine.hpp"
+#include "ros/ros.h"
 // [Initialization] Bind planning environment
 int Path_Slicer::initialize(PlanningEnv_S *planning_env)
 {
@@ -31,16 +32,20 @@ void Path_Slicer::get_local_reference_path()
         return;
     }
 
+    bool is_reversing = (_env->whole_path[0].v < 0); // Determine if the path is reversing based on the first point's speed
+
     // Phase 1: Locate nearest path node
     if (NPN < 0) // Initial positioning
     {
         int candidate_index = -1;
         double min_squared_distance = 0;
+        double move_heading = is_reversing ? XM::Normalise_PI(_env->heading + M_PI) : _env->heading; // Adjust heading for reversing paths
         XM::find_NPN_preview(&_env->whole_path, 
-                            _env->x, _env->y, _env->heading, 
+                            _env->x, _env->y, move_heading,
                             candidate_index, 
                             min_squared_distance);
-
+        
+        // ROS_INFO_THROTTLE(1, "Initial NPN candidate index: %d, distance: %.2f", candidate_index, min_squared_distance);
         if (candidate_index < 0 || candidate_index >= total_path_points) return;
         NPN = candidate_index;
     }

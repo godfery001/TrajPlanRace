@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="output"            default="screen" /> <!-- screen/log -->
-    <param name="path_mode"        value="Sine" /> <!--mode can be "Circle" "Sine" "Line"--> 
-    <param name="speed"            value="3.5"/>
+    <param name="path_mode"        value="Circle" /> <!--mode can be "Circle" "Sine" "Line"--> 
+    <param name="speed"            value="1.0"/>
     <param name="length"           value="200"/>
     <param name="left_margin"      value="2"/>
     <param name="right_margin"     value="2"/>
 
-    <param name="radium"           value="8"/>
+    <param name="radium"           value="6"/>
 
     <param name="sine_amp"         value="2"/>
     <param name="sine_T"           value="20"/>

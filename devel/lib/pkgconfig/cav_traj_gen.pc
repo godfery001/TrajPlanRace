@@ -1,4 +1,4 @@
-prefix=/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel
+prefix=/home/siegf/TrajPlanRace/devel
 
 Name: cav_traj_gen
 Description: Description of cav_traj_gen

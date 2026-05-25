@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/cav_traj_gen/cav_traj_gen"
-  "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/cav_traj_gen/cav_traj_gen.pdb"
+  "/home/siegf/TrajPlanRace/devel/lib/cav_traj_gen/cav_traj_gen"
+  "/home/siegf/TrajPlanRace/devel/lib/cav_traj_gen/cav_traj_gen.pdb"
   "CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.o"
   "CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.o"
   "CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.o"

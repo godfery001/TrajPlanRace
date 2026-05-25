@@ -1,8 +1,8 @@
-# Install script for directory: /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control
+# Install script for directory: /home/siegf/TrajPlanRace/src/cav_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install")
+  set(CMAKE_INSTALL_PREFIX "/home/siegf/TrajPlanRace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,18 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/siegf/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cav_control/cmake" TYPE FILE FILES
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_controlConfig.cmake"
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_controlConfig-version.cmake"
+    "/home/siegf/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_controlConfig.cmake"
+    "/home/siegf/TrajPlanRace/build/cav_control/catkin_generated/installspace/cav_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cav_control" TYPE FILE FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cav_control" TYPE FILE FILES "/home/siegf/TrajPlanRace/src/cav_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -59,7 +59,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cav_control/cav_control"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cav_control" TYPE EXECUTABLE FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/cav_control/cav_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cav_control" TYPE EXECUTABLE FILES "/home/siegf/TrajPlanRace/devel/lib/cav_control/cav_control")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cav_control/cav_control" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cav_control/cav_control")
     file(RPATH_CHANGE
@@ -73,6 +73,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cav_control" TYPE DIRECTORY FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_control/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cav_control" TYPE DIRECTORY FILES "/home/siegf/TrajPlanRace/src/cav_control/launch")
 endif()
 

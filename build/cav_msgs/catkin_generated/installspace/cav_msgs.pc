@@ -1,4 +1,4 @@
-prefix=/home/siegf/Downloads/path_planning_test/TrajPlanRace/install
+prefix=/home/siegf/TrajPlanRace/install
 
 Name: cav_msgs
 Description: Description of cav_msgs

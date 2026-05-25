@@ -31,6 +31,7 @@ void ini()
 
     MC.path_tracker.pp_preview_step = guiSet.look_ahead_step;
     MC.path_tracker.pp_smooth_cof = guiSet.smooth_coe;
+    MC.path_tracker.radius = guiSet.radius;
 
     //speed tracker
     MC.speed_tracker.ini(
@@ -57,12 +58,14 @@ int main(int argc, char *argv[])
     priv_nh.getParam("ros_max_ephi", guiSet.ros_max_ephi);
     priv_nh.getParam("look_ahead_step", guiSet.look_ahead_step);
     priv_nh.getParam("smooth_coe", guiSet.smooth_coe);
+    priv_nh.getParam("radius", guiSet.radius);
 
     printf("\n\n");
     printf("  getParam ros_max_ey               %lf m\n", guiSet.ros_max_ey);
     printf("  getParam ros_max_ephi             %lf degree\n", guiSet.ros_max_ephi);
     printf("  getParam look_ahead_step          %d\n", guiSet.look_ahead_step);
     printf("  getParam smooth_coe               %lf\n", guiSet.smooth_coe);
+    printf("  getParam radius                   %lf\n", guiSet.radius);
 
     guiSet.ros_max_ephi = guiSet.ros_max_ephi * M_PI/180.0f;
 

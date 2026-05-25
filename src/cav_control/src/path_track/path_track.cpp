@@ -23,7 +23,10 @@ double PathTrack::pure_pursuit()
 
     //step 1: alpha, ld  
     double alpha = XM::AngleFromXY(_vs->x, _vs->y, _vs->heading, tg_x, tg_y);
-    if (_vs->speed_x < 0.2)
+
+    // ROS_INFO("alpha: %.2f deg, speed_x: %.2f m/s\n", alpha * 180.0 / M_PI, _vs->speed_x);
+
+    if (ABS(_vs->speed_x) < 0.2)
         alpha = 0;
 
     double ld = XM::distFromXY(_vs->x, _vs->y, tg_x, tg_y);
@@ -40,7 +43,14 @@ double PathTrack::pure_pursuit()
             N_tg, ld, alpha*180/M_PI, 
             steer*180/M_PI, steer_pp*180/M_PI,
             _vs->wheelbase);
-
+    
+    /*以下为恒定转向角测试*/
+    //当当前位置与参考位置误差足够小时，开启
+    // if (std::abs(_p2c->ey) <0.5 && std::abs(_p2c->ephi)<10*M_PI/180.f){
+    
+    //     steer_pp =atan(_vs->wheelbase/radius);
+    //     ROS_WARN("Constant steer test, steer_pp: %.2lf deg\n", steer_pp*180/M_PI);
+    // }
     return steer_pp;
 }
 
@@ -52,6 +62,9 @@ int PathTrack::run()
         return -1;
 
     count++;
+
+    ROS_INFO_THROTTLE(0.5,"@path track, Lateral error: %.2lf m, Heading error: %.2lf deg, speed: %.2lf m/s\n", 
+            _p2c->ey, _p2c->ephi*180.0f/M_PI, _vs->speed_x);
 
     //step 0: check if the car is near the path or not
     if (std::abs(_p2c->ey) < max_allowed_ey && 
@@ -69,7 +82,7 @@ int PathTrack::run()
     }
 
     //step 1: control
-    if (_vs->speed_x > 0.1f)
+    if (std::abs(_vs->speed_x) > 0.1f)
         _ctrl->steering = pure_pursuit();
 
     return 0;

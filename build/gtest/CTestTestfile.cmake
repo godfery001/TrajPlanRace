@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
 # Source directory: /usr/src/googletest
-# Build directory: /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/gtest
+# Build directory: /home/siegf/TrajPlanRace/build/gtest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

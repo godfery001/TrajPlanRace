@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/src
+CMAKE_SOURCE_DIR = /home/siegf/TrajPlanRace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/build
+CMAKE_BINARY_DIR = /home/siegf/TrajPlanRace/build
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build: std_msgs_generate
 .PHONY : cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 
 cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/siegf/TrajPlanRace/build/cav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/Downloads/path_planning_test/TrajPlanRace/src /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_msgs /home/siegf/Downloads/path_planning_test/TrajPlanRace/build /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/TrajPlanRace/src /home/siegf/TrajPlanRace/src/cav_msgs /home/siegf/TrajPlanRace/build /home/siegf/TrajPlanRace/build/cav_msgs /home/siegf/TrajPlanRace/build/cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 

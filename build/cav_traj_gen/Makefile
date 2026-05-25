@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/src
+CMAKE_SOURCE_DIR = /home/siegf/TrajPlanRace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/build
+CMAKE_BINARY_DIR = /home/siegf/TrajPlanRace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/CMakeFiles /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_traj_gen/CMakeFiles/progress.marks
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/CMakeFiles 0
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/siegf/TrajPlanRace/build/CMakeFiles /home/siegf/TrajPlanRace/build/cav_traj_gen/CMakeFiles/progress.marks
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/siegf/TrajPlanRace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/clean
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/preinstall
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/preinstall
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 cav_traj_gen/CMakeFiles/cav_traj_gen.dir/rule:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/CMakeFiles/cav_traj_gen.dir/rule
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f CMakeFiles/Makefile2 cav_traj_gen/CMakeFiles/cav_traj_gen.dir/rule
 .PHONY : cav_traj_gen/CMakeFiles/cav_traj_gen.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ cav_traj_gen: cav_traj_gen/CMakeFiles/cav_traj_gen.dir/rule
 
 # fast build rule for target.
 cav_traj_gen/fast:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build
 .PHONY : cav_traj_gen/fast
 
 src/GUI/gui.o: src/GUI/gui.cpp.o
@@ -188,7 +188,7 @@ src/GUI/gui.o: src/GUI/gui.cpp.o
 
 # target to build an object file
 src/GUI/gui.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.o
 .PHONY : src/GUI/gui.cpp.o
 
 src/GUI/gui.i: src/GUI/gui.cpp.i
@@ -197,7 +197,7 @@ src/GUI/gui.i: src/GUI/gui.cpp.i
 
 # target to preprocess a source file
 src/GUI/gui.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.i
 .PHONY : src/GUI/gui.cpp.i
 
 src/GUI/gui.s: src/GUI/gui.cpp.s
@@ -206,7 +206,7 @@ src/GUI/gui.s: src/GUI/gui.cpp.s
 
 # target to generate assembly for a file
 src/GUI/gui.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/gui.cpp.s
 .PHONY : src/GUI/gui.cpp.s
 
 src/GUI/mainloop.o: src/GUI/mainloop.cpp.o
@@ -215,7 +215,7 @@ src/GUI/mainloop.o: src/GUI/mainloop.cpp.o
 
 # target to build an object file
 src/GUI/mainloop.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.o
 .PHONY : src/GUI/mainloop.cpp.o
 
 src/GUI/mainloop.i: src/GUI/mainloop.cpp.i
@@ -224,7 +224,7 @@ src/GUI/mainloop.i: src/GUI/mainloop.cpp.i
 
 # target to preprocess a source file
 src/GUI/mainloop.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.i
 .PHONY : src/GUI/mainloop.cpp.i
 
 src/GUI/mainloop.s: src/GUI/mainloop.cpp.s
@@ -233,7 +233,7 @@ src/GUI/mainloop.s: src/GUI/mainloop.cpp.s
 
 # target to generate assembly for a file
 src/GUI/mainloop.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/mainloop.cpp.s
 .PHONY : src/GUI/mainloop.cpp.s
 
 src/GUI/moc_gui.o: src/GUI/moc_gui.cpp.o
@@ -242,7 +242,7 @@ src/GUI/moc_gui.o: src/GUI/moc_gui.cpp.o
 
 # target to build an object file
 src/GUI/moc_gui.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.o
 .PHONY : src/GUI/moc_gui.cpp.o
 
 src/GUI/moc_gui.i: src/GUI/moc_gui.cpp.i
@@ -251,7 +251,7 @@ src/GUI/moc_gui.i: src/GUI/moc_gui.cpp.i
 
 # target to preprocess a source file
 src/GUI/moc_gui.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.i
 .PHONY : src/GUI/moc_gui.cpp.i
 
 src/GUI/moc_gui.s: src/GUI/moc_gui.cpp.s
@@ -260,7 +260,7 @@ src/GUI/moc_gui.s: src/GUI/moc_gui.cpp.s
 
 # target to generate assembly for a file
 src/GUI/moc_gui.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/moc_gui.cpp.s
 .PHONY : src/GUI/moc_gui.cpp.s
 
 src/GUI/widgets/3d_display/display_3d.o: src/GUI/widgets/3d_display/display_3d.cpp.o
@@ -269,7 +269,7 @@ src/GUI/widgets/3d_display/display_3d.o: src/GUI/widgets/3d_display/display_3d.c
 
 # target to build an object file
 src/GUI/widgets/3d_display/display_3d.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.o
 .PHONY : src/GUI/widgets/3d_display/display_3d.cpp.o
 
 src/GUI/widgets/3d_display/display_3d.i: src/GUI/widgets/3d_display/display_3d.cpp.i
@@ -278,7 +278,7 @@ src/GUI/widgets/3d_display/display_3d.i: src/GUI/widgets/3d_display/display_3d.c
 
 # target to preprocess a source file
 src/GUI/widgets/3d_display/display_3d.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.i
 .PHONY : src/GUI/widgets/3d_display/display_3d.cpp.i
 
 src/GUI/widgets/3d_display/display_3d.s: src/GUI/widgets/3d_display/display_3d.cpp.s
@@ -287,7 +287,7 @@ src/GUI/widgets/3d_display/display_3d.s: src/GUI/widgets/3d_display/display_3d.c
 
 # target to generate assembly for a file
 src/GUI/widgets/3d_display/display_3d.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d.cpp.s
 .PHONY : src/GUI/widgets/3d_display/display_3d.cpp.s
 
 src/GUI/widgets/3d_display/display_3d_mode1.o: src/GUI/widgets/3d_display/display_3d_mode1.cpp.o
@@ -296,7 +296,7 @@ src/GUI/widgets/3d_display/display_3d_mode1.o: src/GUI/widgets/3d_display/displa
 
 # target to build an object file
 src/GUI/widgets/3d_display/display_3d_mode1.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.o
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode1.cpp.o
 
 src/GUI/widgets/3d_display/display_3d_mode1.i: src/GUI/widgets/3d_display/display_3d_mode1.cpp.i
@@ -305,7 +305,7 @@ src/GUI/widgets/3d_display/display_3d_mode1.i: src/GUI/widgets/3d_display/displa
 
 # target to preprocess a source file
 src/GUI/widgets/3d_display/display_3d_mode1.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.i
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode1.cpp.i
 
 src/GUI/widgets/3d_display/display_3d_mode1.s: src/GUI/widgets/3d_display/display_3d_mode1.cpp.s
@@ -314,7 +314,7 @@ src/GUI/widgets/3d_display/display_3d_mode1.s: src/GUI/widgets/3d_display/displa
 
 # target to generate assembly for a file
 src/GUI/widgets/3d_display/display_3d_mode1.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode1.cpp.s
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode1.cpp.s
 
 src/GUI/widgets/3d_display/display_3d_mode2.o: src/GUI/widgets/3d_display/display_3d_mode2.cpp.o
@@ -323,7 +323,7 @@ src/GUI/widgets/3d_display/display_3d_mode2.o: src/GUI/widgets/3d_display/displa
 
 # target to build an object file
 src/GUI/widgets/3d_display/display_3d_mode2.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.o
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode2.cpp.o
 
 src/GUI/widgets/3d_display/display_3d_mode2.i: src/GUI/widgets/3d_display/display_3d_mode2.cpp.i
@@ -332,7 +332,7 @@ src/GUI/widgets/3d_display/display_3d_mode2.i: src/GUI/widgets/3d_display/displa
 
 # target to preprocess a source file
 src/GUI/widgets/3d_display/display_3d_mode2.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.i
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode2.cpp.i
 
 src/GUI/widgets/3d_display/display_3d_mode2.s: src/GUI/widgets/3d_display/display_3d_mode2.cpp.s
@@ -341,7 +341,7 @@ src/GUI/widgets/3d_display/display_3d_mode2.s: src/GUI/widgets/3d_display/displa
 
 # target to generate assembly for a file
 src/GUI/widgets/3d_display/display_3d_mode2.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/display_3d_mode2.cpp.s
 .PHONY : src/GUI/widgets/3d_display/display_3d_mode2.cpp.s
 
 src/GUI/widgets/3d_display/moc_display_3d.o: src/GUI/widgets/3d_display/moc_display_3d.cpp.o
@@ -350,7 +350,7 @@ src/GUI/widgets/3d_display/moc_display_3d.o: src/GUI/widgets/3d_display/moc_disp
 
 # target to build an object file
 src/GUI/widgets/3d_display/moc_display_3d.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.o
 .PHONY : src/GUI/widgets/3d_display/moc_display_3d.cpp.o
 
 src/GUI/widgets/3d_display/moc_display_3d.i: src/GUI/widgets/3d_display/moc_display_3d.cpp.i
@@ -359,7 +359,7 @@ src/GUI/widgets/3d_display/moc_display_3d.i: src/GUI/widgets/3d_display/moc_disp
 
 # target to preprocess a source file
 src/GUI/widgets/3d_display/moc_display_3d.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.i
 .PHONY : src/GUI/widgets/3d_display/moc_display_3d.cpp.i
 
 src/GUI/widgets/3d_display/moc_display_3d.s: src/GUI/widgets/3d_display/moc_display_3d.cpp.s
@@ -368,7 +368,7 @@ src/GUI/widgets/3d_display/moc_display_3d.s: src/GUI/widgets/3d_display/moc_disp
 
 # target to generate assembly for a file
 src/GUI/widgets/3d_display/moc_display_3d.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/moc_display_3d.cpp.s
 .PHONY : src/GUI/widgets/3d_display/moc_display_3d.cpp.s
 
 src/GUI/widgets/3d_display/objloader.o: src/GUI/widgets/3d_display/objloader.cpp.o
@@ -377,7 +377,7 @@ src/GUI/widgets/3d_display/objloader.o: src/GUI/widgets/3d_display/objloader.cpp
 
 # target to build an object file
 src/GUI/widgets/3d_display/objloader.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.o
 .PHONY : src/GUI/widgets/3d_display/objloader.cpp.o
 
 src/GUI/widgets/3d_display/objloader.i: src/GUI/widgets/3d_display/objloader.cpp.i
@@ -386,7 +386,7 @@ src/GUI/widgets/3d_display/objloader.i: src/GUI/widgets/3d_display/objloader.cpp
 
 # target to preprocess a source file
 src/GUI/widgets/3d_display/objloader.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.i
 .PHONY : src/GUI/widgets/3d_display/objloader.cpp.i
 
 src/GUI/widgets/3d_display/objloader.s: src/GUI/widgets/3d_display/objloader.cpp.s
@@ -395,7 +395,7 @@ src/GUI/widgets/3d_display/objloader.s: src/GUI/widgets/3d_display/objloader.cpp
 
 # target to generate assembly for a file
 src/GUI/widgets/3d_display/objloader.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/3d_display/objloader.cpp.s
 .PHONY : src/GUI/widgets/3d_display/objloader.cpp.s
 
 src/GUI/widgets/battery/battery.o: src/GUI/widgets/battery/battery.cpp.o
@@ -404,7 +404,7 @@ src/GUI/widgets/battery/battery.o: src/GUI/widgets/battery/battery.cpp.o
 
 # target to build an object file
 src/GUI/widgets/battery/battery.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.o
 .PHONY : src/GUI/widgets/battery/battery.cpp.o
 
 src/GUI/widgets/battery/battery.i: src/GUI/widgets/battery/battery.cpp.i
@@ -413,7 +413,7 @@ src/GUI/widgets/battery/battery.i: src/GUI/widgets/battery/battery.cpp.i
 
 # target to preprocess a source file
 src/GUI/widgets/battery/battery.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.i
 .PHONY : src/GUI/widgets/battery/battery.cpp.i
 
 src/GUI/widgets/battery/battery.s: src/GUI/widgets/battery/battery.cpp.s
@@ -422,7 +422,7 @@ src/GUI/widgets/battery/battery.s: src/GUI/widgets/battery/battery.cpp.s
 
 # target to generate assembly for a file
 src/GUI/widgets/battery/battery.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/battery.cpp.s
 .PHONY : src/GUI/widgets/battery/battery.cpp.s
 
 src/GUI/widgets/battery/moc_battery.o: src/GUI/widgets/battery/moc_battery.cpp.o
@@ -431,7 +431,7 @@ src/GUI/widgets/battery/moc_battery.o: src/GUI/widgets/battery/moc_battery.cpp.o
 
 # target to build an object file
 src/GUI/widgets/battery/moc_battery.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.o
 .PHONY : src/GUI/widgets/battery/moc_battery.cpp.o
 
 src/GUI/widgets/battery/moc_battery.i: src/GUI/widgets/battery/moc_battery.cpp.i
@@ -440,7 +440,7 @@ src/GUI/widgets/battery/moc_battery.i: src/GUI/widgets/battery/moc_battery.cpp.i
 
 # target to preprocess a source file
 src/GUI/widgets/battery/moc_battery.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.i
 .PHONY : src/GUI/widgets/battery/moc_battery.cpp.i
 
 src/GUI/widgets/battery/moc_battery.s: src/GUI/widgets/battery/moc_battery.cpp.s
@@ -449,7 +449,7 @@ src/GUI/widgets/battery/moc_battery.s: src/GUI/widgets/battery/moc_battery.cpp.s
 
 # target to generate assembly for a file
 src/GUI/widgets/battery/moc_battery.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/battery/moc_battery.cpp.s
 .PHONY : src/GUI/widgets/battery/moc_battery.cpp.s
 
 src/GUI/widgets/info.o: src/GUI/widgets/info.cpp.o
@@ -458,7 +458,7 @@ src/GUI/widgets/info.o: src/GUI/widgets/info.cpp.o
 
 # target to build an object file
 src/GUI/widgets/info.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.o
 .PHONY : src/GUI/widgets/info.cpp.o
 
 src/GUI/widgets/info.i: src/GUI/widgets/info.cpp.i
@@ -467,7 +467,7 @@ src/GUI/widgets/info.i: src/GUI/widgets/info.cpp.i
 
 # target to preprocess a source file
 src/GUI/widgets/info.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.i
 .PHONY : src/GUI/widgets/info.cpp.i
 
 src/GUI/widgets/info.s: src/GUI/widgets/info.cpp.s
@@ -476,7 +476,7 @@ src/GUI/widgets/info.s: src/GUI/widgets/info.cpp.s
 
 # target to generate assembly for a file
 src/GUI/widgets/info.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/GUI/widgets/info.cpp.s
 .PHONY : src/GUI/widgets/info.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -485,7 +485,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -494,7 +494,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -503,7 +503,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/path_slicer/path_slicer.o: src/path_slicer/path_slicer.cpp.o
@@ -512,7 +512,7 @@ src/path_slicer/path_slicer.o: src/path_slicer/path_slicer.cpp.o
 
 # target to build an object file
 src/path_slicer/path_slicer.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.o
 .PHONY : src/path_slicer/path_slicer.cpp.o
 
 src/path_slicer/path_slicer.i: src/path_slicer/path_slicer.cpp.i
@@ -521,7 +521,7 @@ src/path_slicer/path_slicer.i: src/path_slicer/path_slicer.cpp.i
 
 # target to preprocess a source file
 src/path_slicer/path_slicer.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.i
 .PHONY : src/path_slicer/path_slicer.cpp.i
 
 src/path_slicer/path_slicer.s: src/path_slicer/path_slicer.cpp.s
@@ -530,7 +530,7 @@ src/path_slicer/path_slicer.s: src/path_slicer/path_slicer.cpp.s
 
 # target to generate assembly for a file
 src/path_slicer/path_slicer.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/path_slicer/path_slicer.cpp.s
 .PHONY : src/path_slicer/path_slicer.cpp.s
 
 src/rosNode/pub.o: src/rosNode/pub.cpp.o
@@ -539,7 +539,7 @@ src/rosNode/pub.o: src/rosNode/pub.cpp.o
 
 # target to build an object file
 src/rosNode/pub.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.o
 .PHONY : src/rosNode/pub.cpp.o
 
 src/rosNode/pub.i: src/rosNode/pub.cpp.i
@@ -548,7 +548,7 @@ src/rosNode/pub.i: src/rosNode/pub.cpp.i
 
 # target to preprocess a source file
 src/rosNode/pub.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.i
 .PHONY : src/rosNode/pub.cpp.i
 
 src/rosNode/pub.s: src/rosNode/pub.cpp.s
@@ -557,7 +557,7 @@ src/rosNode/pub.s: src/rosNode/pub.cpp.s
 
 # target to generate assembly for a file
 src/rosNode/pub.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/pub.cpp.s
 .PHONY : src/rosNode/pub.cpp.s
 
 src/rosNode/recv.o: src/rosNode/recv.cpp.o
@@ -566,7 +566,7 @@ src/rosNode/recv.o: src/rosNode/recv.cpp.o
 
 # target to build an object file
 src/rosNode/recv.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.o
 .PHONY : src/rosNode/recv.cpp.o
 
 src/rosNode/recv.i: src/rosNode/recv.cpp.i
@@ -575,7 +575,7 @@ src/rosNode/recv.i: src/rosNode/recv.cpp.i
 
 # target to preprocess a source file
 src/rosNode/recv.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.i
 .PHONY : src/rosNode/recv.cpp.i
 
 src/rosNode/recv.s: src/rosNode/recv.cpp.s
@@ -584,7 +584,7 @@ src/rosNode/recv.s: src/rosNode/recv.cpp.s
 
 # target to generate assembly for a file
 src/rosNode/recv.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/rosNode/recv.cpp.s
 .PHONY : src/rosNode/recv.cpp.s
 
 src/traj_generator_template/src/assit.o: src/traj_generator_template/src/assit.cpp.o
@@ -593,7 +593,7 @@ src/traj_generator_template/src/assit.o: src/traj_generator_template/src/assit.c
 
 # target to build an object file
 src/traj_generator_template/src/assit.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.o
 .PHONY : src/traj_generator_template/src/assit.cpp.o
 
 src/traj_generator_template/src/assit.i: src/traj_generator_template/src/assit.cpp.i
@@ -602,7 +602,7 @@ src/traj_generator_template/src/assit.i: src/traj_generator_template/src/assit.c
 
 # target to preprocess a source file
 src/traj_generator_template/src/assit.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.i
 .PHONY : src/traj_generator_template/src/assit.cpp.i
 
 src/traj_generator_template/src/assit.s: src/traj_generator_template/src/assit.cpp.s
@@ -611,7 +611,7 @@ src/traj_generator_template/src/assit.s: src/traj_generator_template/src/assit.c
 
 # target to generate assembly for a file
 src/traj_generator_template/src/assit.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/assit.cpp.s
 .PHONY : src/traj_generator_template/src/assit.cpp.s
 
 src/traj_generator_template/src/opt.o: src/traj_generator_template/src/opt.cpp.o
@@ -620,7 +620,7 @@ src/traj_generator_template/src/opt.o: src/traj_generator_template/src/opt.cpp.o
 
 # target to build an object file
 src/traj_generator_template/src/opt.cpp.o:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.o
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.o
 .PHONY : src/traj_generator_template/src/opt.cpp.o
 
 src/traj_generator_template/src/opt.i: src/traj_generator_template/src/opt.cpp.i
@@ -629,7 +629,7 @@ src/traj_generator_template/src/opt.i: src/traj_generator_template/src/opt.cpp.i
 
 # target to preprocess a source file
 src/traj_generator_template/src/opt.cpp.i:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.i
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.i
 .PHONY : src/traj_generator_template/src/opt.cpp.i
 
 src/traj_generator_template/src/opt.s: src/traj_generator_template/src/opt.cpp.s
@@ -638,7 +638,7 @@ src/traj_generator_template/src/opt.s: src/traj_generator_template/src/opt.cpp.s
 
 # target to generate assembly for a file
 src/traj_generator_template/src/opt.cpp.s:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.s
+	cd /home/siegf/TrajPlanRace/build && $(MAKE) -f cav_traj_gen/CMakeFiles/cav_traj_gen.dir/build.make cav_traj_gen/CMakeFiles/cav_traj_gen.dir/src/traj_generator_template/src/opt.cpp.s
 .PHONY : src/traj_generator_template/src/opt.cpp.s
 
 # Help Target
@@ -717,6 +717,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

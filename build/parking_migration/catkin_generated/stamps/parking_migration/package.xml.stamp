@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>parking_migration</name>
+  <version>0.1.0</version>
+  <description>Minimal semantic-map adapter and parking planning bridge for TrajPlanRace.</description>
+  <maintainer email="siegf@example.com">siegf</maintainer>
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>cav_msgs</depend>
+  <depend>common</depend>
+  <depend>semantic_map_manager</depend>
+  <depend>traj_planner</depend>
+
+  <export>
+  </export>
+</package>

@@ -16,18 +16,28 @@ class LinePath(object):
     def get_path(self):
         path = []
         start_t = rospy.Time.now().to_sec()
-        start_x = self.center[0] - self.length*np.sqrt(2)/4
-        start_y = self.center[1] - self.length*np.sqrt(2)/4
+        if self.speed >0:
+            start_x = self.center[0] - self.length*np.sqrt(2)/4
+            start_y = self.center[1] - self.length*np.sqrt(2)/4
+        else:
+            start_x = self.center[0] + self.length*np.sqrt(2)/4
+            start_y = self.center[1] + self.length*np.sqrt(2)/4
         point_num = int(self.length // self.interval+1)
         for i in range(0, point_num):
             _p = RefPoint()
-            _p.x = start_x + i*self.interval*np.sqrt(2)/2
-            _p.y = start_y + i*self.interval*np.sqrt(2)/2
+            if self.speed < 0:
+                _p.x = start_x - i*self.interval*np.sqrt(2)/2
+                _p.y = start_y - i*self.interval*np.sqrt(2)/2
+            else:
+                _p.x = start_x + i*self.interval*np.sqrt(2)/2
+                _p.y = start_y + i*self.interval*np.sqrt(2)/2
             _p.v = self.speed
             _p.cr = 0
             _p.heading = math.pi/4
+            if self.speed < 0:
+                _p.heading = _p.heading + math.pi
             _p.left_width = self.l_marg
             _p.right_width = self.r_marg
-            _p.t = start_t + i*self.interval/self.speed
+            _p.t = start_t + i*self.interval/abs(self.speed)
             path.append(_p)
         return path

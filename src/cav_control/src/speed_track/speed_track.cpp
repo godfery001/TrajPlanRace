@@ -38,8 +38,9 @@ int SpeedTrack::run()
     
     count++;
 
-    //step 1: set the target speed
-    SC.speed_x  = MAX(0.0, _vs->speed_x);
+    //step 1: set the target speed 
+    //TODO：whether speed_x should keep the sign of its value
+    SC.speed_x  = ABS(_vs->speed_x);
     SC.vd = _p2c->vd;
 
     //step 2: speed limit by road
@@ -47,10 +48,12 @@ int SpeedTrack::run()
 
 
     //step 3: update speed
-    _p2c->len = _p2c->path.back().mileage - _p2c->path.at(_p2c->NPN).mileage;
+    double mileage_end = _p2c->path.back().mileage;
+    double mileage_curr = _p2c->path.at(_p2c->NPN).mileage;
+    _p2c->len = mileage_end - mileage_curr; // remain len
     double len_temp = MAX(0, _p2c->len);
     SC.v_limit_len = sqrt(2*1.0*len_temp);
-    SC.vd = MIN(SC.vd, MIN(SC.v_limit_cr, SC.v_limit_len));
+    SC.vd = MIN(ABS(SC.vd), MIN(SC.v_limit_cr, SC.v_limit_len));
 
     if (_p2c->len < 0.25)
     {
@@ -60,11 +63,20 @@ int SpeedTrack::run()
 
 
     //step 4: set gear
-    SC.gear_cmd = GEAR_DRIVE;
-    
+    if (_p2c->path.size() > (size_t)_p2c->NPN)
+    {
+        if (_p2c->path.at(_p2c->NPN).v < -1e-3)
+            SC.gear_cmd = GEAR_REVERSE;
+        else
+            SC.gear_cmd = GEAR_DRIVE;
+    }
+    else
+    {
+        SC.gear_cmd = GEAR_DRIVE;
+    }
 
     //step 6: set the cmd
-    _ctrl->speed_cmd    = SC.vd;
+    _ctrl->speed_cmd    = (SC.gear_cmd == GEAR_REVERSE) ? -SC.vd : SC.vd;
     _ctrl->gear         = SC.gear_cmd;
 
 

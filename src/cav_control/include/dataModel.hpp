@@ -34,6 +34,7 @@ struct GUI_Set_S
     //pure pursuit
     int look_ahead_step = 40;
     double smooth_coe = 0.85;
+    double radius = 1E6;
 };
 
 extern GUI_Set_S guiSet;

@@ -27,6 +27,9 @@
     <param name="look_ahead_step" value="30" />
     <param name="smooth_coe" value="0.85" />
 
+    <!-- radius for constant steer angle -->
+    <param name="radius" value="6.0" />
+
     <!-- for data record -->
     <param name="data_folder" value="~/Documents" />
  

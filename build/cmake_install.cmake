@@ -1,8 +1,8 @@
-# Install script for directory: /home/siegf/Downloads/path_planning_test/TrajPlanRace/src
+# Install script for directory: /home/siegf/TrajPlanRace/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install")
+  set(CMAKE_INSTALL_PREFIX "/home/siegf/TrajPlanRace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -49,108 +49,109 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/_setup_util.py")
+   "/home/siegf/TrajPlanRace/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE PROGRAM FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE PROGRAM FILES "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/env.sh")
+   "/home/siegf/TrajPlanRace/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE PROGRAM FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE PROGRAM FILES "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/setup.bash;/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/local_setup.bash")
+   "/home/siegf/TrajPlanRace/install/setup.bash;/home/siegf/TrajPlanRace/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE FILE FILES
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/setup.bash"
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE FILE FILES
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/setup.bash"
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/setup.sh;/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/local_setup.sh")
+   "/home/siegf/TrajPlanRace/install/setup.sh;/home/siegf/TrajPlanRace/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE FILE FILES
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/setup.sh"
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE FILE FILES
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/setup.sh"
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/setup.zsh;/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/local_setup.zsh")
+   "/home/siegf/TrajPlanRace/install/setup.zsh;/home/siegf/TrajPlanRace/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE FILE FILES
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/setup.zsh"
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE FILE FILES
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/setup.zsh"
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/setup.fish;/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/local_setup.fish")
+   "/home/siegf/TrajPlanRace/install/setup.fish;/home/siegf/TrajPlanRace/install/local_setup.fish")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE FILE FILES
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/setup.fish"
-    "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/local_setup.fish"
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE FILE FILES
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/setup.fish"
+    "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/local_setup.fish"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install/.rosinstall")
+   "/home/siegf/TrajPlanRace/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/siegf/Downloads/path_planning_test/TrajPlanRace/install" TYPE FILE FILES "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/siegf/TrajPlanRace/install" TYPE FILE FILES "/home/siegf/TrajPlanRace/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/gtest/cmake_install.cmake")
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs/cmake_install.cmake")
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_control/cmake_install.cmake")
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_path_pub/cmake_install.cmake")
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_traj_gen/cmake_install.cmake")
-  include("/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/CSSR/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/gtest/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/cav_msgs/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/cav_control/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/cav_path_pub/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/cav_traj_gen/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/CSSR/cmake_install.cmake")
+  include("/home/siegf/TrajPlanRace/build/test_ref_pub/cmake_install.cmake")
 
 endif()
 
@@ -162,5 +163,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/siegf/TrajPlanRace/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

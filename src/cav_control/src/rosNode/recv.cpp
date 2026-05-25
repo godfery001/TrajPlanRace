@@ -105,7 +105,9 @@ void ROSNode::gen_p2c()
         vec->at(_p2c->NPN + 1).x, vec->at(_p2c->NPN + 1).y);
 
     // step 4: heading angle information
-    _p2c->ephi = 0 - XM::Normalise_PI(_vs->heading - vec->at(_p2c->NPN).heading);
+    bool is_reversing = vec->at(_p2c->NPN).v < 0; // Determine if the path is reversing based on the point's speed
+    double path_heading = is_reversing ? XM::Normalise_PI(vec->at(_p2c->NPN).heading + M_PI) : vec->at(_p2c->NPN).heading;
+    _p2c->ephi = 0 - XM::Normalise_PI(_vs->heading - path_heading);
 
     return;
 }

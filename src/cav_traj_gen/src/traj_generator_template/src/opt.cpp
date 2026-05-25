@@ -154,6 +154,9 @@ int Opt::ini(PlanningEnv_S *planning_env)
  */
 void Opt::run()
 {
+	copy_generator();
+	return;
+	
 	if (_env == NULL || _env->refPathVec.size() < 3)
 		return;
 
@@ -256,10 +259,9 @@ void Opt::run()
     // 删除: std::vector<FrenetPath> candidate_trajs; 
     candidate_trajs.clear();
 
-	// 配置参数：将目标速度设为限制上限的一半
+	// 配置参数：根据参考轨迹的目标速度决定采样方向
 	double base_time = target_time;
-	// double max_lat_bound = 2.0;
-	double target_lon_v = set_max_speed* 0.95;
+	double target_lon_v = set_max_speed * 0.95; 
 
 	generate_frenet_paths(
 		lon_0, lon_v0, lon_a0,
@@ -474,9 +476,9 @@ void Opt::run()
 	// -------------------------------------------------------------------
 	if (best_idx != -1) {
 		traj_best.path = candidate_trajs[best_idx].cartesian_path;
-		XM::cal_heading_by_2pts(&traj_best.path, 0.25, 2);
-		bool flag_fwd, flag_R;
-		XM::cal_curvature_x(&traj_best.path, 0.25, 4.0, flag_fwd, flag_R);
+		// XM::cal_heading_by_2pts(&traj_best.path, 0.25, 2);
+		// bool flag_fwd, flag_R;
+		// XM::cal_curvature_x(&traj_best.path, 0.25, 4.0, flag_fwd, flag_R);
 		traj_best.feasible = true;
 		pt_goal = traj_best.path.back();
 	}
@@ -491,6 +493,8 @@ void Opt::run()
 	// }
 	else {
 		ROS_ERROR("No valid trajectory found and no previous trajectory to fallback!"); // 这行日志可以帮助调试，看看是不是因为第一帧就没有轨迹了导致后续都没有了
+		// copy_generator();
+		// return;
 	}
 
 	last_traj_path = traj_best.path; // 更新上一帧轨迹

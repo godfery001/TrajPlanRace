@@ -1,4 +1,4 @@
-prefix=/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel
+prefix=/home/siegf/TrajPlanRace/devel
 
 Name: cssr
 Description: Description of cssr

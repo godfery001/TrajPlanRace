@@ -21,13 +21,19 @@ class CirclePath(object):
         start_t = rospy.Time.now().to_sec()
         for i in range(0, point_num):
             _p = RefPoint()
-            _p.x = self.center[0] + self.rad * math.cos(i*degree_interval)
-            _p.y = self.center[1] + self.rad * math.sin(i*degree_interval)
+            if self.speed < 0:
+                _p.x = self.center[0] + self.rad * math.cos(-i*degree_interval)
+                _p.y = self.center[1] + self.rad * math.sin(-i*degree_interval)
+                _p.cr = 1/self.rad
+                _p.heading = -i*degree_interval - math.pi/2 # start heading is pi/2
+            else:
+                _p.x = self.center[0] + self.rad * math.cos(i*degree_interval)
+                _p.y = self.center[1] + self.rad * math.sin(i*degree_interval)
+                _p.cr = 1/self.rad
+                _p.heading = i*degree_interval + math.pi/2
             _p.v = self.speed
-            _p.cr = 1/self.rad
-            _p.heading = i*degree_interval + math.pi/2
             _p.left_width = self.l_marg
             _p.right_width = self.r_marg
-            _p.t = start_t + i*self.interval/self.speed
+            _p.t = start_t + i*self.interval/abs(self.speed)
             path.append(_p)
         return path

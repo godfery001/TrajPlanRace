@@ -1,8 +1,0 @@
-prefix=/home/siegf/Downloads/path_planning_test/TrajPlanRace/build/devel
-
-Name: cav_traj_gen
-Description: Description of cav_traj_gen
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: cav_msgs

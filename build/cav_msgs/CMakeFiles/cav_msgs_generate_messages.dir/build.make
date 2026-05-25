@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/src
+CMAKE_SOURCE_DIR = /home/siegf/TrajPlanRace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/build
+CMAKE_BINARY_DIR = /home/siegf/TrajPlanRace/build
 
 # Utility rule file for cav_msgs_generate_messages.
 
@@ -63,10 +63,10 @@ cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/build: cav_msgs_generate_mess
 .PHONY : cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/build
 
 cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/clean:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/cav_msgs_generate_messages.dir/cmake_clean.cmake
+	cd /home/siegf/TrajPlanRace/build/cav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/cav_msgs_generate_messages.dir/cmake_clean.cmake
 .PHONY : cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/clean
 
 cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/depend:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/Downloads/path_planning_test/TrajPlanRace/src /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_msgs /home/siegf/Downloads/path_planning_test/TrajPlanRace/build /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/TrajPlanRace/src /home/siegf/TrajPlanRace/src/cav_msgs /home/siegf/TrajPlanRace/build /home/siegf/TrajPlanRace/build/cav_msgs /home/siegf/TrajPlanRace/build/cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cav_msgs/CMakeFiles/cav_msgs_generate_messages.dir/depend
 

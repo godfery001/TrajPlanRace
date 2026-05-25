@@ -40,7 +40,10 @@ void ROSNode::publishCmd()
     msg.gear_cmd = _ctrl->gear;
     msg.speed_cmd = _ctrl->speed_cmd;
     msg.bywire_control_enable  = 1; //self-driving enabled, 0-off, 1-on
-
+    
+    // 控制误差输出
+    msg.ey_out = _p2c->ey;
+    msg.ephi_out = _p2c->ephi;
     pub_cmd.publish(msg);
 };
 

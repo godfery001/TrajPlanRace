@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/src
+CMAKE_SOURCE_DIR = /home/siegf/TrajPlanRace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/siegf/Downloads/path_planning_test/TrajPlanRace/build
+CMAKE_BINARY_DIR = /home/siegf/TrajPlanRace/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/siegf/Downloads/path_planning_test/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/Downloads/path_planning_test/TrajPlanRace/src /home/siegf/Downloads/path_planning_test/TrajPlanRace/src /home/siegf/Downloads/path_planning_test/TrajPlanRace/build /home/siegf/Downloads/path_planning_test/TrajPlanRace/build /home/siegf/Downloads/path_planning_test/TrajPlanRace/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/siegf/TrajPlanRace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/siegf/TrajPlanRace/src /home/siegf/TrajPlanRace/src /home/siegf/TrajPlanRace/build /home/siegf/TrajPlanRace/build /home/siegf/TrajPlanRace/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

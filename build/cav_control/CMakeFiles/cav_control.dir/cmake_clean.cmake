@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/cav_control/cav_control"
-  "/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib/cav_control/cav_control.pdb"
+  "/home/siegf/TrajPlanRace/devel/lib/cav_control/cav_control"
+  "/home/siegf/TrajPlanRace/devel/lib/cav_control/cav_control.pdb"
   "CMakeFiles/cav_control.dir/src/main.cpp.o"
   "CMakeFiles/cav_control.dir/src/path_track/path_track.cpp.o"
   "CMakeFiles/cav_control.dir/src/rosNode/pub.cpp.o"

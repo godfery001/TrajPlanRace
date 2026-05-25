@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="test_ref_pub" type="path_generator.py" name="path_generator" output="screen">
+    <param name="speed" value="2.0"/> <!-- 正值为前进，负值为后退 -->
+    <param name="radius" value="6.0"/> <!-- 半径 -->
+     <!-- 其他参数可以在这里添加 -->
+    </node>
+</launch>

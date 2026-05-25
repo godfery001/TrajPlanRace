@@ -67,14 +67,14 @@ set(cav_traj_gen_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cav_traj_gen_SOURCE_PREFIX /home/siegf/Downloads/path_planning_test/TrajPlanRace/src/cav_traj_gen)
-  set(cav_traj_gen_DEVEL_PREFIX /home/siegf/Downloads/path_planning_test/TrajPlanRace/devel)
+  set(cav_traj_gen_SOURCE_PREFIX /home/siegf/TrajPlanRace/src/cav_traj_gen)
+  set(cav_traj_gen_DEVEL_PREFIX /home/siegf/TrajPlanRace/devel)
   set(cav_traj_gen_INSTALL_PREFIX "")
   set(cav_traj_gen_PREFIX ${cav_traj_gen_DEVEL_PREFIX})
 else()
   set(cav_traj_gen_SOURCE_PREFIX "")
   set(cav_traj_gen_DEVEL_PREFIX "")
-  set(cav_traj_gen_INSTALL_PREFIX /home/siegf/Downloads/path_planning_test/TrajPlanRace/install)
+  set(cav_traj_gen_INSTALL_PREFIX /home/siegf/TrajPlanRace/install)
   set(cav_traj_gen_PREFIX ${cav_traj_gen_INSTALL_PREFIX})
 endif()
 
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/siegf/Downloads/path_planning_test/TrajPlanRace/install/lib;/home/siegf/Downloads/path_planning_test/TrajPlanRace/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/siegf/TrajPlanRace/install/lib;/home/siegf/TrajPlanRace/devel/lib;/home/siegf/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

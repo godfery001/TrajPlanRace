@@ -51,6 +51,7 @@ public:
     int   pp_preview_step = 40; //time steps, each step is 0.04 seconds
     double pp_smooth_cof = 0.85; //the higher, the smoother [0, 0.95]
     double steer_pp = 0;
+    double radius = 1E6; // curvature approxiate to 0 by default
     double pure_pursuit();
 
     //----------------------------------------------------------
